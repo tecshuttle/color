@@ -154,6 +154,30 @@ class admin extends MY_Controller
         $this->load->view('admin/script', $data);
     }
 
+    //试驾基地
+    public function bases()
+    {
+        $data = array(
+            'msg' => 'admin-试驾基地',
+            'base_url' => $this->config->config['base_url'],
+            'css' => array(
+                '/js/extjs4/resources/css/ext-all.css',
+                '/css/admin/themes/ijobs-v3/css/index.css',
+                '/css/admin/themes/ijobs-v3/css/ijobs.css'
+            ),
+            'js' => array(
+                '/js/extjs4/bootstrap.js',
+                '/js/admin/common/common.js',
+                '/js/admin/common/utils.js',
+                '/js/admin/common/ux/LinkColumn.js',
+                '/js/admin/bases.js'
+            )
+        );
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/script', $data);
+    }
+
     public function gallery()
     {
         $data = array(
