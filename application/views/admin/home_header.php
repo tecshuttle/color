@@ -36,15 +36,7 @@
 
     <!-- 右侧信息栏 -->
     <div class="user-wrap f_r">
-        <div class="user-options-wrap">
-            <ul>
-                <?php foreach ($this->config->config['lang'] as $lang): ?>
-                <li>
-                    <a href="/?lang=<?= $lang['code'] ?>" <?= ($lang['code'] == $_SESSION['lang'] ? 'style="color: red;"' : '') ?>> <?= $lang['name'] ?> </a>
-                <li>
-                    <?php endforeach ?>
-            </ul>
-        </div>
+       
 
         <div class="user-options-wrap">
             <ul>
