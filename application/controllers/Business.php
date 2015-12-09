@@ -4,7 +4,7 @@ class Business extends CI_Controller{
 	    public function __construct()
     {
         parent::__construct();
-        $this->load->model('bases_model');
+        $this->load->model('product_model');
         $this->load->helper('url_helper');
 		$this->load->library('pagination');
     }

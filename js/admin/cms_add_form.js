@@ -44,24 +44,7 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
                 name: 'code',
                 emptyText: '请输入…'
             },
-            {
-                xtype: 'fieldcontainer',
-                fieldLabel: '首页推荐',
-                defaultType: 'radiofield',
-                layout: 'hbox',
-                items: [
-                    {
-                        boxLabel: '是',
-                        name: 'is_hot',
-                        inputValue: '1'
-                    },
-                    {
-                        boxLabel: '不是',
-                        name: 'is_hot',
-                        inputValue: '0'
-                    }
-                ]
-            },
+            
             {
                 xtype: 'datefield',
                 fieldLabel: '生成时间',

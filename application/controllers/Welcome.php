@@ -7,6 +7,7 @@ class Welcome extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+		$this->load->helper('url_helper');
     }
 
     public function index()
@@ -21,9 +22,9 @@ class Welcome extends MY_Controller
             'about_menu' => $about_menu['data']
         );
 
-        $this->load->view('header', $data);
+        
         $this->load->view('home/index', $data);
-        $this->load->view('footer', $data);
+        
     }
 }
 

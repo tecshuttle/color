@@ -172,14 +172,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
                             width: 100,
                             text: '增加所属' + me.lang[me.module]
                         },
-                        {
-                            xtype: 'numberfield',
-                            fieldLabel: '排序权重',
-                            width: 400,
-                            colspan: me.module == 'gallery' ? 1 : 2,
-                            name: 'weight',
-                            emptyText: ''
-                        },
+                        
                         {
                             xtype: 'button',
                             id: this.id + '_btn_gallery_batch_add',

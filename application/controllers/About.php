@@ -29,9 +29,9 @@ class About extends CI_Controller
             1957 => 'page-introduction',
             1976 => 'page-ceo-speech',
             1958 => 'page-organization',
-            1979 => '',
-            1980 => '',
-            1981 => '',
+            1979 => 'page-history',
+            1980 => 'page-culture',
+            1981 => 'page-team',
         );
 
         $data = array(

@@ -36,8 +36,23 @@
 			<!--main标签在页面中只能出现一次-->
 
 			<div class="container">
-              <?= $article->content ?>
-				
+
+				<!--wrap-->
+				<div class="business-wrap investment">
+
+					<?= $article->content ?>
+
+						<!--图片显示-->
+						<script>
+							$('dl').hover(function() {
+								$(this).toggleClass('active');
+							});
+						</script>
+					</figure>
+
+				</div>
+				<!--/.wrap END-->
 
 			</div>
 		</main>
+		<!--/.page-main END-->
