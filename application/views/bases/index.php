@@ -45,7 +45,7 @@
         <header class="cp-select select-horizontal">
             <div class="clearfix inner">
                 <div class="pull-left select-item">
-                    <select class="form-control" id="select_province">
+                    <select class="form-control selectpicker" id="select_province">
                         <option value="0">请选择</option>
                         <?php foreach ($province_list as $row): ?>
                         <option <?php if ($province_id == $row['region_id']) : ?>selected<?php endif ?> value="<?php echo $row['region_id'] ?>"><?php echo $row['region_name'] ?></option>
@@ -53,7 +53,7 @@
                     </select>
                 </div>
                 <div class="pull-left select-item">
-                    <select class="form-control" id="select_city">
+                    <select class="form-control selectpicker" id="select_city">
                         <option value="0">请选择</option>
                         <?php foreach ($city_list as $row): ?>
                         <option <?php if ($city_id == $row['region_id']) : ?>selected<?php endif ?> value="<?php echo $row['region_id'] ?>"><?php echo $row['region_name'] ?></option>
@@ -71,14 +71,16 @@
                 <div class="section">
                     <a class="clearfix base-inner" href="#">
                         <div class="base-photo">
-                            <img class="img-responsive" src="<?php echo $bases_item['pic']; ?>">
+                            <p class="text-justify">
+                                <?php echo $bases_item['content']; ?>
+                            </p>
                         </div>
                         <div class="base-description">
                             <h3 class="base-heading">
-                                <?php echo $bases_item['title']; ?>
+                                <?php echo $bases_item['name']; ?>
                             </h3>
                             <p class="text-justify">
-                                <?php echo $bases_item['intro']; ?>
+                                <?php echo $bases_item['content']; ?>
                             </p>
                         </div>
                     </a>
@@ -103,11 +105,12 @@
         <?php endif ?>
         
         <script>
-        var page_url = '<?php echo site_url('bases/index'); ?>';
-        var region_url = '<?php echo site_url('bases/region'); ?>';
+        var page_url = '/bases/index';
+        var region_url = '/bases/region';
         </script>
         <script>
         $(function(){
+			
             // 选择省份
             $('#select_province').on('change', function(){
                 var id = $(this).val();
@@ -130,6 +133,7 @@
                     $('#page_container').html($(res).find('#page_container').html());
                 });
             }
+			$('.selectpicker').selectpicker('refresh');
         });
         </script>
     </div>

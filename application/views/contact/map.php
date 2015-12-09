@@ -70,17 +70,13 @@
 					<?php if ($has_data) : ?>
 						<?php foreach ($pagedata as $contact_item):?>
 						<dl class="description">
-							<dt class="h2"><?= $contact_item['title']?></dt>
-							<dd><i class="fa fa-map-marker"></i><?= $contact_item['address']?></dd>
-							<dd><i class="fa fa-phone"></i><?= $contact_item['phone']?></dd>
-							<dd><i class="fa fa-qq"></i><?= $contact_item['qq'] !== NULL ? $contact_item['qq'] : '暂无QQ'?></dd>
-							<dd><i class="fa fa-envelope-o"></i><?= $contact_item['email'] !== NULL ? $contact_item['email'] : '暂无email'?></dd>
+							<dd><i class="fa fa-map-marker"></i><?= $contact_item['name']?></dd>
 						</dl>
 
 						<h3>试驾基地</h3>
 						<p class="list-brand">
 							<span class="center-block">
-								<span class="glyphicon glyphicon-play"></span> 三源色 · <?= $contact_item['title']?>
+								<span class="glyphicon glyphicon-play"></span> 三源色 · <?= $contact_item['name']?>
 							</span>
 						</p>
 
@@ -88,10 +84,7 @@
 						<p class="list-brand">
 							<span class="center-block">
 								<span class="glyphicon glyphicon-play"></span>
-								<?php foreach ($deviceResult as $device):
-									echo $device['name'].'&nbsp';
-									endforeach;
-								?>
+								<?= $contact_item['name']?>
 							</span>
 
 						</p>
@@ -255,8 +248,8 @@
 				</div>
 				<!--/.wrap END-->
 <script>
-		var page_url = '<?php echo site_url('contact/map'); ?>';
-		var region_url = '<?php echo site_url('contact/region'); ?>';
+		var page_url = '/contact/map';
+		var region_url = '/contact/region';
 		
 		var allCityBases = JSON.parse(document.getElementById("all_city_bases").value);
 		
@@ -264,8 +257,9 @@
 			var cityName = $(this).attr("name");
 			var isThis = this;
 			$.each(allCityBases, function(i, item){
-				if(cityName == item.city){
-					$(isThis).attr("data-content", item.title);
+				console.log(item.keywords);
+				if(cityName == item.keywords){
+					$(isThis).attr("data-content", item.name);
 				}
 			});
 		});
