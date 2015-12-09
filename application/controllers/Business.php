@@ -6,7 +6,7 @@ class Business extends CI_Controller{
         parent::__construct();
         $this->load->model('product_model');
         $this->load->helper('url_helper');
-		$this->load->library('pagination');
+		
     }
 
 	public function solution()
