@@ -79,13 +79,14 @@
                     </i>
                 </a>
 
-                <ul class="dropdown-menu">
-                    <?php foreach ($about_menu as $menu): ?>
-                        <li>
-                            <a href="/about/<?= $menu->code ?>"> <?= $menu->name ?> </a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
+ 							<ul class="dropdown-menu">
+								<li class="active-sub"><a href="/about/overview">企业概况</a></li>
+								<li><a href="/about/manage_address">总经理致辞</a></li>
+								<li><a href="/about/framework">组织架构</a></li>
+								<li><a href="/about/history">发展历程</a></li>
+								<li><a href="/about/culture">企业文化</a></li>
+								<li><a href="/about/team">精英团队</a></li>
+							</ul>
             </li>
 
 

@@ -10,10 +10,10 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="/assets/img/product/business-1.jpg">
+					<img src="/assets/img/product/ad-business.jpg">
 				</div>
 				<div class="item">
-					<img src="/assets/img/product/business-2.jpg">
+					<img src="/assets/img/product/ad-map.jpg">
 				</div>
 			</div>
 
@@ -36,8 +36,23 @@
 			<!--main标签在页面中只能出现一次-->
 
 			<div class="container">
-              <?= $article->content ?>
-				
+
+				<!--wrap-->
+				<div class="business-wrap investment">
+
+					<?= $article->content ?>
+
+						<!--图片显示-->
+						<script>
+							$('dl').hover(function() {
+								$(this).toggleClass('active');
+							});
+						</script>
+					</figure>
+
+				</div>
+				<!--/.wrap END-->
 
 			</div>
 		</main>
+		<!--/.page-main END-->
