@@ -21,17 +21,17 @@ Docs.Menu = [
                 leaf: true
             },
             {
-                href: "/admin/devices",
-                text: "越野器材",
-                leaf: true
-            },
-            {
-                href: "/admin/branch",
+                href: "/admin/contact",
                 text: "企业版图",
                 leaf: true
             },
             {
-                href: "/admin/jobs",
+                href: "/admin/product",
+                text: "越野器械",
+                leaf: true
+            },
+            {
+                href: "/admin/recruitment",
                 text: "人才招聘",
                 leaf: true
             }

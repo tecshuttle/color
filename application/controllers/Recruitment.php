@@ -1,76 +1,21 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class contact extends MY_Controller
+class recruitment extends MY_Controller
 {
     function __construct()
     {
         parent::__construct(); // Call the Model constructor
-        $this->load->model('enterprise_model');
+        $this->load->model('recruitment_model');
     }
 
     public function index()
     {
-		$conditions = array();
+        $data = array(
 		
-		$sync = isset($_GET['sync']);
-		
-		// 获取地区查询参数
-        $province_id = (int)$this->uri->segment(4);
-        $city_id = (int)$this->uri->segment(5);
-        $province = $this->enterprise_model->get_region_name($province_id);
-        $city = $this->enterprise_model->get_region_name($city_id); 
-		
-        
-        // 内部使用的地区参数条件
-        if ($province)
-        {
-            $conditions['code'] = $province;
-        }
-		
-        if ($city)
-        {
-            $conditions['keywords'] = $city;
-        }
-		
-		$all_sql = 'SELECT * FROM enterprise';
-		$page_sql = 'SELECT * FROM `enterprise` '. $this->generate_where($conditions);
-		
-		if(!$province){
-			$deviceWhere = ' where id = 1';
-		}else{
-			$deviceWhere = $this->generate_where($conditions);
-		}
-		
-		// $device_sql = 'SELECT s2.*, s1.name FROM bases s2
-		  // LEFT JOIN base_device s3   
-			// ON s2.id=s3.base_id  
-			  // LEFT JOIN device s1   
-				// ON s3.device_id = s1.id WHERE s2.id = 
-					// (SELECT id FROM bases'.$deviceWhere.')';
-					
-		//处理数据
-		$allResult = $this->db->query($all_sql); 
-        $result = $this->db->query($page_sql); 
-		// $deviceResult = $this->db->query($device_sql);
-		
-		$allCityBases = $allResult->result_array();
-		/* foreach($allResult->result_array() as $allCityBase){
-			$allCityBases[$allCityBase['city']] = $allCityBase['title'];
-		} */
-		
-		$data = array(
-			'province_list' => $this->enterprise_model->get_regions(1, 1),
-			'city_list' => $this->enterprise_model->get_regions(2, $province_id),
-			'city_id' => $city_id,
-			'province_id' => $province_id,
-			'sync' => $sync,
-			'pagedata' => $result->result_array(),
-			'has_data' => count($result->result_array()) > 0,
-			'allCityBases' => $allCityBases
-		);
-		
-		$this->load->view('header', $data);
-        $this->load->view('contact/map', $data);
+        );
+
+        $this->load->view('header', $data);
+        $this->load->view('recruitment', $data);
         $this->load->view('footer', $data);
     }
 	
@@ -90,7 +35,7 @@ class contact extends MY_Controller
 
     public function view($slug = NULL)
     {
-        $data['bases_item'] = $this->enterprise_model->get_bases($slug);
+        $data['bases_item'] = $this->recruitment_model->get_bases($slug);
     
         if (empty($data['bases_item']))
         {
@@ -100,7 +45,7 @@ class contact extends MY_Controller
         $data['title'] = $data['bases_item']['title'];
     
         //$this->load->view('templates/header', $data);
-        $this->load->view('contact/view', $data);
+        $this->load->view('recruitment', $data);
         //$this->load->view('templates/footer');
     }
     
@@ -111,7 +56,7 @@ class contact extends MY_Controller
         $province_id = (int)$this->uri->segment(3);
         if ($province_id)
         {
-            $rows = $this->enterprise_model->get_regions(2, $province_id);
+            $rows = $this->recruitment_model->get_regions(2, $province_id);
             if ($rows)
             {
                 foreach ($rows as $row)
@@ -170,11 +115,11 @@ class contact extends MY_Controller
 
         if (isset($_POST['id'])) {
             $_POST['mtime'] = time();
-            $this->enterprise_model->update($_POST);
+            $this->recruitment_model->update($_POST);
         } else {
             $_POST['ctime'] = time();
             $_POST['mtime'] = time();
-            $this->enterprise_model->insert($_POST);
+            $this->recruitment_model->insert($_POST);
         }
 
         echo json_encode(array('success' => true));
@@ -216,7 +161,7 @@ class contact extends MY_Controller
     public function getList()
     {
         $option = $_POST;
-        $data = $this->enterprise_model->get($option);
+        $data = $this->recruitment_model->get($option);
         echo json_encode($data);
     }
 
@@ -387,7 +332,7 @@ class contact extends MY_Controller
     {
         $id = $_POST['id'];
 
-        $this->enterprise_model->deleteByID($id);
+        $this->recruitment_model->deleteByID($id);
 
         echo json_encode(array(
             'success' => true

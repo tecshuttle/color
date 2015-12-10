@@ -49,7 +49,7 @@
 				<header class="cp-select select-horizontal">
 					<div class="clearfix inner">
 						<div class="pull-left select-item">
-							<select class="selectpicker" title='测试性能'>
+							<select class="selectpicker" title='测试性能' id="select_product">
 								<option>爬坡性能</option>
 								<option>悬挂承受能力</option>
 								<option>四驱动力</option>
@@ -67,77 +67,7 @@
 					<div class="row">
 						<div class="col-xs-6">
 							<div class="row">
-								<div class="col-xs-12">
-									<a class="popup-gallery js-open-popup">
-										<img class="img-responsive" src="/assets/img/product/performance01.jpg">
-										<div class="title">
-											高空跷跷板
-
-											<p class="description">演示爬坡能力、悬挂承受能力及下坡时陡坡缓降系统的作用</p>
-											<p>
-												<!--五个等级-->
-												<!--类名：-->
-												<!--level1|level2|level3|level4|level5-->
-												<span class="glyphicon-group level3">
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-												</span>
-											</p>
-										</div>
-									</a>
-								</div>
-
-								<div class="col-xs-6">
-									<a class="popup-gallery js-open-popup">
-										<img class="img-responsive" src="/assets/img/product/performance05.jpg">
-										<div class="title">
-											凹凸桥
-
-											<p class="description">演示爬坡能力、悬挂承受能力及下坡时陡坡缓降系统的作用</p>
-											<p>
-												<!--五个等级-->
-												<!--类名：-->
-												<!--level1|level2|level3|level4|level5-->
-												<span class="glyphicon-group level3">
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-												</span>
-											</p>
-										</div>
-									</a>
-								</div>
-
-								<div class="col-xs-6">
-									<a class="popup-gallery js-open-popup">
-										<img class="img-responsive" src="/assets/img/product/performance06.jpg">
-										<div class="title">
-											枕木路
-
-											<p class="description">演示爬坡能力、悬挂承受能力及下坡时陡坡缓降系统的作用</p>
-											<p>
-												<!--五个等级-->
-												<!--类名：-->
-												<!--level1|level2|level3|level4|level5-->
-												<span class="glyphicon-group level3">
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-												</span>
-											</p>
-										</div>
-									</a>
-								</div>
-
-							</div>
-						</div>
+								
 						<div class="col-xs-6">
 
 							<div class="row">
@@ -314,6 +244,15 @@
 					image: {
 						tError: '<a href="%url%">该图片#%curr%</a> 读取失败,请尝试刷新页面.',
 					}
+				});
+			</script>
+			<script>
+				$('#select_product').on('change', function(){
+					var name = $(this).find("option:selected").text();
+					
+					$.post('/product/device',{
+						name: name
+					});
 				});
 			</script>
 
