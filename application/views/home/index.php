@@ -65,68 +65,69 @@
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="navbar-collapse">
+<div class="collapse navbar-collapse" id="navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active">
-							<a href="#">
+						<li class="dropdown">
+							<a href="<?php echo base_url('site/index')?>">
 								首页 <span class="sr-only">(current)</span>
 							</a>
 						</li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于我们&nbsp;<i class="fa fa-angle-down"></i></a>
+							<a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于我们&nbsp;<i class="fa fa-angle-down"></i></a>
+							
 							<ul class="dropdown-menu">
-								<li class="active-sub"><a href="#">企业概况</a></li>
-								<li><a href="#">总经理致辞</a></li>
-								<li><a href="#">组织架构</a></li>
-								<li><a href="#">发展历程</a></li>
-								<li><a href="#">企业文化</a></li>
-								<li><a href="#">精英团队</a></li>
+								<li class="active-sub"><a href="<?php echo base_url('about/overview')?>">企业概况</a></li>
+								<li><a href="<?php echo base_url('about/manage_address')?>">总经理致辞</a></li>
+								<li><a href="<?php echo base_url('about/framework')?>">组织架构</a></li>
+								<li><a href="<?php echo base_url('about/history')?>">发展历程</a></li>
+								<li><a href="<?php echo base_url('about/culture')?>">企业文化</a></li>
+								<li><a href="<?php echo base_url('about/team')?>">精英团队</a></li>
 							</ul>
 						</li>
 
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">产品中心&nbsp;<i class="fa fa-angle-down"></i></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">试驾基地</a></li>
-								<li><a href="#">越野器械</a></li>
-								<li><a href="#">下载中心</a></li>
-								<li><a href="#">Q&A</a></li>
+								<li><a href="<?php echo base_url('bases/index')?>">试驾基地</a></li>
+								<li><a href="<?php echo base_url('product/device')?>">越野器械</a></li>
+								<li><a href="<?php echo base_url('product/down_center')?>">下载中心</a></li>
+								<li><a href="<?php echo base_url('product/question_answer')?>">Q&A</a></li>
 							</ul>
 						</li>
 
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">业务范围&nbsp;<i class="fa fa-angle-down"></i></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">一站式试驾解决方案</a></li>
-								<li><a href="#">招商加盟</a></li>
+								<li><a href="<?php echo base_url('business/solution')?>">一站式试驾解决方案</a></li>
+								<li><a href="<?php echo base_url('business/affiliates')?>">招商加盟</a></li>
 							</ul>
 						</li>
 
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">成功案例&nbsp;<i class="fa fa-angle-down"></i></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">试驾类活动</a></li>
-								<li><a href="#">静态展示类</a></li>
-								<li><a href="#">新车上市类</a></li>
-								<li><a href="#">招商加盟类</a></li>
+								<li><a href="<?php echo base_url('cases/activity')?>">试驾类活动</a></li>
+								<li><a href="<?php echo base_url('cases/display')?>">静态展示类</a></li>
+								<li><a href="<?php echo base_url('cases/new_car')?>">新车上市类</a></li>
+								<li><a href="<?php echo base_url('cases/join')?>">招商加盟类</a></li>
 							</ul>
 						</li>
 
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">新闻中心&nbsp;<i class="fa fa-angle-down"></i></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">企业资讯</a></li>
-								<li><a href="#">行业动态</a></li>
-								<li><a href="#">活动集锦</a></li>
+								<li><a href="<?php echo base_url('news/consultation')?>">企业资讯</a></li>
+								<li><a href="<?php echo base_url('news/trends')?>">行业动态</a></li>
+								<li><a href="<?php echo base_url('news/highlight')?>">活动集锦</a></li>
 							</ul>
 						</li>
 
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">联系我们&nbsp;<i class="fa fa-angle-down"></i></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">企业版图</a></li>
-								<li><a href="#">人才招聘</a></li>
-								<li><a href="#">留言板</a></li>
+								<li><a href="<?php echo base_url('contact/map')?>">企业版图</a></li>
+								<li><a href="<?php echo base_url('contact/recruitment')?>">人才招聘</a></li>
+								<li><a href="<?php echo base_url('contact/message_board')?>">留言板</a></li>
 							</ul>
 						</li>
 					</ul>

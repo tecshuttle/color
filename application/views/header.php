@@ -5,14 +5,15 @@
 <html lang="zh-cn">
 <!--<![endif]-->
 
-	<head>
-	    <meta charset="UTF-8">
-	    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	    <meta name="renderer" content="webkit">
-	    <meta name="force-rendering" content="webkit">
-	    <meta http-equiv="Cache-Control" content="no-siteapp">
-	    <title>试驾基地</title>
+ 							<ul class="dropdown-menu">
+								<li class="active-sub"><a href="/about/overview">企业概况</a></li>
+								<li><a href="/about/manage_address">总经理致辞</a></li>
+								<li><a href="/about/framework">组织架构</a></li>
+								<li><a href="/about/history">发展历程</a></li>
+								<li><a href="/about/culture">企业文化</a></li>
+								<li><a href="/about/team">精英团队</a></li>
+							</ul>
+            </li>
 
 	    <!--Core css-->
 	    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
