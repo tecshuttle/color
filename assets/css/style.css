@@ -56,13 +56,14 @@ html {
 }
 
 body {
+	padding-top: 105px;
 	min-width: 1230px;
 	font-family: 'Microsoft YaHei', FreeSans, Arimo, 'Droid Sans', 'wenquanyi micro hei', 'Hiragino Sans GB', 'Hiragino Sans GB W3', Arial, sans-serif, "\5b8b\4f53";
 	color: white;
 	background-color: #4c4c4c;
 }
 
-body.body-index {
+body.index {
 	min-width: 768px;
 }
 
@@ -967,7 +968,6 @@ select.mobile-device {
 	background-color: transparent;
 }
 
-
 /*脚部*/
 
 .page-footer {
@@ -1048,11 +1048,6 @@ select.mobile-device {
 /*
  *首页
  **************************************/
-
-.slide.index {
-	margin-top: 105px;
-}
-
 
 /*
 ** 公共样式

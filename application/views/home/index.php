@@ -40,7 +40,7 @@
 		</script>
 		<![endif]-->
 	</head>
-	<body class="body-index">
+	<body class="index">
 		<a href="#content" class="sr-only sr-only-focusable">
 			Skip to main content
 		</a>
@@ -242,7 +242,7 @@
 		</nav>
 		<!--/.page-navbar END-->
 		<!--slide START-->
-		<figure id="carousel" class="carousel slide index" data-ride="carousel">
+		<figure id="carousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 				<li data-target="#carousel" data-slide-to="0" class="active">
