@@ -159,13 +159,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
                             name: 'code',
                             emptyText: ''
                         },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: '封面图',
-                            width: 400,
-                            name: 'cover',
-                            emptyText: ''
-                        },
+                        
                         {
                             xtype: 'button',
                             id: this.id + '_btn_product_form',
@@ -181,23 +175,8 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
                             text: '批量增加图片'
                         },
 
-                        {
-                            xtype: 'textarea',
-                            colspan: 2,
-                            width: 600,
-                            fieldLabel: '滚动广告图',
-                            name: 'roll_pic',
-                            hidden: me.module == 'products' ? false : true,
-                            emptyText: ''
-                        },
-                        {
-                            xtype: 'textarea',
-                            colspan: 2,
-                            width: 600,
-                            fieldLabel: '说明',
-                            name: 'desc',
-                            emptyText: ''
-                        }
+                        
+                        
                     ]
                 }
             ]
@@ -236,36 +215,11 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
                     header: "产品代号", dataIndex: 'code',
                     hidden: ((me.module === 'products' || me.module === 'articles') ? false : true)
                 },
-                {
-                    header: "名称", dataIndex: 'name'
-                },
-                {
-                    header: "简介", dataIndex: 'desc'
-                },
-                {
-                    header: "SEO Keywords", dataIndex: 'keywords'
-                },
-                {
-                    header: "封面图片", dataIndex: 'cover'
-                },
-                {
-                    header: "首页推荐", dataIndex: 'is_hot',
-                    renderer: function (v) {
-                        return (v == 1 ? '是' : '不是');
+                
+                
+                
 
-                    }
-                },
-                {
-                    header: "建立时间", dataIndex: 'ctime',
-                    renderer: function (v) {
-                        return new Date(v * 1000).format('yyyy-MM-dd hh:mm:ss');
-
-                    }
-                },
-
-                {
-                    header: "下载", dataIndex: 'download'
-                },
+               
                 {
                     header: "操作",
                     dataIndex: 'id',

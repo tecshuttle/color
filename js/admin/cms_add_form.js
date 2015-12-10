@@ -54,66 +54,10 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
                 value: new Date(),
                 emptyText: '请输入…'
             },
-            {
-                xtype: 'container',
-                anchor: '50%',
-                layout: {
-                    type: 'hbox',
-                    padding:'0 0 5px 0'
-                },
-                items: [
-                    {
-                        xtype: 'textfield',
-                        fieldLabel: '封面图',
-                        name: 'cover',
-                        flex: 4,
-                        emptyText: '直接输入图片URL或上传文件(尺寸107*107)，文件类型：gif | jpg | png'
-                    },
-                    {
-                        xtype: 'filefield',
-                        id: 'product_cover',
-                        buttonOnly: true,
-                        hideLabel: true,
-                        style: 'margin-left: 5px;',
-                        flex: 1,
-                        name: 'product_cover',
-                        buttonText: '上传文件'
-                    }
-                ]
-            },
-            {
-                xtype: 'textfield',
-                fieldLabel: 'SEO Keywords',
-                anchor: '50%',
-                name: 'keywords',
-                emptyText: '请输入…'
-            },
-            {
-                xtype: 'filefield',
-                fieldLabel: 'Download',
-                id: 'file',
-                hidden: me.module == 'products' ? true : false,
-                disabled: me.module == 'products' ? true : false,
-                anchor: '50%',
-                name: 'userfile',
-                emptyText: '文件类型：gif | jpg | png | txt | doc | pdf',
-                buttonText: '上传文件'
-            },
-            {
-                xtype: 'textarea',
-                fieldLabel: 'Picture Gallery',
-                anchor: '50%',
-                hidden: (me.module == 'articles' ? false : true),
-                name: 'picture_gallery',
-                emptyText: '请输入…'
-            },
-            {
-                xtype: 'textarea',
-                fieldLabel: '简介',
-                anchor: '50%',
-                name: 'desc',
-                emptyText: '请输入…'
-            },
+            
+            
+           
+           
             {
                 xtype: 'textarea',
                 fieldLabel: '产品比较参数',

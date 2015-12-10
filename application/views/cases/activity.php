@@ -37,7 +37,53 @@
 
 			<div class="container">
 
-				<?= $article->content ?>
+								<div class="case-wrap">
+
+					<ul class="clearfix list-unstyled">
+						<li class="col-xs-12">
+							<a class="popup-gallery js-open-popup">
+								<img class="img-responsive" src="/assets/img/product/case01.jpg">
+								<span class="title">【沈阳 浑南】长安活动</span>
+							</a>
+						</li>
+						<li class="col-xs-12">
+							<a class="popup-gallery js-open-popup">
+								<img class="img-responsive" src="/assets/img/product/case02.jpg">
+								<span class="title">【广州 大观路】cpc试驾活动</span>
+							</a>
+						</li>
+
+						<li class="col-xs-6">
+							<a class="popup-gallery js-open-popup">
+								<img class="img-responsive" src="/assets/img/product/case03.jpg">
+								<span class="title">【昆明 巫家坝】汽车之家团购</span>
+							</a>
+						</li>
+
+						<li class="col-xs-6">
+							<a class="popup-gallery js-open-popup">
+								<img class="img-responsive" src="/assets/img/product/case04.jpg">
+								<span class="title">【苏州 阳澄湖】东风本田活动</span>
+							</a>
+						</li>
+
+						<li class="col-xs-12">
+							<a class="popup-gallery js-open-popup">
+								<img class="img-responsive" src="/assets/img/product/case05.jpg">
+								<span class="title">【西安 浐灞】奔驰C媒体试驾</span>
+							</a>
+						</li>
+
+						<li class="col-xs-12">
+							<a class="popup-gallery js-open-popup">
+								<img class="img-responsive" src="/assets/img/product/case06.jpg">
+								<span class="title">【合肥 紫蓬山】广本奥德赛试驾</span>
+							</a>
+						</li>
+
+					</ul>
+
+				</div>
 
 				
 
