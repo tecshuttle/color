@@ -34,6 +34,16 @@ Docs.Menu = [
                 href: "/admin/recruitment",
                 text: "人才招聘",
                 leaf: true
+            },
+			{
+                href: "/admin/downcenter",
+                text: "下载中心",
+                leaf: true
+            },
+			{
+                href: "/admin/recruitment",
+                text: "Q&A",
+                leaf: true
             }
         ]
     },

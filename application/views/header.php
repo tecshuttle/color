@@ -118,12 +118,12 @@
 									</a>
 								</li>
 								<li>
-									<a href="/product/down_center">
+									<a href="/downcenter">
 										下载中心
 									</a>
 								</li>
 								<li>
-									<a href="/product/question_answer">
+									<a href="/questionanswer">
 										Q&A
 									</a>
 								</li>
@@ -214,7 +214,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="/contact/recruitment">
+									<a href="/recruitment">
 										人才招聘
 									</a>
 								</li>
