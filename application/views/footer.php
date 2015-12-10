@@ -2,7 +2,7 @@
 		<footer class="page-footer" role="contentinfo">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-8 col-lg-8">
+					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 footer-left">
 						<p class="copyright">
 							<b>版权所有：</b> 深圳市三源色文化传播有限公司 2010-2015 All Right Reserved &nbsp;&nbsp;&nbsp; 粤ICP备09121560号
 						</p>
@@ -47,7 +47,7 @@
 							</li>
 						</ul>
 					</div>
-					<div class="col-xs-4 col-lg-4 text-right">
+					<div class="col-xs-4 col-md-4 col-md-4 col-lg-4 footer-right">
 						<a class="link-drive" target="_blank" href="/device" title="我要试驾">
 							<img src="/assets/img/web/drive.png" alt="我要试驾">
 						</a>
