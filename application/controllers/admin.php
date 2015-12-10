@@ -181,7 +181,7 @@ class admin extends MY_Controller
 	public function contact()
     {
         $data = array(
-            'msg' => 'admin-企业版图',
+            'msg' => 'admin-越野器械',
             'base_url' => $this->config->config['base_url'],
             'css' => array(
                 '/js/extjs4/resources/css/ext-all.css',
@@ -227,7 +227,7 @@ class admin extends MY_Controller
 	public function recruitment()
     {
         $data = array(
-            'msg' => 'admin-企业版图',
+            'msg' => 'admin-人才招聘',
             'base_url' => $this->config->config['base_url'],
             'css' => array(
                 '/js/extjs4/resources/css/ext-all.css',
@@ -240,6 +240,29 @@ class admin extends MY_Controller
                 '/js/admin/common/utils.js',
                 '/js/admin/common/ux/LinkColumn.js',
                 '/js/admin/recruitment.js'
+            )
+        );
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/script', $data);
+    }
+	
+	public function downcenter()
+    {
+        $data = array(
+            'msg' => 'admin-下载中心',
+            'base_url' => $this->config->config['base_url'],
+            'css' => array(
+                '/js/extjs4/resources/css/ext-all.css',
+                '/css/admin/themes/ijobs-v3/css/index.css',
+                '/css/admin/themes/ijobs-v3/css/ijobs.css'
+            ),
+            'js' => array(
+                '/js/extjs4/bootstrap.js',
+                '/js/admin/common/common.js',
+                '/js/admin/common/utils.js',
+                '/js/admin/common/ux/LinkColumn.js',
+                '/js/admin/downcenter.js'
             )
         );
 

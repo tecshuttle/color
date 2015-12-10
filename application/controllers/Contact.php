@@ -382,7 +382,6 @@ class contact extends MY_Controller
         return $html;
     }
 
-
     public function delete()
     {
         $id = $_POST['id'];
@@ -393,19 +392,6 @@ class contact extends MY_Controller
             'success' => true
         ));
     }
-	
-	
-	 public function recruitment()
-	 {
-   		
-   	  	$this->load->view('header');
-		$this->load->view('contact/recruitment');
-		$this->load->view('footer');
-	
-	
-	
-	
-   }
 }
 
   

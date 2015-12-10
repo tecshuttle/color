@@ -1,22 +1,29 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class recruitment extends MY_Controller
+class downcenter extends MY_Controller
 {
     function __construct()
     {
         parent::__construct(); // Call the Model constructor
-        $this->load->model('recruitment_model');
+        $this->load->model('downcenter_model');
     }
 
     public function index()
     {
-        $data = array(
+        $this->load->model('articles_model');
+		$article = $this->articles_model->select(array(
+		   'id' => 3456
+		));
 		
-        );
-
-        $this->load->view('header', $data);
-        $this->load->view('recruitment/index', $data);
-        $this->load->view('footer', $data);
+		$data = array(
+		    'title' => 'News archive',
+		 	'article' => $article
+		);
+		
+		
+		$this->load->view('header',$data);
+		$this->load->view('downcenter/index',$data);
+		$this->load->view('footer',$data);
     }
 	
 	// 创建分页url
@@ -35,7 +42,7 @@ class recruitment extends MY_Controller
 
     public function view($slug = NULL)
     {
-        $data['bases_item'] = $this->recruitment_model->get_bases($slug);
+        $data['bases_item'] = $this->downcenter_model->get_bases($slug);
     
         if (empty($data['bases_item']))
         {
@@ -45,7 +52,7 @@ class recruitment extends MY_Controller
         $data['title'] = $data['bases_item']['title'];
     
         //$this->load->view('templates/header', $data);
-        $this->load->view('recruitment', $data);
+        $this->load->view('downcenter/view', $data);
         //$this->load->view('templates/footer');
     }
     
@@ -56,7 +63,7 @@ class recruitment extends MY_Controller
         $province_id = (int)$this->uri->segment(3);
         if ($province_id)
         {
-            $rows = $this->recruitment_model->get_regions(2, $province_id);
+            $rows = $this->downcenter_model->get_regions(2, $province_id);
             if ($rows)
             {
                 foreach ($rows as $row)
@@ -115,11 +122,11 @@ class recruitment extends MY_Controller
 
         if (isset($_POST['id'])) {
             $_POST['mtime'] = time();
-            $this->recruitment_model->update($_POST);
+            $this->downcenter_model->update($_POST);
         } else {
             $_POST['ctime'] = time();
             $_POST['mtime'] = time();
-            $this->recruitment_model->insert($_POST);
+            $this->downcenter_model->insert($_POST);
         }
 
         echo json_encode(array('success' => true));
@@ -161,7 +168,7 @@ class recruitment extends MY_Controller
     public function getList()
     {
         $option = $_POST;
-        $data = $this->recruitment_model->get($option);
+        $data = $this->downcenter_model->get($option);
         echo json_encode($data);
     }
 
@@ -332,7 +339,7 @@ class recruitment extends MY_Controller
     {
         $id = $_POST['id'];
 
-        $this->recruitment_model->deleteByID($id);
+        $this->downcenter_model->deleteByID($id);
 
         echo json_encode(array(
             'success' => true

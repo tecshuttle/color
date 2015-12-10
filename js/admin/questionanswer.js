@@ -4,7 +4,7 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
     constructor: function (config) {
         var me = this;
         config = Ext.apply({
-            title: '越野器械',
+            title: 'Q&A',
             bodyStyle: 'padding:10px;',
             layout: 'anchor'
         }, config);
@@ -33,10 +33,10 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
             },
             {
                 xtype: 'textfield',
-                fieldLabel: '路况',
+                fieldLabel: '省份',
                 allowBlank: false,
                 anchor: '50%',
-                name: 'road_name',
+                name: 'code',
                 emptyText: '请输入…'
             },
             {
@@ -46,7 +46,7 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
                 name: 'keywords',
                 emptyText: '请输入…'
             },
-            {	
+            {
                 xtype: 'htmleditor',
                 anchor: '100%',
                 height: 500,
@@ -113,7 +113,7 @@ Ext.define('Tomtalk.product.EditFormAction', {extend: 'Tomtalk.product.EditFormU
 
         if (form.isValid()) {
             form.getForm().submit({
-                url: '/product/save',//后台处理的页面
+                url: '/questionanswer/save',//后台处理的页面
                 waitMsg: '正在保存数据...',
                 submitEmptyText: false,
                 success: function (fp, o) {
@@ -199,10 +199,10 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
         var store = Ext.create('Ext.data.Store', {
             pageSize: 20,
             autoLoad: true,
-            fields: ['id', 'road_name', 'name', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'intro', 'picture_gallery'],
+            fields: ['id', 'code', 'name', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
             proxy: {
                 type: 'ajax',
-                url: '/product/getList',
+                url: '/questionanswer/getList',
                 reader: {
                     type: 'json',
                     root: 'data',
@@ -221,13 +221,13 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
                     header: "ID", dataIndex: 'id'
                 },
                 {
-                    header: "路况", dataIndex: 'road_name'
+                    header: "名称", dataIndex: 'name'
                 },
                 {
-                    header: "性能", dataIndex: 'name'
+                    header: "省份", dataIndex: 'code'
                 },
                 {
-                    header: "路况介绍", dataIndex: 'intro'
+                    header: "城市", dataIndex: 'keywords'
                 },
                 {
                     header: "建立时间", dataIndex: 'ctime',
@@ -413,7 +413,7 @@ Tomtalk.IdcAction = Ext.extend(Tomtalk.IdcUI, {
         var me = this;
 
         Ext.Ajax.request({
-            url: '/product/delete',
+            url: '/questionanswer/delete',
             params: {
                 id: id
             },
