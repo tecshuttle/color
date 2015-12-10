@@ -80,7 +80,7 @@
                                 <?php echo $bases_item['name']; ?>
                             </h3>
                             <p class="text-justify">
-                                <?php echo $bases_item['content']; ?>
+                                <?php echo $bases_item['intro']; ?>
                             </p>
                         </div>
                     </a>

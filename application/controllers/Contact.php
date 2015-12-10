@@ -393,6 +393,21 @@ class contact extends MY_Controller
             'success' => true
         ));
     }
+	
+	
+	 public function recruitment()
+	 {
+   		
+   	  	$this->load->view('header');
+		$this->load->view('contact/recruitment');
+		$this->load->view('footer');
+	
+	
+	
+	
+   }
 }
+
+  
 
 /* End of file */
