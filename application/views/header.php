@@ -209,7 +209,7 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="/contact/map">
+									<a href="/contact">
 										企业版图
 									</a>
 								</li>
@@ -219,7 +219,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="/contact/message_board">
+									<a href="/messageboard">
 										留言板
 									</a>
 								</li>
