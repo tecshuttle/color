@@ -11,18 +11,35 @@
 		<meta name="renderer" content="webkit">
 		<meta name="force-rendering" content="webkit">
 		<meta http-equiv="Cache-Control" content="no-siteapp">
-		<title>
-			我要试驾
-		</title>
+		<title>我要试驾</title>
+
 		<!--Core css-->
 		<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
 		<!--Custom css-->
 		<link href="/assets/css/style.css" rel="stylesheet">
+
 		<!--Font css-->
 		<link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
 		<!--Core js-->
 		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+		<script>
+		// Copyright 2014-2015 Twitter, Inc.
+		// Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+		if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+			var msViewportStyle = document.createElement('style')
+			msViewportStyle.appendChild(
+				document.createTextNode(
+					'@-ms-viewport{width:auto!important}'
+				)
+			)
+			document.querySelector('head').appendChild(msViewportStyle)
+		}
+		</script>
+
 		<!--HTML5 shim for IE8 support of HTML5 elements-->
 		<!--[if IE 8]>
 		<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -248,25 +265,37 @@
 				</section>
 				<!--/.wrap END-->
 			</div>
+
 			<!--------本模版单独引用的js资源------->
+			<script src="//cdn.bootcss.com/scrollup/2.4.0/jquery.scrollUp.min.js"></script>
+			<script>
+			//返回顶端
+			$(function() {
+				$.scrollUp({
+					scrollName: "scrollUp",
+					animation: "fade",
+					scrollText: '<i class="fa fa-angle-up"></i>'
+				});
+			});
+			</script>
+
 			<!--https://github.com/xdan/datetimepicker-->
 			<link type="text/css" href="//cdn.bootcss.com/jquery-datetimepicker/2.4.5/jquery.datetimepicker.min.css" rel="stylesheet">
 			<script src="//cdn.bootcss.com/jquery-datetimepicker/2.4.5/jquery.datetimepicker.min.js"></script>
 			<script src="//cdn.bootcss.com/jquery-placeholder/2.1.3/jquery.placeholder.min.js"></script>
-			<!--日期选择-->
-			<script>$(function() {
-	$('#datetimepicker').datetimepicker({
-		lang: 'ch',
-		format: 'Y年m月d日',
-		formatDate: 'Y/m/d',
-	});
-});</script>
+			<script>
+			//日期选择
+				$(function() {
+					$('#datetimepicker').datetimepicker({
+					lang: 'ch',
+					format: 'Y年m月d日',
+					formatDate: 'Y/m/d'
+				});
+			});
+			</script>
+
 		</main>
 		<!--/.page-test-drive END-->
-		<!--common-->
-		<script src="//cdn.bootcss.com/scrollup/2.4.0/jquery.scrollUp.min.js"></script>
-		<script src="/assets/js/bootstrap-select.js"></script>
-		<script src="/assets/js/defaults-zh_CN.js"></script>
-		<script src="/assets/js/main.js"></script>
+
 	</body>
 </html>
