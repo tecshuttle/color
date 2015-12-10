@@ -4,9 +4,9 @@
  * 这个类和products类是一样的，如果有修改，请同步更新到这里，有时间，重构时，合并成一个类。
  *
  */
-class product_model extends CI_Model
+class recruitment_model extends CI_Model
 {
-    var $table = 'product';
+    var $table = 'recruitment';
 
     function __construct()
     {
@@ -19,6 +19,33 @@ class product_model extends CI_Model
 
         //$this->lang = $_SESSION['lang'];
         $this->load->database();
+    }
+
+	
+    /**
+     * 获取下属地区数据.
+     * @param int $type 地区层级数.
+     * @param int $parent 所属父级地区ID.
+     */
+    function get_regions($type, $parent)
+    {
+        $sql = 'SELECT region_id, region_name 
+                FROM region 
+                WHERE region_type = ' . (int)$type . ' AND parent_id = ' . (int)$parent;
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+    
+    /**
+     * 获取地址名.
+     * @param int $id 地区ID.
+     */
+    function get_region_name($id)
+    {
+        $sql = 'SELECT region_name FROM region WHERE region_id = ' . (int) $id;
+        $query = $this->db->query($sql);
+        $row = $query->row();
+        return is_object($row) ? $row->region_name : '';
     }
 	
     //grid用

@@ -1,37 +1,24 @@
-<?php
-class product extends CI_Controller{
-	
-	
-	public function __construct()
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+class recruitment extends MY_Controller
+{
+    function __construct()
     {
-        parent::__construct();
-        $this->load->model('product_model');
-        $this->load->helper('url_helper');
+        parent::__construct(); // Call the Model constructor
+        $this->load->model('recruitment_model');
+    }
+
+    public function index()
+    {
+        $data = array(
+		
+        );
+
+        $this->load->view('header', $data);
+        $this->load->view('recruitment', $data);
+        $this->load->view('footer', $data);
     }
 	
-	public function question_answer()
-	{
-		$this->load->view('header');
-		$this->load->view('product/question_answer');
-		$this->load->view('footer');
-	}
-	  
-	public function device()
-	{
-		$productName = $this->input->post('name');
-		
-		$sql = "SELECT * FROM product WHERE name = '". $productName ."'";
-		$result = $this->db->query($sql);
-		
-		$data = array(
-			'data' => $result->result_array(),
-		);
-		
-		$this->load->view('header');
-		$this->load->view('product/device');
-		$this->load->view('footer');
-	}
-	  
 	// 创建分页url
     private function create_page_url($base_url, $page, $conditions=array())
     {
@@ -48,7 +35,7 @@ class product extends CI_Controller{
 
     public function view($slug = NULL)
     {
-        $data['bases_item'] = $this->product_model->get_bases($slug);
+        $data['bases_item'] = $this->recruitment_model->get_bases($slug);
     
         if (empty($data['bases_item']))
         {
@@ -58,7 +45,7 @@ class product extends CI_Controller{
         $data['title'] = $data['bases_item']['title'];
     
         //$this->load->view('templates/header', $data);
-        $this->load->view('contact/view', $data);
+        $this->load->view('recruitment', $data);
         //$this->load->view('templates/footer');
     }
     
@@ -69,7 +56,7 @@ class product extends CI_Controller{
         $province_id = (int)$this->uri->segment(3);
         if ($province_id)
         {
-            $rows = $this->product_model->get_regions(2, $province_id);
+            $rows = $this->recruitment_model->get_regions(2, $province_id);
             if ($rows)
             {
                 foreach ($rows as $row)
@@ -128,11 +115,11 @@ class product extends CI_Controller{
 
         if (isset($_POST['id'])) {
             $_POST['mtime'] = time();
-            $this->product_model->update($_POST);
+            $this->recruitment_model->update($_POST);
         } else {
             $_POST['ctime'] = time();
             $_POST['mtime'] = time();
-            $this->product_model->insert($_POST);
+            $this->recruitment_model->insert($_POST);
         }
 
         echo json_encode(array('success' => true));
@@ -174,7 +161,7 @@ class product extends CI_Controller{
     public function getList()
     {
         $option = $_POST;
-        $data = $this->product_model->get($option);
+        $data = $this->recruitment_model->get($option);
         echo json_encode($data);
     }
 
@@ -345,34 +332,12 @@ class product extends CI_Controller{
     {
         $id = $_POST['id'];
 
-        $this->product_model->deleteByID($id);
+        $this->recruitment_model->deleteByID($id);
 
         echo json_encode(array(
             'success' => true
         ));
     }
-	
-	
-	
-	
-	
-	
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+/* End of file */
