@@ -5,23 +5,15 @@
 			<ol class="carousel-indicators">
 				<li data-target="#carousel" data-slide-to="0" class="active"></li>
 				<li data-target="#carousel" data-slide-to="1"></li>
-				<li data-target="#carousel" data-slide-to="2"></li>
-				<li data-target="#carousel" data-slide-to="3"></li>
 			</ol>
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="/assets/img/product/product-1.jpg">
+					<img src="assets/img/product/ad-about.jpg">
 				</div>
 				<div class="item">
-					<img src="/assets/img/product/product-2.jpg">
-				</div>
-				<div class="item">
-					<img src="/assets/img/product/product-3.jpg">
-				</div>
-				<div class="item">
-					<img src="/assets/img/product/product-4.jpg">
+					<img src="assets/img/product/ad-map.jpg">
 				</div>
 			</div>
 
@@ -45,7 +37,7 @@
 
 			<div class="container">
 
-				
+				<!--筛选-->
 				<header class="cp-select select-horizontal">
 					<div class="clearfix inner">
 						<div class="pull-left select-item">
@@ -60,166 +52,56 @@
 					</div>
 				</header>
 				<!--/.cp-select END-->
+				<div id="page_container">
+				<div class="performance-wrap" >
+					<?php foreach($dataList as $row): ?>
+					<div class="section">
+						<a class="clearfix performance-inner js-open-popup" href="#">
 
-				<!--wrap-->
-				<div class="performance-wrap">
-
-					<div class="row">
-						<div class="col-xs-6">
-							<div class="row">
-								
-						<div class="col-xs-6">
-
-							<div class="row">
-
-								<div class="col-xs-12">
-									<a class="popup-gallery js-open-popup">
-										<img class="img-responsive" src="/assets/img/product/performance02.jpg">
-										<div class="title">
-											驼峰
-
-											<p class="description">演示爬坡能力、悬挂承受能力及下坡时陡坡缓降系统的作用</p>
-											<p>
-												<!--五个等级-->
-												<!--类名：-->
-												<!--level1|level2|level3|level4|level5-->
-												<span class="glyphicon-group level3">
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-												</span>
-											</p>
-										</div>
-									</a>
-								</div>
-
-								<div class="col-xs-6">
-									<a class="popup-gallery js-open-popup">
-										<img class="img-responsive" src="/assets/img/product/performance03.jpg">
-										<div class="title">
-											坑洼路
-
-											<p class="description">演示爬坡能力、悬挂承受能力及下坡时陡坡缓降系统的作用</p>
-											<p>
-												<!--五个等级-->
-												<!--类名：-->
-												<!--level1|level2|level3|level4|level5-->
-												<span class="glyphicon-group level3">
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-												</span>
-											</p>
-										</div>
-									</a>
-								</div>
-
-								<div class="col-xs-6">
-									<a class="popup-gallery js-open-popup">
-										<img class="img-responsive" src="/assets/img/product/performance04.jpg">
-										<div class="title">
-											四轮滚轴
-
-											<p class="description">演示爬坡能力、悬挂承受能力及下坡时陡坡缓降系统的作用</p>
-											<p>
-												<!--五个等级-->
-												<!--类名：-->
-												<!--level1|level2|level3|level4|level5-->
-												<span class="glyphicon-group level3">
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-												</span>
-											</p>
-										</div>
-									</a>
-								</div>
-
-								<div class="col-xs-6">
-									<a class="popup-gallery js-open-popup">
-										<img class="img-responsive" src="/assets/img/product/performance07.jpg">
-										<div class="title">
-											阶梯路
-
-											<p class="description">演示爬坡能力、悬挂承受能力及下坡时陡坡缓降系统的作用</p>
-											<p>
-												<!--五个等级-->
-												<!--类名：-->
-												<!--level1|level2|level3|level4|level5-->
-												<span class="glyphicon-group level3">
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-												</span>
-											</p>
-										</div>
-									</a>
-								</div>
-
-								<div class="col-xs-6">
-									<a class="popup-gallery js-open-popup">
-										<img class="img-responsive" src="/assets/img/product/performance08.jpg">
-										<div class="title">
-											双面桥
-											<p class="description">演示爬坡能力、悬挂承受能力及下坡时陡坡缓降系统的作用</p>
-											<p>
-												<!--五个等级-->
-												<!--类名：-->
-												<!--level1|level2|level3|level4|level5-->
-												<span class="glyphicon-group level3">
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-													<span class="glyphicon glyphicon-star"></span>
-												</span>
-											</p>
-										</div>
-									</a>
-								</div>
-
+							<div class="performance-photo">
+								<?= $row['content']?>
 							</div>
 
-						</div>
-					</div>
+							<div class="performance-description">
 
+								<hgroup class="performance-heading">
+									<h3><?= $row['road_name']?></h3>
+									<h4><?= $row['intro']?></h4>
+								</hgroup>
+
+								<p class="level-wrap">
+									<!--五个等级-->
+									<!--类名：-->
+									<!--level1|level2|level3|level4|level5-->
+									<span class="glyphicon-group level3">
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									<span class="glyphicon glyphicon-star"></span>
+									</span>
+								</p>
+
+							</div>
+							<!--/.description END-->
+						</a>
+					</div>
+					<?php endforeach; ?>
 				</div>
 				<!--/.wrap END-->
 
-				<!--
+				<?php if ($has_data) : ?>
+				<!--分页-->
 				<footer class="clearfix cp-pagination">
 					<nav class="pull-right">
 						<ul class="pager">
-							
-							<li class="previous disabled">
-								<a href="#"><i class="fa fa-angle-left"></i></a>
-							</li>
-
-							
-							<li class="page-number current">
-								<span class="number-wrap">
-									<b>1</b>
-									<i>6</i>
-								</span>
-							</li>
-
-							
-							<li class="next">
-								<a href="#"><i class="fa fa-angle-right"></i></a>
-							</li>
+							<?= $pagelink ?>
 						</ul>
 					</nav>
 				</footer>
 				<!--/.cp-pagination END-->
-
+				<?php endif ?>
+				</div>
 			</div>
 
 			<!--本模版单独引用JS-->
@@ -232,10 +114,10 @@
 					tLoading: '图片正在读取中 #%curr%...',
 					removalDelay: 300,
 					items: [{
-						src: 'assets/img/product/performance01.jpg',
+						src: 'assets/img/product/performance.jpg',
 						title: '这里是标题'
 					}, {
-						src: 'assets/img/product/performance02.jpg',
+						src: 'assets/img/product/performance.jpg',
 						title: '这里是标题'
 					}],
 					gallery: {
@@ -246,13 +128,20 @@
 					}
 				});
 			</script>
+
+		</main>
+		<!--/.page-main END-->
 			<script>
 				$('#select_product').on('change', function(){
 					var name = $(this).find("option:selected").text();
 					
-					$.post('/product/device',{
-						name: name
-					});
+					$.post('/product/device_select',{name: name},function(result, obj){
+						if (result.success) {
+							$('#page_container').html(result.device_html);	
+						} else {
+							console.log(result);
+						}
+					}, 'json');
 				});
 			</script>
 

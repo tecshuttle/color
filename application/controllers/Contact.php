@@ -70,7 +70,7 @@ class contact extends MY_Controller
 		);
 		
 		$this->load->view('header', $data);
-        $this->load->view('contact/map', $data);
+        $this->load->view('contact/index', $data);
         $this->load->view('footer', $data);
     }
 	

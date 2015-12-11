@@ -248,7 +248,7 @@
 				</div>
 				<!--/.wrap END-->
 <script>
-		var page_url = '/contact/map';
+		var page_url = '/contact/index';
 		var region_url = '/contact/region';
 		
 		var allCityBases = JSON.parse(document.getElementById("all_city_bases").value);

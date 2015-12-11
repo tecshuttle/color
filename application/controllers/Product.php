@@ -16,19 +16,86 @@ class product extends CI_Controller{
 		$this->load->view('footer');
 	}
 	  
+	public function device_select()
+	{
+		if($this->input->post('name', true) == NULL){
+			$productName = '';
+		} else{
+			$productName = "WHERE name = '" .$this->input->post('name'). "'";
+		}
+		
+		$this->device();
+		
+		$data = 'get data by name';
+		
+		$html = $this->load->view('footer', $data, true);
+				
+		echo json_encode(array(
+			'success' => true,
+			'name' => $name,
+			'device_html' => $html
+		));
+		
+	}
+	
 	public function device()
 	{
-		$productName = $this->input->post('name');
+		// 分页
+		$count_sql = "SELECT * FROM product ". $productName;
+		$count_query = $this->db->query($count_sql);
+        $count = $count_query->num_rows();
+        
+        $page_num = 4; //每页个数
+        $total_page = ceil($count / $page_num); //获取总页数
+        
+        // 当前页
+        $nowpage = $this->uri->segment(3);
 		
-		$sql = "SELECT * FROM product WHERE name = '". $productName ."'";
-		$result = $this->db->query($sql);
+		if ($nowpage <= 0)
+        {
+            // 无效页码
+            $nowpage = 1;
+        }
+        if ($total_page > 0 && $nowpage > $total_page)
+        {
+            // 超过最大页
+            $nowpage = $total_page;
+        }
+		
+		$page_sql = "SELECT * FROM product ". $productName;
+        $page_sql .= ' limit '.(($nowpage-1)*$page_num).','.$page_num;
+		
+        $result = $this->db->query($page_sql); //处理数据
+		
+		// 上下页链接
+        $base_url = '/product/device';
+        if($nowpage==1){
+            $prevlink = '<li class="previous disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>';
+        }else{
+            $prevurl = $this->create_page_url($base_url, ($nowpage-1));
+            $prevlink = '<li class="previous"><a href="'.$prevurl.'"><i class="fa fa-angle-left"></i></a></li>';
+        }
+        if($nowpage == $total_page){
+            $nextlink = '<li class="next disabled"><a href="#"><i class="fa fa-angle-right"></i></a></li>';
+        }else{
+            $nexturl = $this->create_page_url($base_url, ($nowpage+1));
+            $nextlink = '<li class="next"><a href="'.$nexturl.'"><i class="fa fa-angle-right"></i></a></li>';
+        }
+        
+        //生成分页
+        $pagelink = $prevlink.'<li class="page-number current"><span class="number-wrap"><b>'.$nowpage.'</b><i>'.$total_page.'</i></span></li>'.$nextlink;
 		
 		$data = array(
-			'data' => $result->result_array(),
+			'dataList' => $result->result_array(),
+			'pagelink' => $pagelink,
+			'nowpage' => $nowpage,
+			'has_data' => count($result->result_array()) > 0,
+            'css' => array(),
+            'js' => array()
 		);
 		
 		$this->load->view('header');
-		$this->load->view('product/device');
+		$this->load->view('product/device', $data);
 		$this->load->view('footer');
 	}
 	  
