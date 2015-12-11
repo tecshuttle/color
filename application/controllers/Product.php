@@ -18,13 +18,7 @@ class product extends CI_Controller{
 	  
 	public function device_select()
 	{
-		if($this->input->post('name', true) == NULL){
-			$productName = '';
-		} else{
-			$productName = "WHERE name = '" .$this->input->post('name'). "'";
-		}
-		
-		$this->device();
+		$name = $this->input->post('name', true);
 		
 		$data = 'get data by name';
 		
@@ -35,11 +29,16 @@ class product extends CI_Controller{
 			'name' => $name,
 			'device_html' => $html
 		));
-		
 	}
 	
 	public function device()
 	{
+		if($this->input->post('name', true) == NULL){
+			$productName = '';
+		} else{
+			$productName = "WHERE name = '" .$this->input->post('name'). "'";
+		}
+		
 		// 分页
 		$count_sql = "SELECT * FROM product ". $productName;
 		$count_query = $this->db->query($count_sql);

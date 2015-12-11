@@ -37,7 +37,7 @@
 
 			<div class="container">
 
-				<!--筛选-->
+				<!--筛选
 				<header class="cp-select select-horizontal">
 					<div class="clearfix inner">
 						<div class="pull-left select-item">
@@ -50,7 +50,7 @@
 							</select>
 						</div>
 					</div>
-				</header>
+				</header>-->
 				<!--/.cp-select END-->
 				<div id="page_container">
 				<div class="performance-wrap" >
