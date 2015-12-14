@@ -23,14 +23,7 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
                 name: 'id',
                 value: 0
             },
-            {
-                xtype: 'textfield',
-                fieldLabel: '标题',
-                allowBlank: false,
-                anchor: '50%',
-                name: 'name',
-                emptyText: '请输入…'
-            },
+
             {
                 xtype: 'textfield',
                 fieldLabel: '路况',

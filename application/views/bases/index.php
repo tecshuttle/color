@@ -71,9 +71,7 @@
                 <div class="section">
                     <a class="clearfix base-inner" href="#">
                         <div class="base-photo">
-                            <p class="text-justify">
-                                <?php echo $bases_item['content']; ?>
-                            </p>
+							<?php echo $bases_item['content']; ?>
                         </div>
                         <div class="base-description">
                             <h3 class="base-heading">
