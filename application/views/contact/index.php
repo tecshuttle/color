@@ -70,10 +70,8 @@
 					<?php if ($has_data) : ?>
 						<?php foreach ($pagedata as $contact_item):?>
 						<!--<dl class="description">
-							<dd><i class="fa fa-map-marker"></i><?= $contact_item['name']?></dd>
-						</dl>-->
-
-						<?= $contact_item['content']?>
+							<dt class="h2"><?= $contact_item['name'];?></dt>
+							<?= $contact_item['content'];?>
 						<?php break;endforeach;?>
 						<?php else: ?>
 						<div style="text-align:center; margin:50px auto 100px;">找不到记录</div>

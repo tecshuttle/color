@@ -6,10 +6,20 @@ class bases extends MY_Controller
     {
         parent::__construct(); // Call the Model constructor
         $this->load->model('bases_model');
+		$this->load->model('articles_model');
     }
 
     public function index()
     {
+		$article = $this->articles_model->select(array(	
+            'code' => 'baseIndexBanner'
+        ));
+		
+		// $area = "WHERE area='".$this->input->get('area')."'";
+		
+		// if($this->input->get('area') === NULL)
+			// $area = '';
+		
 		// 获取地区查询参数
         $province_id = (int)$this->uri->segment(4);
         $city_id = (int)$this->uri->segment(5);
@@ -34,12 +44,17 @@ class bases extends MY_Controller
         // 是否ajax请求
         $sync = isset($_GET['sync']);
 		
+		if($this->generate_where($conditions) === ' where 1 ')
+			$generateWhere = '';
+		else
+			$generateWhere = $this->generate_where($conditions);
+		
 		//数据总数
-        $count_sql = 'select * from `bases` ' . $this->generate_where($conditions);
+        $count_sql = 'select * from `bases` ' . $generateWhere;
         $count_query = $this->db->query($count_sql);
         $count = $count_query->num_rows();
         
-        $page_num = 1; //每页个数
+        $page_num = 6; //每页个数
         $total_page = ceil($count / $page_num); //获取总页数
         
         // 当前页
@@ -55,7 +70,7 @@ class bases extends MY_Controller
             $nowpage = $total_page;
         }
 		
-		$page_sql = 'select * from  `bases` ' . $this->generate_where($conditions);
+		$page_sql = 'select * from  `bases` ' . $generateWhere;
         $page_sql .= ' limit '.(($nowpage-1)*$page_num).','.$page_num;
         $result = $this->db->query($page_sql); //处理数据
 		
@@ -89,6 +104,7 @@ class bases extends MY_Controller
 			'city_list' => $this->bases_model->get_regions(2, $province_id),
 			'province_list' => $this->bases_model->get_regions(1, 1),
 			'has_data' => count($result->result_array()) > 0,
+			'article' => $article,
             'css' => array(),
             'js' => array()
         );
@@ -112,21 +128,38 @@ class bases extends MY_Controller
         return $url;
     }
 
-    public function view($slug = NULL)
+    public function view()
     {
-        $data['bases_item'] = $this->bases_model->get_bases($slug);
+		$id = $this->uri->segment(3);
+		
+        $article = $this->articles_model->select(array(
+            'code' => 'baseViewBanner'
+        ));
+		
+        $result = $this->loadModel($id);
+		
+		$data = array(
+			'row' => $result->row(),
+			'article' => $article
+		);
+		
     
-        if (empty($data['bases_item']))
-        {
+        $this->load->view('header', $data);
+        $this->load->view('bases/view', $data);
+        $this->load->view('footer', $data);
+    }
+	
+	private function loadModel($id)
+	{
+		$sql = 'SELECT * FROM bases WHERE id ='. $id;
+		$model = $this->db->query($sql);
+		
+		if ($model === null) {
             show_404();
         }
-    
-        $data['title'] = $data['bases_item']['title'];
-    
-        //$this->load->view('templates/header', $data);
-        $this->load->view('bases/view', $data);
-        //$this->load->view('templates/footer');
-    }
+		
+		return $model;
+	}
     
     // ajax获取地址下拉菜单
     public function region()

@@ -46,51 +46,17 @@
 			<div class="container">
 
 				<!--wrap-->
-				<div class="q--a-wrap">
-
-					<dl class="text-justify">
-						<dt><i class="fa fa-question-circle"></i>如何维修保养？</dt>
-						<dd>我们每一位认证技术人员都绝非泛泛之辈；与产品朝夕相伴的他们，熟悉新产品发布、技术升级与培训内容，对产品可谓了如指掌。我们如何确保他们的敬业？每年我们都会对他们的技能、知识等进行测试。 </dd>
-					</dl>
-
-					<dl class="text-justify">
-						<dt><i class="fa fa-question-circle"></i>如何维修保养？</dt>
-						<dd>我们每一位认证技术人员都绝非泛泛之辈；与产品朝夕相伴的他们，熟悉新产品发布、技术升级与培训内容，对产品可谓了如指掌。我们如何确保他们的敬业？每年我们都会对他们的技能、知识等进行测试。 </dd>
-					</dl>
-
-
-					<dl class="text-justify">
-						<dt><i class="fa fa-question-circle"></i>如何维修保养？</dt>
-						<dd>我们每一位认证技术人员都绝非泛泛之辈；与产品朝夕相伴的他们，熟悉新产品发布、技术升级与培训内容，对产品可谓了如指掌。我们如何确保他们的敬业？每年我们都会对他们的技能、知识等进行测试。 </dd>
-					</dl>
-
-					<dl class="text-justify">
-						<dt><i class="fa fa-question-circle"></i>如何维修保养？</dt>
-						<dd>我们每一位认证技术人员都绝非泛泛之辈；与产品朝夕相伴的他们，熟悉新产品发布、技术升级与培训内容，对产品可谓了如指掌。我们如何确保他们的敬业？每年我们都会对他们的技能、知识等进行测试。 </dd>
-					</dl>
-
-					<dl class="text-justify">
-						<dt><i class="fa fa-question-circle"></i>如何维修保养？</dt>
-						<dd>我们每一位认证技术人员都绝非泛泛之辈；与产品朝夕相伴的他们，熟悉新产品发布、技术升级与培训内容，对产品可谓了如指掌。我们如何确保他们的敬业？每年我们都会对他们的技能、知识等进行测试。 </dd>
-					</dl>
-
-					<dl class="text-justify">
-						<dt><i class="fa fa-question-circle"></i>如何维修保养？</dt>
-						<dd>我们每一位认证技术人员都绝非泛泛之辈；与产品朝夕相伴的他们，熟悉新产品发布、技术升级与培训内容，对产品可谓了如指掌。我们如何确保他们的敬业？每年我们都会对他们的技能、知识等进行测试。 </dd>
-					</dl>
-
-
-					<dl class="text-justify">
-						<dt><i class="fa fa-question-circle"></i>如何维修保养？</dt>
-						<dd>我们每一位认证技术人员都绝非泛泛之辈；与产品朝夕相伴的他们，熟悉新产品发布、技术升级与培训内容，对产品可谓了如指掌。我们如何确保他们的敬业？每年我们都会对他们的技能、知识等进行测试。 </dd>
-					</dl>
-
-					<dl class="text-justify">
-						<dt><i class="fa fa-question-circle"></i>如何维修保养？</dt>
-						<dd>我们每一位认证技术人员都绝非泛泛之辈；与产品朝夕相伴的他们，熟悉新产品发布、技术升级与培训内容，对产品可谓了如指掌。我们如何确保他们的敬业？每年我们都会对他们的技能、知识等进行测试。 </dd>
-					</dl>
-
-				</div>
+				<?php 
+					if($countData):
+					foreach($data as $row):
+						echo $row['content'];
+					endforeach;
+					else:
+					?>
+						<div class="section">
+							暂无Q&A
+						</div>
+				<?php endif;?>
 				<!--/.wrap END-->
 
 			</div>

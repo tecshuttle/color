@@ -39,6 +39,13 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
                 name: 'intro',
                 emptyText: '请输入…'
             },
+			{
+                xtype: 'textfield',
+                fieldLabel: '难度',
+                anchor: '50%',
+                name: 'nodus',
+                emptyText: '请输入…'
+            },
             {
                 xtype: 'textfield',
                 fieldLabel: '性能',
@@ -199,7 +206,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
         var store = Ext.create('Ext.data.Store', {
             pageSize: 20,
             autoLoad: true,
-            fields: ['id', 'road_name', 'name', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'intro', 'picture_gallery'],
+            fields: ['id', 'road_name',  'name', 'nodus', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'intro', 'picture_gallery'],
             proxy: {
                 type: 'ajax',
                 url: '/product/getList',
@@ -222,6 +229,9 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
                 },
                 {
                     header: "路况", dataIndex: 'road_name'
+                },
+				{
+                    header: "难度", dataIndex: 'nodus'
                 },
                 {
                     header: "性能", dataIndex: 'name'

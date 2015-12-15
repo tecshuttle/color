@@ -269,6 +269,29 @@ class admin extends MY_Controller
         $this->load->view('admin/header', $data);
         $this->load->view('admin/script', $data);
     }
+	
+	public function questionanswer()
+    {
+        $data = array(
+            'msg' => 'admin-Q&A',
+            'base_url' => $this->config->config['base_url'],
+            'css' => array(
+                '/js/extjs4/resources/css/ext-all.css',
+                '/css/admin/themes/ijobs-v3/css/index.css',
+                '/css/admin/themes/ijobs-v3/css/ijobs.css'
+            ),
+            'js' => array(
+                '/js/extjs4/bootstrap.js',
+                '/js/admin/common/common.js',
+                '/js/admin/common/utils.js',
+                '/js/admin/common/ux/LinkColumn.js',
+                '/js/admin/questionanswer.js'
+            )
+        );
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/script', $data);
+    }
 
     public function gallery()
     {

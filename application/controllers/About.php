@@ -32,11 +32,11 @@ class About extends CI_Controller
             1979 => 'page-history',
             1980 => 'page-culture',
             1981 => 'page-team',
+            3483 => 'page-culture',
         );
 
         $data = array(
             'title' => 'News archive',
-            'class' => (isset($class[$article->id]) ? $class[$article->id] : ''),
             'article' => $article
         );
 

@@ -66,7 +66,7 @@
 				<div class="collapse navbar-collapse" id="navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li class="dropdown">
-							<a href="<?php echo base_url('site/index')?>">
+							<a href="/index.php">
 								首页 <span class="sr-only">(current)</span>
 							</a>
 						</li>
@@ -93,7 +93,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('about/history')?>">
+									<a href="<?php echo base_url('about/heretofore')?>">
 										发展历程
 									</a>
 								</li>
@@ -117,7 +117,7 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="<?php echo base_url('bases/index')?>">
+									<a href="<?php echo base_url('bases')?>">
 										试驾基地
 									</a>
 								</li>
@@ -127,12 +127,12 @@
 									</a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('product/down_center')?>">
+									<a href="<?php echo base_url('downcenter')?>">
 										下载中心
 									</a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('product/question_answer')?>">
+									<a href="<?php echo base_url('questionanswer')?>">
 										Q&A
 									</a>
 								</li>
@@ -175,7 +175,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('cases/new_car')?>">
+									<a href="<?php echo base_url('cases/newcar')?>">
 										新车上市类
 									</a>
 								</li>
@@ -218,17 +218,17 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="<?php echo base_url('contact/map')?>">
+									<a href="<?php echo base_url('contact')?>">
 										企业版图
 									</a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('contact/recruitment')?>">
+									<a href="<?php echo base_url('recruitment')?>">
 										人才招聘
 									</a>
 								</li>
 								<li>
-									<a href="<?php echo base_url('contact/message_board')?>">
+									<a href="<?php echo base_url('messageboard')?>">
 										留言板
 									</a>
 								</li>
@@ -260,24 +260,7 @@
 			</ol>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					<img src="assets/img/product/banner1.jpg">
-				</div>
-				<div class="item">
-					<img src="assets/img/product/banner2.jpg">
-				</div>
-				<div class="item">
-					<img src="assets/img/product/banner3.jpg">
-				</div>
-				<div class="item">
-					<img src="assets/img/product/banner4.jpg">
-				</div>
-				<div class="item">
-					<img src="assets/img/product/banner5.jpg">
-				</div>
-				<div class="item">
-					<img src="assets/img/product/banner6.jpg">
-				</div>
+				<?= $article->content?>
 			</div>
 			<!-- Controls -->
 			<a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
@@ -304,37 +287,37 @@
 						</h1>
 						<ul class="clearfix list-unstyled pull-right tab" role="tablist">
 							<li>
-								<a href="#">
+								<a href="/index.php?area=华南">
 									华南地区
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="/index.php?area=华东">
 									华东地区
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="/index.php?area=华中">
 									华中地区
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="/index.php?area=西南">
 									西南地区
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="/index.php?area=华北">
 									华北地区
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="/index.php?area=华南">
 									西北地区
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="/bases/index?area=东北">
 									东北地区
 								</a>
 							</li>
@@ -347,67 +330,93 @@
 							<div class="item active">
 								<!--描述-->
 								<div class="row caption">
-									<a class="col-xs-12 col-sm-12 col-md-12 col-lg-6" href="#">
-										<img class="img-responsive" src="assets/img/product/index-base01.jpg">
+									<?php 
+										$i=0;
+										foreach($bases_menu as $row):
+										if($i == 2){
+											break;
+										};
+									?>
+									<a class="col-xs-12 col-sm-12 col-md-12 col-lg-6" href="<?= '/bases/view/'. $row['id']?>">
+										<?= $row['content']?>
 										<h4>
-											<b>沈阳浑南试驾基地</b>
+											<b><?= $row['name']?></b>
 										</h4>
 										<p>
-											位于沈阳市浑南新区东湖学校附近，即杨官派出所旁；临近沈抚大道，占地总面积8.5万平方米。
+											<?= $row['intro']?>
 										</p>
 										<span>
 											<i class="fa fa-angle-double-right">
 											</i>了解更多信息
 										</span>
 									</a>
-									<a class="col-xs-12 col-sm-12 col-md-12 col-lg-6" href="#">
-										<img class="img-responsive" src="assets/img/product/index-base02.jpg">
-										<h4>
-											<b>广州大观路试驾基地</b>
-										</h4>
-										<p>
-											中国首个以汽车培训为主题的汽车基地,广州大观路试驾基地位于广州天河区大观中路，北接广深高速，南接广州中山大道，与广州奥体中心相邻，毗邻航天奇观相邻。试驾基地占地总面积三万多平方米。
-										</p>
-										<span>
-											<i class="fa fa-angle-double-right">
-											</i>了解更多信息
-										</span>
-									</a>
+									<?php 
+										
+										$i++;
+										endforeach;
+									?>
+									<?php	
+									if($bases_menu == NULL){
+										?>
+											<a class="col-xs-12 col-sm-12 col-md-12 col-lg-6" href="#">
+												<span>
+													<i class="fa fa-angle-double-right" style="">
+													</i>暂无记录
+												</span>
+											</a>
+											<?php
+										}else{
+											
+										}?>
 								</div>
 								<!--/.caption END-->
 							</div>
 							<div class="item">
 								<!--描述-->
 								<div class="row caption">
-									<a class="col-xs-12 col-sm-12 col-md-12 col-lg-6" href="#">
-										<img class="img-responsive" src="assets/img/product/index-base01.jpg">
+									<?php 
+										$i=0;
+										foreach($bases_menu as $row):
+										if($i == 4){
+											break;
+										}
+										
+										if($i > 1){
+									?>
+									<a class="col-xs-12 col-sm-12 col-md-12 col-lg-6" href="<?= '/bases/view/'. $row['id']?>">
+										<?= $row['content']?>
 										<h4>
-											<b>沈阳浑南试驾基地</b>
+											<b><?= $row['name']?></b>
 										</h4>
 										<p>
-											位于沈阳市浑南新区东湖学校附近，即杨官派出所旁；临近沈抚大道，占地总面积8.5万平方米。
+											<?= $row['intro']?>
 										</p>
 										<span>
 											<i class="fa fa-angle-double-right">
 											</i>了解更多信息
 										</span>
 									</a>
-									<a class="col-xs-12 col-sm-12 col-md-12 col-lg-6" href="#">
-										<img class="img-responsive" src="assets/img/product/index-base02.jpg">
-										<h4>
-											<b>广州大观路试驾基地</b>
-										</h4>
-										<p>
-											中国首个以汽车培训为主题的汽车基地,广州大观路试驾基地位于广州天河区大观中路，北接广深高速，南接广州中山大道，与广州奥体中心相邻，毗邻航天奇观相邻。试驾基地占地总面积三万多平方米。
-										</p>
-										<span>
-											<i class="fa fa-angle-double-right">
-											</i>了解更多信息
-										</span>
-									</a>
+									<?php 
+										};
+										$i++;
+										endforeach;
+									if($bases_menu === NULL){
+									if($bases_menu[1] === NULL){
+										
+										}else{
+											?>
+											<a class="col-xs-12 col-sm-12 col-md-12 col-lg-6" href="#">
+												<span>
+													<i class="fa fa-angle-double-right" style="">
+													</i>暂无记录
+												</span>
+											</a>
+											<?php
+										}
+									}
+									?>
+									
 								</div>
-								<!--/.caption END-->
-							</div>
 						</div>
 						<!-- Controls -->
 						<a class="left control" href="#base" role="button" data-slide="prev">
@@ -433,17 +442,17 @@
 						</h1>
 						<ul class="clearfix list-unstyled pull-right tab" role="tablist">
 							<li>
-								<a href="#">
+								<a href="/index.php?nodus=稍难">
 									稍难
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="/index.php?nodus=适中">
 									适中
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="/index.php?nodus=容易">
 									容易
 								</a>
 							</li>
@@ -451,15 +460,23 @@
 					</header>
 					<div class="body">
 						<div class="row js-match">
+						<?php if($product_menu !== NULL):?>
+							<?php 
+								$i=0;
+								foreach($product_menu as $row):
+								if($i == 4){
+									break;
+								}
+							?>
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 js-match-item">
-								<a class="thumbnail" href="#">
-									<img src="assets/img/product/index-test01.jpg">
+								<a class="thumbnail" href="<?= '/product/view/'. $row['id']?>">
+									<?= $row['content']?>
 									<div class="caption">
 										<h4>
-											<b>高空跷跷板</b>
+											<b><?= $row['road_name']?></b>
 										</h4>
 										<p>
-											演示爬坡能力、悬挂承受能力及下坡时陡坡缓降系统的作用:跷跷板倾斜度为35°，高度足有9米高！当车辆开到坡顶之后，液压操纵的平台会把车辆从上坡转换到另一边 的下坡状态......
+											<?= $row['intro']?>
 										</p>
 										<span>
 											<i class="fa fa-angle-double-right">
@@ -468,57 +485,17 @@
 									</div>
 								</a>
 							</div>
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 js-match-item">
+							<?php $i++;endforeach;?>
+							<?php else:?>
 								<a class="thumbnail" href="#">
-									<img src="assets/img/product/index-test02.jpg">
 									<div class="caption">
-										<h4>
-											<b>驼峰</b>
-										</h4>
-										<p>
-											展示车辆爬坡性能:试乘客户车辆通过时有逼真的翻车感觉，具有很好的试乘效果及观赏效果。
-										</p>
 										<span>
 											<i class="fa fa-angle-double-right">
-											</i>了解更多信息
+											</i>暂无记录
 										</span>
 									</div>
 								</a>
-							</div>
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 js-match-item">
-								<a class="thumbnail" href="#">
-									<img src="assets/img/product/index-test03.jpg">
-									<div class="caption">
-										<h4>
-											<b>侧坡</b>
-										</h4>
-										<p>
-											测试车辆的抓地力，侧向通过能力;车辆通过表现：从车外观察，车辆上下侧坡时，由于弧面影响，一条对角线上的车轮基本离开设备及地面，仅靠另一对角线上的两个车轮提供动力......
-										</p>
-										<span>
-											<i class="fa fa-angle-double-right">
-											</i>了解更多信息
-										</span>
-									</div>
-								</a>
-							</div>
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 js-match-item">
-								<a class="thumbnail" href="#">
-									<img src="assets/img/product/index-test04.jpg">
-									<div class="caption">
-										<h4>
-											<b>四轮滚轴跷跷板</b>
-										</h4>
-										<p>
-											示四驱动力、爬坡能力、悬挂承受能力及下坡时陡坡缓降系统的作用:当车辆通过四轮滚轴测试并开到坡顶之后，液压操纵的平台会把车辆从上坡转换到另一边的下坡状态到了下坡的时候......
-										</p>
-										<span>
-											<i class="fa fa-angle-double-right">
-											</i>了解更多信息
-										</span>
-									</div>
-								</a>
-							</div>
+						<?php endif;?>
 						</div>
 					</div>
 					<!--/.body END-->
@@ -533,17 +510,17 @@
 						</h1>
 						<ul class="clearfix list-unstyled pull-right tab" role="tablist">
 							<li>
-								<a href="#">
+								<a href="/index.php?type=试驾活动类">
 									试驾活动类
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="/index.php?type=静态展示类">
 									静态展示类
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="/index.php?type=新车上市类">
 									新车上市类
 								</a>
 							</li>
@@ -621,17 +598,17 @@
 						</h1>
 						<ul class="clearfix list-unstyled pull-right tab" role="tablist">
 							<li>
-								<a href="#">
+								<a href="/index.php?newType=行业动态">
 									行业动态
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="/index.php?newType=企业资讯">
 									企业资讯
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="/index.php?newType=试驾活动">
 									试驾活动
 								</a>
 							</li>

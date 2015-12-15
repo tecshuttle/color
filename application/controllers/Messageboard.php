@@ -48,7 +48,7 @@ class Messageboard extends CI_Controller {
 				$email = $this->input ->post('email');
 				$company = $this->input ->post('company');
 				$message = $this->input ->post('message');
-					
+				
 				$data = array(
 					'name'=>$name,
 					'tel'=>$tel,
@@ -57,7 +57,7 @@ class Messageboard extends CI_Controller {
 					'message'=>$message
 				);
 
-				$this->db->insert('keyboard',$data);
+				$this->db->insert('messageboard',$data);
 				//$this->session->set_flashdata('contact_success','you good boy!');
 					
 				$this->load->view('formsuccess');

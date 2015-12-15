@@ -55,6 +55,8 @@ $route['404_override'] = '';
 
 //自定义路由
 $route['about/(:any)'] = "about/page/$1"; //单页文章
+$route['cases/(:any)'] = "cases/page/$1"; //单页文章
+$route['news/(:any)'] = "news/page/$1"; //单页文章
 
 
 

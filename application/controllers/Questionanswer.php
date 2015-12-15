@@ -10,16 +10,12 @@ class questionanswer extends MY_Controller
 
     public function index()
     {
-        $this->load->model('articles_model');
-		$article = $this->articles_model->select(array(
-		   'id' => 3456
-		));
+		$result = $this->db->query('SELECT * FROM questionanswer'); //处理数据
 		
 		$data = array(
-		    'title' => 'News archive',
-		 	'article' => $article
+		    'data' => $result->result_array(),
+		 	'countData' => count($result->result_array())
 		);
-		
 		
 		$this->load->view('header',$data);
 		$this->load->view('questionanswer/index',$data);

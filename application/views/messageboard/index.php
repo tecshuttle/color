@@ -6,7 +6,7 @@
 		<!--wrap-->
 		<div class="clearfix message-wrap">
 			<div class="col-xs-8 col-xs-offset-2 form-format">
-				<?php echo form_open('contact/message_board'); ?>
+				<?php echo form_open('messageboard/index'); ?>
 				<form action="add.php" method="post" >
 					<!--添加required提示填写字符|IE浏览器支持到IE10+-->
 					<div class="row form-group">

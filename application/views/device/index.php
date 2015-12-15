@@ -83,7 +83,8 @@
 							我们承诺，您的信息将只用于三源色市场活动，绝无可能泄露给第三方。请填写您的真实信息，方便我们尽快与您取得联系，安排您的试驾事宜。
 						</h2>
 						<!--FORM START-->
-						<form class="row form-format">
+						<?php echo form_open('device/index'); ?>
+						<form class="row form-format" action="add.php" method="post">
 							<!--标题-->
 							<div class="col-xs-12 form-heading">
 								<h3>
@@ -94,8 +95,10 @@
 							<!--左侧-->
 							<div class="col-xs-6 form-left">
 								<div class="form-group">
-									<label><i class="icon-required">*</i>姓名</label>
-									<input required type="text" class="form-control input-lg">
+									<label for="inputName" >
+										<i class="icon-required">*</i>姓名</label>
+									<input required type="text" name="name" class="form-control input-lg" id="inputName" value="<?php echo set_value('name'); ?>">
+									<?php echo form_error('name'); ?>
 								</div>
 								<div class="form-group">
 									<label><i class="icon-required">*</i>称谓</label>
@@ -103,24 +106,29 @@
 										<div class="col-xs-12">
 											<div class="btn-group" data-toggle="buttons">
 												<label class="btn btn-radio active">
-													<input type="radio" name="options" id="option1" autocomplete="off">
+													<input type="radio" name="sex" id="inputBoy" autocomplete="off">
 													先生
 												</label>
 												<label class="btn btn-radio">
-													<input type="radio" name="options" id="option2" autocomplete="off">
+													<input type="radio" name="sex" id="inputGirl" autocomplete="off">
 													女士
 												</label>
+												<?php echo form_error('sex'); ?>
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="form-group">
-									<label><i class="icon-required">*</i>手机号码</label>
-									<input required type="text" class="form-control input-lg">
+									<label for="inputName" >
+										<i class="icon-required">*</i>手机号</label>
+									<input required type="text" name="phone" class="form-control input-lg" id="inputPhone" value="<?php echo set_value('phone'); ?>">
+									<?php echo form_error('phone'); ?>
 								</div>
 								<div class="form-group">
-									<label><i class="icon-required">*</i>电子邮箱</label>
-									<input required type="text" class="form-control input-lg">
+									<label for="inputName" >
+										<i class="icon-required">*</i>邮箱</label>
+									<input required type="text" name="email" class="form-control input-lg" id="inputEmail" value="<?php echo set_value('email'); ?>">
+									<?php echo form_error('email'); ?>
 								</div>
 								<div class="form-group">
 									<label><i class="icon-required">*</i>您希望的联系方式</label>
@@ -148,12 +156,16 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label>您的地址</label>
-									<input type="text" class="form-control input-lg">
+									<label for="inputName" >
+										<i class="icon-required">*</i>您的地址</label>
+									<input required type="text" name="address" class="form-control input-lg" id="inputAddress" value="<?php echo set_value('address'); ?>">
+									<?php echo form_error('address'); ?>
 								</div>
 								<div class="form-group">
-									<label>您的邮政编码</label>
-									<input type="text" class="form-control input-lg">
+									<label for="inputName" >
+										<i class="icon-required">*</i>您的邮政编码</label>
+									<input required type="text" name="zipCode" class="form-control input-lg" id="inputZipCode" value="<?php echo set_value('zipCode'); ?>">
+									<?php echo form_error('zipCode'); ?>
 								</div>
 							</div>
 							<!--/.form-left END-->
@@ -163,29 +175,18 @@
 									<label><i class="icon-required">*</i>您所在城市</label>
 									<div class="row">
 										<div class="col-xs-6">
-											<select class="selectpicker" title='请选择省份'>
-												<option>
-													广州
-												</option>
-												<option>
-													深圳
-												</option>
-												<option>
-													佛山
-												</option>
+											<select  title='请选择省份' id="select_province">
+												<?php foreach ($province_list as $row): ?>
+												<option <?php if ($province_id == $row['region_id']) : ?>selected<?php endif ?> value="<?php echo $row['region_id'] ?>"><?php echo $row['region_name'] ?></option>
+												<?php endforeach ?>
 											</select>
 										</div>
 										<div class="col-xs-6">
-											<select class="selectpicker" title='请选择城市'>
-												<option>
-													广州
-												</option>
-												<option>
-													深圳
-												</option>
-												<option>
-													佛山
-												</option>
+											<select  title='请选择城市' id="select_city">
+												<option value="0">请选择</option>
+												<?php foreach ($city_list as $row): ?>
+												<option <?php if ($city_id == $row['region_id']) : ?>selected<?php endif ?> value="<?php echo $row['region_id'] ?>"><?php echo $row['region_name'] ?></option>
+												<?php endforeach ?>
 											</select>
 										</div>
 									</div>
@@ -194,7 +195,7 @@
 									<label><i class="icon-required">*</i>您希望联系的试驾基地</label>
 									<div class="row">
 										<div class="col-xs-12">
-											<select class="selectpicker" title='请选择试驾基地'>
+											<select  title='请选择试驾基地'>
 												<option>
 													广州
 												</option>
@@ -212,7 +213,7 @@
 									<label><i class="icon-required">*</i>您感兴趣的试驾器械</label>
 									<div class="row">
 										<div class="col-xs-12">
-											<select class="selectpicker" title='请选择试驾器械'>
+											<select  title='请选择试驾器械'>
 												<option>
 													广州
 												</option>
@@ -228,9 +229,10 @@
 								</div>
 								<div class="form-group has-feedback">
 									<label><i class="icon-required">*</i>预计试驾时间</label>
-									<input id="datetimepicker" type="text" readonly class="form-control input-lg datetimepicker" value="">
+									<input id="datetimepicker" type="text" readonly class="form-control input-lg datetimepicker" value="<?php echo set_value('datetime'); ?>">
 									<i class="fa fa-angle-down form-control-feedback" aria-hidden="true">
 									</i>
+									<?php echo form_error('datetime'); ?>
 								</div>
 							</div>
 							<!--/.form-right END-->
@@ -254,13 +256,13 @@
 										提&nbsp;&nbsp;交
 									</button>
 								</div>
+								<p class="h4 unsubscribe">
+									如若我们的信息打扰到您，敬请拨打三源色贵宾专线：0755-8251-0666 取消订阅。我们承诺对您的个人信息完全保密。再次挚谢您对三源色的关注！
+								</p>
 							</div>
 						</form>
 						<!--/.form end-->
-						<!--取消订阅-->
-						<p class="h4 unsubscribe">
-							如若我们的信息打扰到您，敬请拨打三源色贵宾专线：0755-8251-0666 取消订阅。我们承诺对您的个人信息完全保密。再次挚谢您对三源色的关注！
-						</p>
+						
 					</div>
 				</section>
 				<!--/.wrap END-->
@@ -290,6 +292,18 @@
 					lang: 'ch',
 					format: 'Y年m月d日',
 					formatDate: 'Y/m/d'
+				});
+			});
+			</script>
+			<script>
+			$(function(){
+				
+				// 选择省份
+				$('#select_province').on('change', function(){
+					var id = $(this).val();
+					$.get('/device/region/' + id, function(res){
+						$('#select_city').html(res);
+					});
 				});
 			});
 			</script>

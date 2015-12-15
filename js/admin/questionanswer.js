@@ -32,21 +32,6 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
                 emptyText: '请输入…'
             },
             {
-                xtype: 'textfield',
-                fieldLabel: '省份',
-                allowBlank: false,
-                anchor: '50%',
-                name: 'code',
-                emptyText: '请输入…'
-            },
-            {
-                xtype: 'textfield',
-                fieldLabel: '城市',
-                anchor: '50%',
-                name: 'keywords',
-                emptyText: '请输入…'
-            },
-            {
                 xtype: 'htmleditor',
                 anchor: '100%',
                 height: 500,
@@ -199,7 +184,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
         var store = Ext.create('Ext.data.Store', {
             pageSize: 20,
             autoLoad: true,
-            fields: ['id', 'code', 'name', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
+            fields: ['id', 'name', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'picture_gallery'],
             proxy: {
                 type: 'ajax',
                 url: '/questionanswer/getList',
@@ -221,13 +206,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
                     header: "ID", dataIndex: 'id'
                 },
                 {
-                    header: "名称", dataIndex: 'name'
-                },
-                {
-                    header: "省份", dataIndex: 'code'
-                },
-                {
-                    header: "城市", dataIndex: 'keywords'
+                    header: "标题", dataIndex: 'name'
                 },
                 {
                     header: "建立时间", dataIndex: 'ctime',

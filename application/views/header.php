@@ -5,6 +5,15 @@
 <html lang="zh-cn">
 	<!--<![endif]-->
 	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="renderer" content="webkit">
+		<meta name="force-rendering" content="webkit">
+		<meta http-equiv="Cache-Control" content="no-siteapp">
+		<title>
+			首页
+		</title>
 		<!--Core css-->
 		<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 		<!--Custom css-->
@@ -84,7 +93,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="/about/history">
+									<a href="/about/heretofore">
 										发展历程
 									</a>
 								</li>
@@ -166,7 +175,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="/cases/new_car">
+									<a href="/cases/newcar">
 										新车上市类
 									</a>
 								</li>

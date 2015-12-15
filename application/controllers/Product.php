@@ -112,21 +112,30 @@ class product extends CI_Controller{
         return $url;
     }
 
-    public function view($slug = NULL)
+    public function view()
     {
-        $data['bases_item'] = $this->product_model->get_bases($slug);
+		$id = $this->uri->segment(3);
+		
+        $result = $this->loadModel($id);
+		
+		$data['row'] = $result->row();
     
-        if (empty($data['bases_item']))
-        {
+        $this->load->view('header', $data);
+        $this->load->view('product/view', $data);
+        $this->load->view('footer', $data);
+    }
+	
+	private function loadModel($id)
+	{
+		$sql = 'SELECT * FROM product WHERE id ='. $id;
+		$model = $this->db->query($sql);
+		
+		if ($model === null) {
             show_404();
         }
-    
-        $data['title'] = $data['bases_item']['title'];
-    
-        //$this->load->view('templates/header', $data);
-        $this->load->view('contact/view', $data);
-        //$this->load->view('templates/footer');
-    }
+		
+		return $model;
+	}
     
     // ajax获取地址下拉菜单
     public function region()
