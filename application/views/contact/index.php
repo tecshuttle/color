@@ -69,7 +69,7 @@
 					<div class="pull-left">
 					<?php if ($has_data) : ?>
 						<?php foreach ($pagedata as $contact_item):?>
-						<dl class="description">
+						<!--<dl class="description">
 							<dt class="h2"><?= $contact_item['name'];?></dt>
 							<?= $contact_item['content'];?>
 						<?php break;endforeach;?>

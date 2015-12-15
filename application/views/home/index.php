@@ -663,12 +663,84 @@
 			<!--/.section END-->
 			<!--当前模版所需要的JS资源-->
 			<script src="//cdn.bootcss.com/jquery.matchHeight/0.6.0/jquery.matchHeight-min.js"></script>
-			<script>//等高
+<script>
+//等高
 $(function() {
 	$(".js-match").each(function() {
 		$(this).children(".js-match-item").matchHeight();
 	});
-});</script>
+});
+</script>
+
+
+<style type="text/css">
+/* leftsead */
+#leftsead{width:131px;height:143px;position:fixed;top:258px;right:0px;}
+*html #leftsead{margin-top:258px;position:absolute;}
+#leftsead li{width:131px;height:60px;}
+#leftsead li img{float:right;}
+#leftsead li a{height:49px;float:right;display:block;min-width:47px;max-width:131px;}
+#leftsead li a .shows{display:block;}
+#leftsead li a .hides{margin-right:-143px;cursor:pointer;cursor:hand;}
+#leftsead li a.youhui .hides{display:none;position:absolute;right:190px;top:2px;}
+</style>
+
+<div id="leftsead">
+<ul class="list-unstyled">
+
+<li>
+	<a href="<?php echo base_url('contact/message_board')?>">
+		<img src="/assets/img/tc/ll03.png" width="131" height="49"  class="hides">
+		<img src="/assets/img/tc/l03.png" width="47" height="49" class="shows">
+	</a>
+</li>
+
+<li>
+	<a href="tencent://message/?uin=3217036199&Site=test315.nesky.cn&Menu=yes">
+		<img src="/assets/img/tc/ll04.png" width="131" height="49" class="hides">
+		<img src="/assets/img/tc/l04.png" width="47" height="49" class="shows">
+	</a>
+</li>
+
+<li>
+	<a href="<?php echo base_url('contact/message_board')?>">
+		<img src="/assets/img/tc/ll03.png" width="131" height="49"  class="hides">
+		<img src="/assets/img/tc/l03.png" width="47" height="49" class="shows">
+	</a>
+</li>
+
+<li>
+	<a href="<?php echo base_url('contact/message_board')?>">
+		<img src="/assets/img/tc/ll03.png" width="131" height="49"  class="hides">
+		<img src="/assets/img/tc/l03.png" width="47" height="49" class="shows">
+	</a>
+</li>
+</ul>
+</div>
+<!--leftsead end-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("#leftsead a").hover(function(){
+		if($(this).prop("className")=="youhui"){
+			$(this).children("img.hides").show();
+		}else{
+			$(this).children("img.hides").show();
+			$(this).children("img.shows").hide();
+			$(this).children("img.hides").animate({marginRight:'0px'},'slow');
+		}
+	},function(){
+		if($(this).prop("className")=="youhui"){
+			$(this).children("img.hides").hide('slow');
+		}else{
+			$(this).children("img.hides").animate({marginRight:'-143px'},'slow',function(){$(this).hide();$(this).next("img.shows").show();});
+		}
+	});
+	$("#top_btn").click(function(){if(scroll=="off") return;$("html,body").animate({scrollTop: 0}, 300);});
+
+});
+</script>
 		</main>
 		<!--/.page-index END-->
 		<!--page-footer START-->
@@ -738,5 +810,6 @@ $(function() {
 		<script src="assets/js/bootstrap-select.js"></script>
 		<script src="assets/js/defaults-zh_CN.js"></script>
 		<script src="assets/js/main.js"></script>
+
 	</body>
 </html>
