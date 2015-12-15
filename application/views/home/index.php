@@ -686,21 +686,20 @@
 			<!--/.section END-->
 			<!--当前模版所需要的JS资源-->
 			<script src="//cdn.bootcss.com/jquery.matchHeight/0.6.0/jquery.matchHeight-min.js"></script>
-			<script>//等高
+<script>
+//等高
 $(function() {
 	$(".js-match").each(function() {
 		$(this).children(".js-match-item").matchHeight();
 	});
-});</script>
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+});
+</script>
+
 
 <style type="text/css">
-*{margin:0;padding:0;list-style-type:none;}
-a,img{border:0;}
-
 /* leftsead */
 #leftsead{width:131px;height:143px;position:fixed;top:258px;right:0px;}
-*html #leftsead{margin-top:258px;position:absolute;top:expression(eval(document.documentElement.scrollTop));}
+*html #leftsead{margin-top:258px;position:absolute;}
 #leftsead li{width:131px;height:60px;}
 #leftsead li img{float:right;}
 #leftsead li a{height:49px;float:right;display:block;min-width:47px;max-width:131px;}
@@ -709,19 +708,40 @@ a,img{border:0;}
 #leftsead li a.youhui .hides{display:none;position:absolute;right:190px;top:2px;}
 </style>
 
-<body style="height:500px;" >
 <div id="leftsead">
-<ul>
+<ul class="list-unstyled">
 
-<li><a href="<?php echo base_url('contact/message_board')?>"><img src="/assets/img/tc/ll03.png" width="131" height="49"  class="hides"/><img src="/assets/img/tc/l03.png" width="47" height="49" class="shows" /></a></li>
+<li>
+	<a href="<?php echo base_url('contact/message_board')?>">
+		<img src="/assets/img/tc/ll03.png" width="131" height="49"  class="hides">
+		<img src="/assets/img/tc/l03.png" width="47" height="49" class="shows">
+	</a>
+</li>
 
-<li><a href="tencent://message/?uin=3217036199&Site=test315.nesky.cn&Menu=yes"><img src="/assets/img/tc/ll04.png" width="131" height="49" class="hides"/><img src="/assets/img/tc/l04.png" width="47" height="49" class="shows"/></a></li>
+<li>
+	<a href="tencent://message/?uin=3217036199&Site=test315.nesky.cn&Menu=yes">
+		<img src="/assets/img/tc/ll04.png" width="131" height="49" class="hides">
+		<img src="/assets/img/tc/l04.png" width="47" height="49" class="shows">
+	</a>
+</li>
 
-<li><a href="<?php echo base_url('contact/message_board')?>"><img src="/assets/img/tc/ll03.png" width="131" height="49"  class="hides"/><img src="/assets/img/tc/l03.png" width="47" height="49" class="shows" /></a></li>
+<li>
+	<a href="<?php echo base_url('contact/message_board')?>">
+		<img src="/assets/img/tc/ll03.png" width="131" height="49"  class="hides">
+		<img src="/assets/img/tc/l03.png" width="47" height="49" class="shows">
+	</a>
+</li>
 
-<li><a href="<?php echo base_url('contact/message_board')?>"><img src="/assets/img/tc/ll03.png" width="131" height="49"  class="hides"/><img src="/assets/img/tc/l03.png" width="47" height="49" class="shows" /></a></li>
+<li>
+	<a href="<?php echo base_url('contact/message_board')?>">
+		<img src="/assets/img/tc/ll03.png" width="131" height="49"  class="hides">
+		<img src="/assets/img/tc/l03.png" width="47" height="49" class="shows">
+	</a>
+</li>
 </ul>
-</div><!--leftsead end-->
+</div>
+<!--leftsead end-->
+
 <script type="text/javascript">
 $(document).ready(function(){
 
@@ -731,9 +751,9 @@ $(document).ready(function(){
 		}else{
 			$(this).children("img.hides").show();
 			$(this).children("img.shows").hide();
-			$(this).children("img.hides").animate({marginRight:'0px'},'slow'); 
+			$(this).children("img.hides").animate({marginRight:'0px'},'slow');
 		}
-	},function(){ 
+	},function(){
 		if($(this).prop("className")=="youhui"){
 			$(this).children("img.hides").hide('slow');
 		}else{
@@ -813,6 +833,6 @@ $(document).ready(function(){
 		<script src="assets/js/bootstrap-select.js"></script>
 		<script src="assets/js/defaults-zh_CN.js"></script>
 		<script src="assets/js/main.js"></script>
-		
+
 	</body>
 </html>
