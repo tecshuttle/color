@@ -46,10 +46,42 @@
 			<!--main标签在页面中只能出现一次-->
 
 			<div class="container">
+				<div class="download-wrap">
+				<?php if($countData):?>
+				<?php foreach($data as $row):?>
+					<div class="section">
+						<a class="clearfix download-inner" href="<?= $row['url'];?>">
+							<div class="download-picture">
+								<?= $row['content'];?>
+							</div>
 
-				<?= $article->content ?>
-			
-			</div>
+							<div class="download-description">
+								<h3 class="download-heading"><?= $row['name'];?></h3>
+								<span class="btn btn-default">
+									<i class="fa fa-angle-right"></i>立即下载
+								</span>
+							</div>
+
+						</a>
+					</div>
+				<?php endforeach;?>
+				<?php else:?>
+					<div class="section">
+						暂无下载内容
+					</div>
+				<?php endif;?>
+				</div>
+				<!--/.wrap END-->
+
+				<!--分页-->
+				<footer class="clearfix cp-pagination">
+					 <nav class="pull-right">
+						<ul class="pager">
+							<?= $pagelink ?>
+						</ul>
+					</nav>
+				</footer>
+				<!--/.cp-pagination END-->
 		</main>
 		<!--/.page-main END-->
 

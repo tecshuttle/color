@@ -20,7 +20,6 @@ class bases_model extends CI_Model
         //$this->lang = $_SESSION['lang'];
         $this->load->database();
     }
-
 	
     /**
      * 获取下属地区数据.

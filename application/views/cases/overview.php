@@ -1,5 +1,4 @@
-﻿<!--slide START-->
-		<figure id="carousel" class="carousel slide" data-ride="carousel">
+﻿<figure id="carousel" class="carousel slide" data-ride="carousel">
 
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -8,7 +7,7 @@
 			</ol>
 
 			<!-- Wrapper for slides -->
-						<div class="carousel-inner" role="listbox">
+			<div class="carousel-inner" role="listbox">
 				<div class="item active">
 					<img src="/assets/img/product/device-1.jpg">
 				</div>
@@ -31,42 +30,41 @@
 		<!--/.slide END-->
 
 		<!--page-main START-->
-		<main class="page-main page-case" id="content" tabindex="-1" role="main">
+		<main class="page-main page-news" id="content" tabindex="-1" role="main">
 			<!--main的命名方式为page+主题-->
 			<!--main标签在页面中只能出现一次-->
 
 			<div class="container">
 
-				
+				<!--wrap-->
+					<?= $article->content;?>
+				<!--/.wrap END-->
 
-				<?= $article->content ?>
+				<!--分页-->
+				<footer class="clearfix cp-pagination">
+					<nav class="pull-right">
+						<ul class="pager">
+							<!--当前页属于第一页时，为previous添加disabled禁用类-->
+							<li class="previous disabled">
+								<a href="#"><i class="fa fa-angle-left"></i></a>
+							</li>
+
+							<!--页码-->
+							<li class="page-number current">
+								<span class="number-wrap">
+									<b>1</b>
+									<i>6</i>
+								</span>
+							</li>
+
+							<!--当前页属于最后一页时，为next添加disabled禁用类-->
+							<li class="next">
+								<a href="#"><i class="fa fa-angle-right"></i></a>
+							</li>
+						</ul>
+					</nav>
+				</footer>
+				<!--/.cp-pagination END-->
 
 			</div>
-
-			<!--本模版单独引用JS-->
-			<link type="text/css" href="//cdn.bootcss.com/magnific-popup.js/1.0.0/magnific-popup.min.css" rel="stylesheet">
-			<script src="//cdn.bootcss.com/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
-
-			<script>
-				$('.js-open-popup').magnificPopup({
-					type: 'image',
-					tLoading: '图片正在读取中 #%curr%...',
-					removalDelay: 300,
-					items: [{
-						src: 'assets/img/product/case01.jpg',
-						title: '这里是标题'
-					}, {
-						src: 'assets/img/product/case02.jpg',
-						title: '这里是标题'
-					}],
-					gallery: {
-						enabled: true
-					},
-					image: {
-						tError: '<a href="%url%">该图片#%curr%</a> 读取失败,请尝试刷新页面.',
-					}
-				});
-			</script>
-
 		</main>
-		<!--/.page-main END-->

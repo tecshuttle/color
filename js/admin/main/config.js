@@ -30,18 +30,13 @@ Docs.Menu = [
                 text: "越野器械",
                 leaf: true
             },
-            {
-                href: "/admin/recruitment",
-                text: "人才招聘",
-                leaf: true
-            },
 			{
                 href: "/admin/downcenter",
                 text: "下载中心",
                 leaf: true
             },
 			{
-                href: "/admin/recruitment",
+                href: "/admin/questionanswer",
                 text: "Q&A",
                 leaf: true
             }

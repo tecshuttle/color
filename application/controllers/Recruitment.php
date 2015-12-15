@@ -10,8 +10,14 @@ class recruitment extends MY_Controller
 
     public function index()
     {
-        $data = array(
+		$this->load->model('articles_model');
 		
+        $article = $this->articles_model->select(array(
+            'code' => 'recruitment'
+        ));
+		
+        $data = array(
+			'article' => $article
         );
 
         $this->load->view('header', $data);

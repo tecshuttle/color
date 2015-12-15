@@ -70,24 +70,8 @@
 					<?php if ($has_data) : ?>
 						<?php foreach ($pagedata as $contact_item):?>
 						<dl class="description">
-							<dd><i class="fa fa-map-marker"></i><?= $contact_item['name']?></dd>
-						</dl>
-
-						<h3>试驾基地</h3>
-						<p class="list-brand">
-							<span class="center-block">
-								<span class="glyphicon glyphicon-play"></span> 三源色 · <?= $contact_item['name']?>
-							</span>
-						</p>
-
-						<h3>越野器械</h3>
-						<p class="list-brand">
-							<span class="center-block">
-								<span class="glyphicon glyphicon-play"></span>
-								<?= $contact_item['name']?>
-							</span>
-
-						</p>
+							<dt class="h2"><?= $contact_item['name'];?></dt>
+							<?= $contact_item['content'];?>
 						<?php break;endforeach;?>
 						<?php else: ?>
 						<div style="text-align:center; margin:50px auto 100px;">找不到记录</div>

@@ -10,10 +10,16 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="assets/img/product/ad-about.jpg">
+					<img src="/assets/img/product/product-1.jpg">
 				</div>
 				<div class="item">
-					<img src="assets/img/product/ad-map.jpg">
+					<img src="/assets/img/product/product-2.jpg">
+				</div>
+				<div class="item">
+					<img src="/assets/img/product/product-3.jpg">
+				</div>
+				<div class="item">
+					<img src="/assets/img/product/product-4.jpg">
 				</div>
 			</div>
 
@@ -56,7 +62,7 @@
 				<div class="performance-wrap" >
 					<?php foreach($dataList as $row): ?>
 					<div class="section">
-						<a class="clearfix performance-inner js-open-popup" href="#">
+						<a class="clearfix performance-inner js-open-popup" href="<?= '/product/view/'. $row['id'];?>">
 
 							<div class="performance-photo">
 								<?= $row['content']?>
@@ -109,24 +115,24 @@
 			<script src="//cdn.bootcss.com/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
 
 			<script>
-				$('.js-open-popup').magnificPopup({
-					type: 'image',
-					tLoading: '图片正在读取中 #%curr%...',
-					removalDelay: 300,
-					items: [{
-						src: 'assets/img/product/performance.jpg',
-						title: '这里是标题'
-					}, {
-						src: 'assets/img/product/performance.jpg',
-						title: '这里是标题'
-					}],
-					gallery: {
-						enabled: true
-					},
-					image: {
-						tError: '<a href="%url%">该图片#%curr%</a> 读取失败,请尝试刷新页面.',
-					}
-				});
+				// $('.js-open-popup').magnificPopup({
+					// type: 'image',
+					// tLoading: '图片正在读取中 #%curr%...',
+					// removalDelay: 300,
+					// items: [{
+						// src: '/assets/img/product/performance.jpg',
+						// title: '这里是标题'
+					// }, {
+						// src: '/assets/img/product/performance.jpg',
+						// title: '这里是标题'
+					// }],
+					// gallery: {
+						// enabled: true
+					// },
+					// image: {
+						// tError: '<a href="%url%">该图片#%curr%</a> 读取失败,请尝试刷新页面.',
+					// }
+				// });
 			</script>
 
 		</main>

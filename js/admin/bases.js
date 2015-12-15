@@ -46,12 +46,28 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
                 name: 'keywords',
                 emptyText: '请输入…'
             },
+			{
+                xtype: 'textfield',
+                fieldLabel: '所属地区',
+                anchor: '50%',
+                name: 'area',
+                emptyText: '请输入…'
+            },
             {
                 xtype: 'htmleditor',
                 anchor: '100%',
                 height: 500,
                 fieldLabel: '内容',
                 name: 'content',
+                allowBlank: false,
+                emptyText: '请输入…'
+            },
+			{
+                xtype: 'htmleditor',
+                anchor: '100%',
+                height: 500,
+                fieldLabel: '详情页内容',
+                name: 'viewcontent',
                 allowBlank: false,
                 emptyText: '请输入…'
             },
@@ -199,7 +215,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
         var store = Ext.create('Ext.data.Store', {
             pageSize: 20,
             autoLoad: true,
-            fields: ['id', 'code', 'name', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
+            fields: ['id', 'code', 'name', 'area', 'desc', 'cover', 'content', 'viewcontent', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
             proxy: {
                 type: 'ajax',
                 url: '/bases/getList',
@@ -228,6 +244,9 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
                 },
                 {
                     header: "城市", dataIndex: 'keywords'
+                },
+				{
+                    header: "所属地区", dataIndex: 'area'
                 },
                 {
                     header: "建立时间", dataIndex: 'ctime',
@@ -444,7 +463,7 @@ Tomtalk.Idc = Tomtalk.IdcAction;
 
 Ext.onReady(function () {
     new Tomtalk.Idc({
-        module: 'articles',
+        module: 'bases',
         renderTo: Ext.getBody()
     });
 });

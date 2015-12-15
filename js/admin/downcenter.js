@@ -25,25 +25,18 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
             },
             {
                 xtype: 'textfield',
-                fieldLabel: '标题',
+                fieldLabel: '文件名',
                 allowBlank: false,
                 anchor: '50%',
                 name: 'name',
                 emptyText: '请输入…'
             },
-            {
+			{
                 xtype: 'textfield',
-                fieldLabel: '省份',
+                fieldLabel: '下载地址',
                 allowBlank: false,
                 anchor: '50%',
-                name: 'code',
-                emptyText: '请输入…'
-            },
-            {
-                xtype: 'textfield',
-                fieldLabel: '城市',
-                anchor: '50%',
-                name: 'keywords',
+                name: 'url',
                 emptyText: '请输入…'
             },
             {
@@ -199,7 +192,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
         var store = Ext.create('Ext.data.Store', {
             pageSize: 20,
             autoLoad: true,
-            fields: ['id', 'code', 'name', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
+            fields: ['id', 'code', 'name', 'url', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
             proxy: {
                 type: 'ajax',
                 url: '/downcenter/getList',
@@ -221,13 +214,10 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
                     header: "ID", dataIndex: 'id'
                 },
                 {
-                    header: "名称", dataIndex: 'name'
+                    header: "文件名", dataIndex: 'name'
                 },
                 {
-                    header: "省份", dataIndex: 'code'
-                },
-                {
-                    header: "城市", dataIndex: 'keywords'
+                    header: "下载地址", dataIndex: 'url'
                 },
                 {
                     header: "建立时间", dataIndex: 'ctime',
