@@ -890,10 +890,10 @@ select.mobile-device {
 	top: 0;
 	right: 0;
 	bottom: 0;
-	left: -1920px;
+	left: -1000%;
 	display: block;
 	content: '';
-	width: 3840px;
+	width: 2000%;
 	height: 75px;
 	background-color: rgba(255, 255, 255, .7) !important;
 	-webkit-background-clip: padding-box;
@@ -967,6 +967,7 @@ select.mobile-device {
 	color: #dd0024 !important;
 	background-color: transparent;
 }
+
 
 /*脚部*/
 
@@ -1048,6 +1049,7 @@ select.mobile-device {
 /*
  *首页
  **************************************/
+
 
 /*
 ** 公共样式
@@ -3157,6 +3159,108 @@ select.mobile-device {
 
 .login .form-submit .col-xs-12 {
 	padding-left: 50px;
+}
+
+
+/*-------------------------------------------------------------*\
+    $侧边栏联系方式
+\*-------------------------------------------------------------*/
+
+.aside-contact {
+	position: fixed;
+	right: 0;
+	top: 50%;
+	margin-top: -95px;
+}
+
+.aside-contact dl {
+	margin-bottom: 0;
+}
+
+.aside-contact dl+dl {
+	margin-top: 2px;
+}
+
+.aside-contact .contact-item {
+	position: relative;
+	color: white;
+}
+
+.aside-contact .contact-item dt {
+	width: 46px;
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+	background-color: #dd0024;
+}
+
+.aside-contact .contact-item dd {
+	position: absolute;
+	top: 0;
+	right: 46px;
+	width: 133px;
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+	color: #333;
+	background-color: white;
+	display: none;
+}
+
+.aside-contact .contact-item dt:hover+dd {
+	display: block;
+}
+
+.aside-contact .contact-item dt .fa {
+	line-height: 46px;
+}
+
+.aside-contact .contact-item.phone .fa {
+	font-size: 28px;
+}
+
+.aside-contact .contact-item.weixin .fa {
+	font-size: 26px;
+}
+
+.aside-contact .contact-item.weixin dd {
+	top: -48px;
+	right: 63px;
+	width: 160px;
+	height: 160px;
+}
+
+.aside-contact .contact-item.weixin dd .QR-code {
+	position: relative;
+	margin: 13px auto;
+	text-align: center;
+}
+
+.aside-contact .contact-item.weixin dd .QR-code:before {
+	position: absolute;
+	right: -10px;
+	top: 50%;
+	display: block;
+	margin-top: -8px;
+	content: '';
+	width: 0;
+	height: 0;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-left: 10px solid white;
+}
+
+.aside-contact .contact-item.weixin dd .QR-code>img {
+	max-width: 100%;
+	height: auto;
+}
+
+.aside-contact .contact-item.qq .fa {
+	font-size: 26px;
+}
+
+.aside-contact .contact-item.weibo .fa {
+	font-size: 28px;
 }
 
 
