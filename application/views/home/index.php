@@ -338,7 +338,10 @@
 										};
 									?>
 									<a class="col-xs-12 col-sm-12 col-md-12 col-lg-6" href="<?= '/bases/view/'. $row['id']?>">
-										<?= $row['content']?>
+										<span class="center-block cp-picture-effect">
+											<?= $row['content']?>
+										</span>
+
 										<h4>
 											<b><?= $row['name']?></b>
 										</h4>
@@ -384,7 +387,10 @@
 										if($i > 1){
 									?>
 									<a class="col-xs-12 col-sm-12 col-md-12 col-lg-6" href="<?= '/bases/view/'. $row['id']?>">
-										<?= $row['content']?>
+										<span class="center-block cp-picture-effect">
+											<?= $row['content']?>
+										</span>
+
 										<h4>
 											<b><?= $row['name']?></b>
 										</h4>
