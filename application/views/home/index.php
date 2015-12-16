@@ -685,7 +685,7 @@
 					</a>
 				</dt>
 				<dd>
-					<b>400-xxx-xxx</b>
+					<b>400-058-6882</b>
 				</dd>
 			</dl>
 
@@ -698,7 +698,7 @@
 				</dt>
 				<dd>
 					<span class="center-block QR-code">
-						<img src="assets/img/product/QR-code.jpg" alt="微信服务号">
+						<img src="assets/img/product/P20-2.jpg" alt="微信服务号">
 					</span>
 				</dd>
 			</dl>
@@ -706,12 +706,12 @@
 			<!--QQ-->
 			<dl class="contact-item qq">
 				<dt>
-					<a href="tencent://message/?uin=3217036199&Site=test315.nesky.cn&Menu=yes" title="QQ客服">
+					<a href="tencent://message/?uin=2371483950&Site=test315.nesky.cn&Menu=yes" title="QQ客服">
 						<i class="fa fa-qq"></i>
 					</a>
 				</dt>
 				<dd>
-					<b>3217036199</b>
+					<b>2371483950</b>
 				</dd>
 			</dl>
 
@@ -723,7 +723,7 @@
 					</a>
 				</dt>
 				<dd>
-					<b>SUNYATHE</b>
+					<b>@三原色文化传播</b>
 				</dd>
 			</dl>
 
