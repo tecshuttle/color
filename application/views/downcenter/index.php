@@ -51,7 +51,7 @@
 				<?php foreach($data as $row):?>
 					<div class="section">
 						<a class="clearfix download-inner" href="<?= $row['url'];?>">
-							<div class="download-picture">
+							<div class="download-picture cp-picture-effect">
 								<?= $row['content'];?>
 							</div>
 
@@ -73,6 +73,7 @@
 				</div>
 				<!--/.wrap END-->
 
+
 				<!--分页-->
 				<footer class="clearfix cp-pagination">
 					 <nav class="pull-right">
@@ -82,7 +83,8 @@
 					</nav>
 				</footer>
 				<!--/.cp-pagination END-->
+
+			</div>
 		</main>
 		<!--/.page-main END-->
 
-		
