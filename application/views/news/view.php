@@ -1,4 +1,4 @@
-﻿		<!--slide START-->
+<!--slide START-->
 		<figure id="carousel" class="carousel slide" data-ride="carousel">
 
 			<!-- Indicators -->
@@ -9,7 +9,7 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<?= $banner->content;?>
+				<?= $article->content ?>
 			</div>
 
 			<!-- Controls -->
@@ -26,16 +26,25 @@
 		<!--/.slide END-->
 
 		<!--page-main START-->
-		<main class="page-main page-job" id="content" tabindex="-1" role="main">
+		<main class="page-main page-detail" id="content" tabindex="-1" role="main">
 			<!--main的命名方式为page+主题-->
 			<!--main标签在页面中只能出现一次-->
 
 			<div class="container">
 
-				<!--wrap-->
-					<?= $article->content?>
-				<!--/.wrap END-->
+				<article class="base-detail-wrap">
 
+					<header class="text-center">
+						<h2><strong><?= $row->name?></strong></h2>
+						<br/>
+					</header>
+					<p>
+						<?= $row->content?>
+					</p>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<?= $row->intro ?>
+					</p>
+				</article>
 			</div>
 		</main>
 		<!--/.page-main END-->

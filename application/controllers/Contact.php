@@ -6,11 +6,16 @@ class contact extends MY_Controller
     {
         parent::__construct(); // Call the Model constructor
         $this->load->model('enterprise_model');
+        $this->load->model('articles_model');
     }
 
     public function index()
     {
 		$conditions = array();
+		
+		$banner = $this->articles_model->select(array(	
+            'code' => 'contactBanner'
+        ));
 		
 		$sync = isset($_GET['sync']);
 		
@@ -63,6 +68,7 @@ class contact extends MY_Controller
 			'city_list' => $this->enterprise_model->get_regions(2, $province_id),
 			'city_id' => $city_id,
 			'province_id' => $province_id,
+			'banner' => $banner,
 			'sync' => $sync,
 			'pagedata' => $result->result_array(),
 			'has_data' => count($result->result_array()) > 0,

@@ -6,23 +6,11 @@
 				<li data-target="#carousel" data-slide-to="0" class="active"></li>
 				<li data-target="#carousel" data-slide-to="1"></li>
 				<li data-target="#carousel" data-slide-to="2"></li>
-				<li data-target="#carousel" data-slide-to="3"></li>
 			</ol>
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					<img src="/assets/img/product/product-1.jpg">
-				</div>
-				<div class="item">
-					<img src="/assets/img/product/product-2.jpg">
-				</div>
-				<div class="item">
-					<img src="/assets/img/product/product-3.jpg">
-				</div>
-				<div class="item">
-					<img src="/assets/img/product/product-4.jpg">
-				</div>
+				<?= $banner->content;?>
 			</div>
 			<!-- Controls -->
 			<a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
@@ -66,7 +54,9 @@
 						<a class="clearfix performance-inner js-open-popup" href="<?= '/product/view/'. $row['id'];?>">
 
 							<div class="performance-photo">
-								<?= $row['content']?>
+								<div class="base-photo cp-picture-effect">
+									<?= $row['content']?>
+								</div>
 							</div>
 
 							<div class="performance-description">
@@ -141,10 +131,10 @@
 			<script>
 				$('#select_product').on('change', function(){
 					var name = $(this).find("option:selected").text();
-					
+
 					$.post('/product/device_select',{name: name},function(result, obj){
 						if (result.success) {
-							$('#page_container').html(result.device_html);	
+							$('#page_container').html(result.device_html);
 						} else {
 							console.log(result);
 						}

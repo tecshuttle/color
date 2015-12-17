@@ -6,11 +6,16 @@ class downcenter extends MY_Controller
     {
         parent::__construct(); // Call the Model constructor
         $this->load->model('downcenter_model');
+        $this->load->model('articles_model');
     }
 
     public function index()
     {
         $this->load->model('downcenter_model');
+		
+		$banner = $this->articles_model->select(array(	
+            'code' => 'downcenterBanner'
+        ));
 		
 		//数据总数
         $count_sql = 'SELECT * FROM downcenter';
@@ -60,6 +65,7 @@ class downcenter extends MY_Controller
 			'countData' => count($result->result_array()),
 			'pagelink' => $pagelink,
 			'nowpage' => $nowpage,
+			'banner' => $banner,
 		);
 		
 		

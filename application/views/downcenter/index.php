@@ -8,23 +8,11 @@
 				<li data-target="#carousel" data-slide-to="0" class="active"></li>
 				<li data-target="#carousel" data-slide-to="1"></li>
 				<li data-target="#carousel" data-slide-to="2"></li>
-				<li data-target="#carousel" data-slide-to="3"></li>
 			</ol>
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					<img src="/assets/img/product/product-1.jpg">
-				</div>
-				<div class="item">
-					<img src="/assets/img/product/product-2.jpg">
-				</div>
-				<div class="item">
-					<img src="/assets/img/product/product-3.jpg">
-				</div>
-				<div class="item">
-					<img src="/assets/img/product/product-4.jpg">
-				</div>
+				<?= $banner->content;?>
 			</div>
 
 			<!-- Controls -->
@@ -51,7 +39,7 @@
 				<?php foreach($data as $row):?>
 					<div class="section">
 						<a class="clearfix download-inner" href="<?= $row['url'];?>">
-							<div class="download-picture">
+							<div class="download-picture cp-picture-effect">
 								<?= $row['content'];?>
 							</div>
 
@@ -73,6 +61,7 @@
 				</div>
 				<!--/.wrap END-->
 
+
 				<!--分页-->
 				<footer class="clearfix cp-pagination">
 					 <nav class="pull-right">
@@ -82,7 +71,8 @@
 					</nav>
 				</footer>
 				<!--/.cp-pagination END-->
+
+			</div>
 		</main>
 		<!--/.page-main END-->
 
-		

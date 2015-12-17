@@ -4,9 +4,9 @@
  * 这个类和products类是一样的，如果有修改，请同步更新到这里，有时间，重构时，合并成一个类。
  *
  */
-class news_model extends CI_Model
+class cases_model extends CI_Model
 {
-    var $table = 'news';
+    var $table = 'cases';
 
     function __construct()
     {

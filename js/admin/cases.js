@@ -4,7 +4,7 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
     constructor: function (config) {
         var me = this;
         config = Ext.apply({
-            title: '下载中心',
+            title: '成功案例',
             bodyStyle: 'padding:10px;',
             layout: 'anchor'
         }, config);
@@ -25,28 +25,38 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
             },
             {
                 xtype: 'textfield',
-                fieldLabel: '文件名',
+                fieldLabel: '标题',
                 allowBlank: false,
                 anchor: '50%',
                 name: 'name',
                 emptyText: '请输入…'
             },
-			{
-                xtype: 'filefield',
-                fieldLabel: 'Download',
-                id: 'file',
-                hidden: me.module == 'products' ? true : false,
-                disabled: me.module == 'products' ? true : false,
+            {
+                xtype: 'textfield',
+                fieldLabel: '日期',
                 anchor: '50%',
-                name: 'userfile',
-                emptyText: '文件类型：gif | jpg | png | txt | doc | pdf',
-                buttonText: '上传文件'
+                name: 'dates',
+                emptyText: '请输入…'
+            },
+			{
+                xtype: 'textfield',
+                fieldLabel: '类别',
+                anchor: '50%',
+                name: 'type',
+                emptyText: '请输入…'
+            },
+			{
+                xtype: 'textfield',
+                fieldLabel: '内容',
+                anchor: '50%',
+                name: 'intro',
+                emptyText: '请输入…'
             },
             {
                 xtype: 'htmleditor',
                 anchor: '100%',
                 height: 500,
-                fieldLabel: '内容',
+                fieldLabel: '图片',
                 name: 'content',
                 allowBlank: false,
                 emptyText: '请输入…'
@@ -109,7 +119,7 @@ Ext.define('Tomtalk.product.EditFormAction', {extend: 'Tomtalk.product.EditFormU
 
         if (form.isValid()) {
             form.getForm().submit({
-                url: '/downcenter/save',//后台处理的页面
+                url: '/cases/save',//后台处理的页面
                 waitMsg: '正在保存数据...',
                 submitEmptyText: false,
                 success: function (fp, o) {
@@ -195,10 +205,10 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
         var store = Ext.create('Ext.data.Store', {
             pageSize: 20,
             autoLoad: true,
-            fields: ['id', 'code', 'name', 'url', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
+            fields: ['id', 'dates', 'name', 'type', 'intro', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
             proxy: {
                 type: 'ajax',
-                url: '/downcenter/getList',
+                url: '/cases/getList',
                 reader: {
                     type: 'json',
                     root: 'data',
@@ -217,10 +227,13 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
                     header: "ID", dataIndex: 'id'
                 },
                 {
-                    header: "文件名", dataIndex: 'name'
+                    header: "名称", dataIndex: 'name'
                 },
                 {
-                    header: "下载地址", dataIndex: 'url'
+                    header: "日期", dataIndex: 'dates'
+                },
+				{
+                    header: "类别", dataIndex: 'type'
                 },
                 {
                     header: "建立时间", dataIndex: 'ctime',
@@ -406,7 +419,7 @@ Tomtalk.IdcAction = Ext.extend(Tomtalk.IdcUI, {
         var me = this;
 
         Ext.Ajax.request({
-            url: '/downcenter/delete',
+            url: '/cases/delete',
             params: {
                 id: id
             },
@@ -437,7 +450,7 @@ Tomtalk.Idc = Tomtalk.IdcAction;
 
 Ext.onReady(function () {
     new Tomtalk.Idc({
-        module: 'articles',
+        module: 'cases',
         renderTo: Ext.getBody()
     });
 });

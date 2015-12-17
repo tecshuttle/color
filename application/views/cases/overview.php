@@ -8,12 +8,7 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					<img src="/assets/img/product/device-1.jpg">
-				</div>
-				<div class="item">
-					<img src="/assets/img/product/device-2.jpg">
-				</div>
+				<?= $article->content ?>
 			</div>
 
 			<!-- Controls -->
@@ -35,36 +30,28 @@
 			<!--main标签在页面中只能出现一次-->
 
 			<div class="container">
-
 				<!--wrap-->
-					<?= $article->content;?>
+				<div class="news-wrap">
+					<?php foreach($data as $row): ?>
+					<div class="section">
+						<h3><?= $row['dates'] ?>&nbsp;</h3>
+                        <h3>
+                            <b><?= $row['name'] ?></b>
+						</h3>
+						<a class="clearfix news-inner" href="<?= '/cases/view/'.$row['id']?>">
+							<div class="news-picture">
+								<?= $row['content'] ?>
+							</div>
+
+							<div class="news-description">
+								<p class="text-justify">
+									<?= $row['intro'] ?>
+								</p>
+							</div>
+						</a>
+					</div>
+					<?php endforeach; ?>
+				</div>
 				<!--/.wrap END-->
-
-				<!--分页-->
-				<footer class="clearfix cp-pagination">
-					<nav class="pull-right">
-						<ul class="pager">
-							<!--当前页属于第一页时，为previous添加disabled禁用类-->
-							<li class="previous disabled">
-								<a href="#"><i class="fa fa-angle-left"></i></a>
-							</li>
-
-							<!--页码-->
-							<li class="page-number current">
-								<span class="number-wrap">
-									<b>1</b>
-									<i>6</i>
-								</span>
-							</li>
-
-							<!--当前页属于最后一页时，为next添加disabled禁用类-->
-							<li class="next">
-								<a href="#"><i class="fa fa-angle-right"></i></a>
-							</li>
-						</ul>
-					</nav>
-				</footer>
-				<!--/.cp-pagination END-->
-
 			</div>
 		</main>

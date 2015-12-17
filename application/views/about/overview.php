@@ -6,14 +6,13 @@
 				<li data-target="#carousel" data-slide-to="1"></li>
 				<li data-target="#carousel" data-slide-to="2"></li>
 				<li data-target="#carousel" data-slide-to="3"></li>
+				<li data-target="#carousel" data-slide-to="4"></li>
+				<li data-target="#carousel" data-slide-to="5"></li>
 			</ol>
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active"><img src="/assets/img/product/about-1.jpg"></div>
-				<div class="item"><img src="/assets/img/product/about-2.jpg"></div>
-				<div class="item"><img src="/assets/img/product/about-3.jpg"></div>
-				<div class="item"><img src="/assets/img/product/about-4.jpg"></div>
+				<?= $banner->content;?>
 			</div>
 
 			<!-- Controls -->
@@ -28,11 +27,32 @@
 </figure>
 
 		<!--page-main START-->
-		<main class="page-main page-ceo-speech page-introduction" id="content" tabindex="-1" role="main">
+		<main class="page-main page-team page-ceo-speech page-introduction" id="content" tabindex="-1" role="main">
 			<!--main的命名方式为page+主题-->
 			<!--main标签在页面中只能出现一次-->
 
 			<div class="container">
 				<?= $article->content ?>
 			</div>
+			
+			<link type="text/css" href="//cdn.bootcss.com/magnific-popup.js/1.0.0/magnific-popup.min.css" rel="stylesheet">
+			<script src="//cdn.bootcss.com/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
+
+			<script>
+				$('.js-open-popup').magnificPopup({
+					type: 'image',
+					tLoading: '图片正在读取中 #%curr%...',
+					removalDelay: 300,
+					items: [{
+						src: '',
+						title: '这里是标题'
+					}],
+					gallery: {
+						enabled: true
+					},
+					image: {
+						tError: '<a href="%url%">该图片#%curr%</a> 读取失败,请尝试刷新页面.',
+					}
+				});
+			</script>
 		</main>

@@ -330,7 +330,7 @@
 							<div class="item active">
 								<!--描述-->
 								<div class="row caption">
-									<?php 
+									<?php
 										$i=0;
 										foreach($bases_menu as $row):
 										if($i == 2){
@@ -338,7 +338,10 @@
 										};
 									?>
 									<a class="col-xs-12 col-sm-12 col-md-12 col-lg-6" href="<?= '/bases/view/'. $row['id']?>">
-										<?= $row['content']?>
+										<span class="center-block cp-picture-effect">
+											<?= $row['content']?>
+										</span>
+
 										<h4>
 											<b><?= $row['name']?></b>
 										</h4>
@@ -350,12 +353,12 @@
 											</i>了解更多信息
 										</span>
 									</a>
-									<?php 
-										
+									<?php
+
 										$i++;
 										endforeach;
 									?>
-									<?php	
+									<?php
 									if($bases_menu == NULL){
 										?>
 											<a class="col-xs-12 col-sm-12 col-md-12 col-lg-6" href="#">
@@ -366,7 +369,7 @@
 											</a>
 											<?php
 										}else{
-											
+
 										}?>
 								</div>
 								<!--/.caption END-->
@@ -374,17 +377,20 @@
 							<div class="item">
 								<!--描述-->
 								<div class="row caption">
-									<?php 
+									<?php
 										$i=0;
 										foreach($bases_menu as $row):
 										if($i == 4){
 											break;
 										}
-										
+
 										if($i > 1){
 									?>
 									<a class="col-xs-12 col-sm-12 col-md-12 col-lg-6" href="<?= '/bases/view/'. $row['id']?>">
-										<?= $row['content']?>
+										<span class="center-block cp-picture-effect">
+											<?= $row['content']?>
+										</span>
+
 										<h4>
 											<b><?= $row['name']?></b>
 										</h4>
@@ -396,13 +402,13 @@
 											</i>了解更多信息
 										</span>
 									</a>
-									<?php 
+									<?php
 										};
 										$i++;
 										endforeach;
 									if($bases_menu === NULL){
 									if($bases_menu[1] === NULL){
-										
+
 										}else{
 											?>
 											<a class="col-xs-12 col-sm-12 col-md-12 col-lg-6" href="#">
@@ -415,7 +421,7 @@
 										}
 									}
 									?>
-									
+
 								</div>
 						</div>
 						<!-- Controls -->
@@ -461,7 +467,7 @@
 					<div class="body">
 						<div class="row js-match">
 						<?php if($product_menu !== NULL):?>
-							<?php 
+							<?php
 								$i=0;
 								foreach($product_menu as $row):
 								if($i == 4){
@@ -792,6 +798,7 @@
 			</div>
 		</footer>
 		<!--/.page-footer END-->
+
 		<!--common-->
 		<script src="//cdn.bootcss.com/bootstrap-hover-dropdown/2.0.10/bootstrap-hover-dropdown.min.js"></script>
 		<script src="//cdn.bootcss.com/scrollup/2.4.0/jquery.scrollUp.min.js"></script>

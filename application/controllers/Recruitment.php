@@ -16,8 +16,13 @@ class recruitment extends MY_Controller
             'code' => 'recruitment'
         ));
 		
+		$banner = $this->articles_model->select(array(
+            'code' => 'recruitmentBanner'
+        ));
+		
         $data = array(
-			'article' => $article
+			'article' => $article,
+			'banner' => $banner,
         );
 
         $this->load->view('header', $data);

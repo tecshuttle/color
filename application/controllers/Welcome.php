@@ -23,13 +23,12 @@ class Welcome extends MY_Controller
 		
 		$nodus = "WHERE nodus='".$this->input->get('nodus')."'";
 		$type = "WHERE type='".$this->input->get('type')."'";
-		$newType = "WHERE newType='".$this->input->get('newType')."'";
+		$newType = "WHERE type='".$this->input->get('newType')."'";
 		$area = "WHERE area='".$this->input->get('area')."'";
 
         $about_menu = $this->articles_model->select(array(
             'type_id' => 246
         ));
-		
 		
 		if($this->input->get('nodus') === NULL)
 			$product_menu_sql = 'select * from product';
@@ -41,22 +40,24 @@ class Welcome extends MY_Controller
 			$bases_menu_sql = 'select * from bases '.$area;
 		
 		if($this->input->get('type') === NULL)
-			$_menu_sql = 'select * from product';
+			$cases_menu_sql = 'select * from cases';
 		else
-			$_menu_sql = 'select * from product '.$type;
+			$cases_menu_sql = 'select * from cases '.$type;
 		
-		if($this->input->get('newType') === NULL)
-			$_menu_sql = 'select * from product';
-		else
-			$_menu_sql = 'select * from product '.$newType;
+		// if($this->input->get('newType') === NULL)
+			// $_menu_sql = 'select * from product';
+		// else
+			// $_menu_sql = 'select * from product '.$newType;
 		
 		$bases_menu = $this->db->query($bases_menu_sql);
 		$product_menu = $this->db->query($product_menu_sql);
+		$cases_menu = $this->db->query($cases_menu_sql);
 
         $data = array(
             'about_menu' => $about_menu['data'],
             'bases_menu' => $bases_menu->result_array(),
             'product_menu' => $product_menu->result_array(),
+            'cases_menu' => $cases_menu->result_array(),
 			'article' => $article
         );
 

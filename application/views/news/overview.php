@@ -13,7 +13,7 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<?= $banner->content;?>
+				<?= $article->content;?>
 			</div>
 
 			<!-- Controls -->
@@ -35,11 +35,29 @@
 			<!--main标签在页面中只能出现一次-->
 
 			<div class="container">
+				<!--wrap-->
+				<div class="news-wrap">
+					<?php foreach($data as $row): ?>
+					<div class="section">
+						<h3><?= $row['dates'] ?>&nbsp;</h3>
+                        <h3>
+                            <b><?= $row['name'] ?></b>
+						</h3>
+						<a class="clearfix news-inner" href="<?= '/cases/view/'.$row['id']?>">
+							<div class="news-picture">
+								<?= $row['content'] ?>
+							</div>
 
-				<?= $article->content ?>
-
-
-
+							<div class="news-description">
+								<p class="text-justify">
+									<?= $row['intro'] ?>
+								</p>
+							</div>
+						</a>
+					</div>
+					<?php endforeach; ?>
+				</div>
+				<!--/.wrap END-->
 			</div>
 		</main>
 		<!--/.page-main END-->
