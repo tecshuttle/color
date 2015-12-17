@@ -1,4 +1,4 @@
-﻿<!--page-main START-->
+<!--page-main START-->
 <main class="page-main page-message" id="content" tabindex="-1" role="main">
 	<!--main的命名方式为page+主题-->
 	<!--main标签在页面中只能出现一次-->

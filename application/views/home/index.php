@@ -317,7 +317,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="/bases/index?area=东北">
+								<a href="/index.php?area=东北">
 									东北地区
 								</a>
 							</li>

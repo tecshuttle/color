@@ -1,4 +1,4 @@
-﻿<figure id="carousel" class="carousel slide" data-ride="carousel">
+<figure id="carousel" class="carousel slide" data-ride="carousel">
 
 			<!-- Indicators -->
 			<ol class="carousel-indicators">

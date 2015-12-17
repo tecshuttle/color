@@ -160,6 +160,9 @@ class downcenter extends MY_Controller
 
     public function save()
     {
+		$download = $this->upload_file('userfile');
+        $_POST['url'] = ($download == '' ? '' : $download);
+
         foreach ($_POST as $key => $item) {
             if ($key === 'is_hot' || $key === 'desc' || $key === 'keywords') continue; //指定允许空值的字段
 
@@ -183,8 +186,8 @@ class downcenter extends MY_Controller
     private function upload_file($name)
     {
         $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png|txt|doc|pdf';
-        $config['max_size'] = '9000000'; //9MB
+        $config['allowed_types'] = 'gif|jpg|png|txt|doc|pdf|docx';
+        $config['max_size'] = '90000000'; //9MB
         $config['max_width'] = '4096';
         $config['max_height'] = '4096';
 
@@ -192,10 +195,13 @@ class downcenter extends MY_Controller
 
         if (!$this->upload->do_upload($name)) {
             $error = array('error' => $this->upload->display_errors());
-            return '';
+			//print_r($error);
+			return '';
         }
 
         $data = array('upload_data' => $this->upload->data());
+		
+		//print_r($data);
 
         return $this->time_file_name($data['upload_data']['full_path']);
     }
