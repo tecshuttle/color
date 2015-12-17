@@ -1,281 +1,246 @@
 ﻿<!DOCTYPE html>
-<!--[if IE 8]><html class="ie8 lte9" lang="zh-cn"><![endif]-->
-<!--[if IE 9]><html class="ie9 lte9" lang="zh-cn"><![endif]-->
+<!--[if IE 8]>
+<html class="ie8 lte9" lang="zh-cn"><![endif]-->
+<!--[if IE 9]>
+<html class="ie9 lte9" lang="zh-cn"><![endif]-->
 <!--[if !(IE 8) | !(IE 9)]><!-->
 <html lang="zh-cn">
-	<!--<![endif]-->
+<!--<![endif]-->
 
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<meta name="renderer" content="webkit">
-		<meta name="force-rendering" content="webkit">
-		<meta http-equiv="Cache-Control" content="no-siteapp">
-		<title>注册</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>注册</title>
 
-		<!--Core css-->
-		<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <!--Core css-->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
-		<!--Custom css-->
-		<link href="/assets/css/style.css" rel="stylesheet">
+    <!--Custom css-->
+    <link href="/assets/css/style.css" rel="stylesheet">
 
-		<!--Font css-->
-		<link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--Font css-->
+    <link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 
-		<script>
-			// Copyright 2014-2015 Twitter, Inc.
-			// Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-			if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-				var msViewportStyle = document.createElement('style')
-				msViewportStyle.appendChild(
-					document.createTextNode(
-						'@-ms-viewport{width:auto!important}'
-					)
-				)
-				document.querySelector('head').appendChild(msViewportStyle)
-			}
-		</script>
+    <script>
+        // Copyright 2014-2015 Twitter, Inc.
+        // Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement('style')
+            msViewportStyle.appendChild(
+                document.createTextNode(
+                    '@-ms-viewport{width:auto!important}'
+                )
+            )
+            document.querySelector('head').appendChild(msViewportStyle)
+        }
+    </script>
 
-		<!--Core js-->
-		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!--Core js-->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-		<!--HTML5 shim for IE8 support of HTML5 elements-->
-		<!--[if IE 8]>
-        	<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        	<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-      		<script src="//cdn.bootcss.com/selectivizr/1.0.2/selectivizr-min.js"></script>
-    	<![endif]-->
+    <!--HTML5 shim for IE8 support of HTML5 elements-->
+    <!--[if IE 8]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/selectivizr/1.0.2/selectivizr-min.js"></script>
+    <![endif]-->
 
-		<!----Kill IE----->
-		<!--[if lte IE 7 ]>
-    	<link rel="stylesheet" href="assets/iealert/iealert.min.css">
-    	<script src="assets/iealert/iealert.min.js"></script>
-    	<script>
-        	$(document).ready(function () {
-           		 $("body").iealert();
-        	});
-    	</script>
-    	<![endif]-->
+    <!----Kill IE----->
+    <!--[if lte IE 7 ]>
+    <link rel="stylesheet" href="assets/iealert/iealert.min.css">
+    <script src="assets/iealert/iealert.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("body").iealert();
+        });
+    </script>
+    <![endif]-->
 
-	</head>
+</head>
 
-	<body>
+<body>
 
-		<header class="brand--common">
-			<a class="navbar-brand cp-text--indent" href="#">
-				SUNYATHE|中国·三源色
-			</a>
-		</header>
-		<!--/.heading END-->
+<header class="brand--common">
+    <a class="navbar-brand cp-text--indent" href="#">
+        SUNYATHE|中国·三源色
+    </a>
+</header>
+<!--/.heading END-->
 
-		<!--page-main START-->
-		<main class="page-main page-login_sign-up" role="main">
-			<!--main的命名方式为page+主题-->
-			<!--main标签在页面中只能出现一次-->
-			<section class="body sign-up">
+<!--page-main START-->
+<main class="page-main page-login_sign-up" role="main">
+    <!--main的命名方式为page+主题-->
+    <!--main标签在页面中只能出现一次-->
+    <section class="body sign-up">
 
-				<header role="heading">
-					<!-- Nav tabs -->
-					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active">
-							<a href="#sign-up__email" aria-controls="sign-up__email" role="tab" data-toggle="tab">邮箱注册</a>
-						</li>
+        <header role="heading">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="<?= ($which === 'email' ? 'active' : '') ?>">
+                    <a href="#sign-up__email" aria-controls="sign-up__email" role="tab" data-toggle="tab">邮箱注册</a>
+                </li>
 
-						<li role="presentation">
-							<a href="#sign-up__phone" aria-controls="sign-up__phone" role="tab" data-toggle="tab">手机注册</a>
-						</li>
-					</ul>
-				</header>
+                <li role="presentation" class="<?= ($which === 'phone' ? 'active' : '') ?>">
+                    <a href="#sign-up__phone" aria-controls="sign-up__phone" role="tab" data-toggle="tab">手机注册</a>
+                </li>
+            </ul>
+        </header>
 
-				<!-- Tab panes -->
-				<div class="tab-content">
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!--邮箱注册-->
+            <div role="tabpanel" class="tab-pane fade <?= ($which === 'email' ? 'in active' : '') ?>" id="sign-up__email">
+                <?php echo form_open('register/index') ?>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">邮&nbsp;箱：</label>
 
-					<!--邮箱注册-->
-					<div role="tabpanel" class="tab-pane fade in active" id="sign-up__email">
-<?php echo form_open('register/index')?>
-						<div class="form-horizontal">
-							<div class="form-group">
-								<label class="col-xs-3 control-label">邮&nbsp;箱：</label>
-								<div class="col-xs-9">
-									<input type="email" name="email" class="form-control input-lg cp-placeholder" placeholder="请输入您的邮箱" value="<?php echo set_value('email'); ?>">
+                        <div class="col-xs-9">
+                            <input type="email" name="email" class="form-control input-lg cp-placeholder" placeholder="请输入您的邮箱" value="<?php echo set_value('email'); ?>">
 
-									<!--验证信息-->
-									<p class="form-control-static"><?php echo form_error('email'); ?></p>
+                            <p class="form-control-static"><?php echo form_error('email'); ?></p>
+                        </div>
+                    </div>
 
-								</div>
-							</div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">用户名：</label>
 
-							<div class="form-group">
-								<label class="col-xs-3 control-label">用户名：</label>
-								<div class="col-xs-9">
-									<input type="text" name="username" class="form-control input-lg cp-placeholder" placeholder="3-16个汉字或字母或数字" value="<?php echo set_value('username'); ?>">
+                        <div class="col-xs-9">
+                            <input type="text" name="username" class="form-control input-lg cp-placeholder" placeholder="3-16个汉字或字母或数字" value="<?php echo set_value('username'); ?>">
 
-									<!--验证信息-->
-									<p class="form-control-static"><?php echo form_error('username'); ?></p>
+                            <p class="form-control-static"><?php echo form_error('username'); ?></p>
+                        </div>
+                    </div>
 
-								</div>
-							</div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">密&nbsp;码：</label>
 
-							<div class="form-group">
-								<label class="col-xs-3 control-label">密&nbsp;码：</label>
-								<div class="col-xs-9">
-									<input type="password" name="password" class="form-control input-lg cp-placeholder" placeholder="6-16个英文字母和数字" value="<?php echo set_value('password'); ?>">
+                        <div class="col-xs-9">
+                            <input type="password" name="password" class="form-control input-lg cp-placeholder" placeholder="6-16个英文字母和数字" value="<?php echo set_value('password'); ?>">
 
-									<!--验证信息-->
-									<p class="form-control-static"><?php echo form_error('password'); ?></p>
+                            <p class="form-control-static"><?php echo form_error('password'); ?></p>
+                        </div>
+                    </div>
 
-								</div>
-							</div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">确认密码：</label>
 
-							<div class="form-group">
-								<label class="col-xs-3 control-label">确认密码：</label>
-								<div class="col-xs-9">
-									<input type="password" name="passconf" class="form-control input-lg cp-placeholder" placeholder="请重新输入您的密码" value="<?php echo set_value('passconf'); ?>">
+                        <div class="col-xs-9">
+                            <input type="password" name="passconf" class="form-control input-lg cp-placeholder" placeholder="请重新输入您的密码" value="<?php echo set_value('passconf'); ?>">
 
-									<!--验证信息-->
-									<p class="form-control-static"><?php echo form_error('passconf'); ?></p>
+                            <!--验证信息-->
+                            <p class="form-control-static"><?php echo form_error('passconf'); ?></p>
 
-								</div>
-							</div>
+                        </div>
+                    </div>
 
-							<!--<div class="form-group">
-								<label class="col-xs-3 control-label">验证码：</label>
-								<div class="col-xs-5">
-									<input type="password" name="captcha" class="form-control input-lg cp-placeholder" placeholder="请输入验证码" value="<?php echo set_value('captcha'); ?>">
-									//验证信息
-									<p class="form-control-static"><?php echo form_error('captcha'); ?></p>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <button type="submit" name="which" value="email" class="btn btn-block btn-danger">
+                                注&nbsp;册
+                            </button>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="checkbox" data-toggle="buttons">
+                                <label class="btn">
+                                    <input type="checkbox"> 我已阅读并同意 <a href="#" target="_blank">《服务协议》</a>
+                                </label>
 
-								</div>
-								<div class="col-xs-4">
-									<div class="verification">
-										<img src="/assets/img/web/verification.jpg">
-										<a class="btn-refresh" href="javascript:void(0)" role="button">
-											换一张！
-										</a>
-									</div>
-								</div>
-							</div>-->
+                            </div>
 
-							<div class="form-group">
-								<div class="col-xs-12">
-									<button type="submit" class="btn btn-block btn-danger">
-										注&nbsp;册
-									</button>
-								</div>
-								<div class="col-xs-12">
-									<div class="checkbox" data-toggle="buttons">
-										<label class="btn">
-											<input type="checkbox"> 我已阅读并同意 <a href="#" target="_blank">《服务协议》</a>
-										</label>
+                        </div>
+                    </div>
 
-									</div>
+                </div>
+                <!--/.form-horizontal END-->
 
-								</div>
-							</div>
+            </div>
+            <!--/.tab-pane END-->
 
-						</div>
-						<!--/.form-horizontal END-->
+            <!--手机注册-->
+            <div role="tabpanel" class="tab-pane fade <?= ($which === 'phone' ? 'in active' : '') ?>" id="sign-up__phone">
 
-					</div>
-					<!--/.tab-pane END-->
+                <div class="form-horizontal">
+                    <input type="hidden" id="phoneType" value="true">
 
-					<!--手机注册-->
-					<div role="tabpanel" class="tab-pane fade" id="sign-up__phone">
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">用户名：</label>
 
-						<div class="form-horizontal">
-							<input type="hidden" id="phoneType" value="true">
+                        <div class="col-xs-9">
+                            <input type="text" name="phoneuser" class="form-control input-lg cp-placeholder" placeholder="3-16个汉字或字母或数字" value="<?php echo set_value('phoneuser'); ?>">
 
-							<div class="form-group">
-								<label class="col-xs-3 control-label">用户名：</label>
-								<div class="col-xs-9">
-									<input type="text" name="phoneuser" class="form-control input-lg cp-placeholder" placeholder="3-16个汉字或字母或数字" value="<?php echo set_value('phoneuser'); ?>">
+                            <!--验证信息-->
+                            <p class="form-control-static"><?php echo form_error('phoneuser'); ?></p>
 
-									<!--验证信息-->
-									<p class="form-control-static"><?php echo form_error('phoneuser'); ?></p>
+                        </div>
+                    </div>
 
-								</div>
-							</div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">密码：</label>
 
-							<div class="form-group">
-								<label class="col-xs-3 control-label">密码：</label>
-								<div class="col-xs-9">
-									<input type="password" name="phonepassword" class="form-control input-lg cp-placeholder" placeholder="6-16个英文字母和数字" value="<?php echo set_value('phonepassword'); ?>">
+                        <div class="col-xs-9">
+                            <input type="password" name="phonepassword" class="form-control input-lg cp-placeholder" placeholder="6-16个英文字母和数字" value="<?php echo set_value('phonepassword'); ?>">
 
-									<!--验证信息-->
-									<p class="form-control-static"><?php echo form_error('phonepassword'); ?></p>
+                            <!--验证信息-->
+                            <p class="form-control-static"><?php echo form_error('phonepassword'); ?></p>
 
-								</div>
-							</div>
+                        </div>
+                    </div>
 
-							<div class="form-group">
-								<label class="col-xs-3 control-label">手机号：</label>
-								<div class="col-xs-9">
-									<input type="text" name="tel" class="form-control input-lg cp-placeholder" placeholder="请输入手机号" value="<?php echo set_value('tel'); ?>">
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">手机号：</label>
 
-									<!--验证信息-->
-									<p class="form-control-static"><?php echo form_error('tel'); ?></p>
+                        <div class="col-xs-9">
+                            <input type="text" name="tel" class="form-control input-lg cp-placeholder" placeholder="请输入手机号" value="<?php echo set_value('tel'); ?>">
 
-								</div>
-							</div>
+                            <!--验证信息-->
+                            <p class="form-control-static"><?php echo form_error('tel'); ?></p>
 
-							<!--<div class="form-group">
-								<label class="col-xs-3 control-label">验证码：</label>
-								<div class="col-xs-5">
-									<input type="password" class="form-control input-lg cp-placeholder" placeholder="请输入验证码">
+                        </div>
+                    </div>
 
-									//验证信息
-									<p class="form-control-static">这里是验证信息！</p>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <button type="submit" name="which" value="phone" class="btn btn-block btn-danger">
+                                注&nbsp;册
+                            </button>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="checkbox" data-toggle="buttons">
+                                <label class="btn">
+                                    <input type="checkbox"> 我已阅读并同意 <a href="#" target="_blank">《服务协议》</a>
+                                </label>
+                            </div>
 
-								</div>
-								<div class="col-xs-4">
-									<div class="verification">
-										<img src="assets/img/web/verification.jpg">
-										<a class="btn-refresh" href="javascript:void(0)" role="button">
-											换一张！
-										</a>
-									</div>
-								</div>
-							</div>-->
+                        </div>
+                    </div>
 
-							<div class="form-group">
-								<div class="col-xs-12">
-									<button type="submit" class="btn btn-block btn-danger">
-										注&nbsp;册
-									</button>
-								</div>
-								<div class="col-xs-12">
-									<div class="checkbox" data-toggle="buttons">
-										<label class="btn">
-											<input type="checkbox"> 我已阅读并同意 <a href="#" target="_blank">《服务协议》</a>
-										</label>
-									</div>
+                </div>
+                <!--/.form-horizontal END-->
 
-								</div>
-							</div>
+            </div>
+            <!--/.tab-pane END-->
 
-						</div>
-						<!--/.form-horizontal END-->
+        </div>
+        <!--/.tab-content END-->
 
-					</div>
-					<!--/.tab-pane END-->
+    </section>
+</main>
+<!--/.page-main END-->
 
-				</div>
-				<!--/.tab-content END-->
+<script src="//cdn.bootcss.com/jquery-placeholder/2.1.3/jquery.placeholder.min.js"></script>
+<script>
+    //jquery.placeholder.min.js
+    //占位符
+    $(function () {
+        $("input, textarea").placeholder();
+    });
+</script>
 
-			</section>
-		</main>
-		<!--/.page-main END-->
-
-		<script src="//cdn.bootcss.com/jquery-placeholder/2.1.3/jquery.placeholder.min.js"></script>
-		<script>
-			//jquery.placeholder.min.js
-			//占位符
-			$(function() {
-				$("input, textarea").placeholder();
-			});
-		</script>
-
-	</body>
+</body>
 </html>
