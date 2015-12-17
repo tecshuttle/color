@@ -54,7 +54,7 @@
 						<a class="clearfix performance-inner js-open-popup" href="<?= '/product/view/'. $row['id'];?>">
 
 							<div class="performance-photo">
-								<div class="base-photo">
+								<div class="base-photo cp-picture-effect">
 									<?= $row['content']?>
 								</div>
 							</div>
@@ -131,10 +131,10 @@
 			<script>
 				$('#select_product').on('change', function(){
 					var name = $(this).find("option:selected").text();
-					
+
 					$.post('/product/device_select',{name: name},function(result, obj){
 						if (result.success) {
-							$('#page_container').html(result.device_html);	
+							$('#page_container').html(result.device_html);
 						} else {
 							console.log(result);
 						}

@@ -50,14 +50,14 @@
             </div>
         </header>
         <!--/.cp-select END-->
-        
+
         <!--基地列表-->
         <div class="base-wrap">
             <?php if ($has_data) : ?>
                 <?php foreach ($pagedata as $bases_item): ?>
                 <div class="section">
                     <a class="clearfix base-inner" href="<?= '/bases/view/'.$bases_item['id']?>">
-                        <div class="base-photo">
+                        <div class="base-photo cp-picture-effect">
 							<?php echo $bases_item['content']; ?>
                         </div>
                         <div class="base-description">
@@ -76,7 +76,7 @@
             <?php endif ?>
         </div>
         <!--/.base-wrap END-->
-        
+
         <?php if ($has_data) : ?>
         <!--分页-->
         <footer class="clearfix cp-pagination">
@@ -88,14 +88,14 @@
         </footer>
         <!--/.cp-pagination END-->
         <?php endif ?>
-        
+
         <script>
         var page_url = '/bases/index';
         var region_url = '/bases/region';
         </script>
         <script>
         $(function(){
-			
+
             // 选择省份
             $('#select_province').on('change', function(){
                 var id = $(this).val();
@@ -104,14 +104,14 @@
                     reload_list(id, 0);
                 });
             });
-            
+
             // 选择城市
             $('#select_city').on('change', function(){
                 var pid = $('#select_province').val();
                 var cid = $(this).val();
                 reload_list(pid, cid)
             });
-            
+
             // 重新加载记录列表
             function reload_list(pid, cid){
                 $.get(page_url + '/1/' + pid + '/' + cid + '/sync', function(res){
