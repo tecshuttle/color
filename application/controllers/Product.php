@@ -6,30 +6,9 @@ class product extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('product_model');
+		$this->load->model('articles_model');
         $this->load->helper('url_helper');
     }
-	
-	public function question_answer()
-	{
-		$this->load->view('header');
-		$this->load->view('product/question_answer');
-		$this->load->view('footer');
-	}
-	  
-	public function device_select()
-	{
-		$name = $this->input->post('name', true);
-		
-		$data = 'get data by name';
-		
-		$html = $this->load->view('footer', $data, true);
-				
-		echo json_encode(array(
-			'success' => true,
-			'name' => $name,
-			'device_html' => $html
-		));
-	}
 	
 	public function device()
 	{
@@ -38,6 +17,10 @@ class product extends CI_Controller{
 		} else{
 			$productName = "WHERE name = '" .$this->input->post('name'). "'";
 		}
+		
+		$banner = $this->articles_model->select(array(	
+            'code' => 'deviceBanner'
+        ));
 		
 		// 分页
 		$count_sql = "SELECT * FROM product ". $productName;
@@ -88,6 +71,7 @@ class product extends CI_Controller{
 			'dataList' => $result->result_array(),
 			'pagelink' => $pagelink,
 			'nowpage' => $nowpage,
+			'banner' => $banner,
 			'has_data' => count($result->result_array()) > 0,
             'css' => array(),
             'js' => array()

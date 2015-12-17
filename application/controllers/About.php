@@ -5,6 +5,7 @@ class About extends CI_Controller
     {
         parent::__construct();
         $this->load->model('product_model');
+		$this->load->model('articles_model');
         $this->load->helper('url_helper');
     }
 
@@ -24,6 +25,10 @@ class About extends CI_Controller
         $article = $this->articles_model->select(array(
             'code' => $code
         ));
+		
+		$banner = $this->articles_model->select(array(	
+            'code' => 'aboutBanner'
+        ));
 
         $class = array(
             1957 => 'page-introduction',
@@ -37,11 +42,45 @@ class About extends CI_Controller
 
         $data = array(
             'title' => 'News archive',
-            'article' => $article
+            'article' => $article,
+            'banner' => $banner
         );
 
         return $data;
     }
+	
+	 public function view()
+    {
+		$id = $this->uri->segment(3);
+		
+        $article = $this->articles_model->select(array(
+            'code' => 'baseViewBanner'
+        ));
+		
+        $result = $this->loadModel($id);
+		
+		$data = array(
+			'row' => $result->row(),
+			'article' => $article
+		);
+		
+    
+        $this->load->view('header', $data);
+        $this->load->view('bases/view', $data);
+        $this->load->view('footer', $data);
+    }
+	
+	private function loadModel($id)
+	{
+		$sql = 'SELECT * FROM bases WHERE id ='. $id;
+		$model = $this->db->query($sql);
+		
+		if ($model === null) {
+            show_404();
+        }
+		
+		return $model;
+	}
 }
 
 //end file

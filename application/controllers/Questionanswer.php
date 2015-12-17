@@ -6,14 +6,20 @@ class questionanswer extends MY_Controller
     {
         parent::__construct(); // Call the Model constructor
         $this->load->model('questionanswer_model');
+        $this->load->model('articles_model');
     }
 
     public function index()
     {
+		$banner = $this->articles_model->select(array(	
+            'code' => 'questionanswerBanner'
+        ));
+		
 		$result = $this->db->query('SELECT * FROM questionanswer'); //处理数据
 		
 		$data = array(
 		    'data' => $result->result_array(),
+		    'banner' => $banner,
 		 	'countData' => count($result->result_array())
 		);
 		

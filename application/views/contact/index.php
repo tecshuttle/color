@@ -11,12 +11,7 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					<img src="/assets/img/product/contact-1.jpg">
-				</div>
-				<div class="item">
-					<img src="/assets/img/product/contact-2.jpg">
-				</div>
+				<?= $banner->content;?>
 			</div>
 
 			<!-- Controls -->
@@ -69,7 +64,7 @@
 					<div class="pull-left">
 					<?php if ($has_data) : ?>
 						<?php foreach ($pagedata as $contact_item):?>
-						<!--<dl class="description">
+						<dl class="description">
 							<dt class="h2"><?= $contact_item['name'];?></dt>
 							<?= $contact_item['content'];?>
 						<?php break;endforeach;?>

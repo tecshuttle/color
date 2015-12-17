@@ -39,6 +39,11 @@ Docs.Menu = [
                 href: "/admin/questionanswer",
                 text: "Q&A",
                 leaf: true
+            }, 
+			{
+                href: "/admin/cases",
+                text: "成功案例",
+                leaf: true
             }
         ]
     },
