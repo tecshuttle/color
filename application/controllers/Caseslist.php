@@ -1,104 +1,15 @@
-<?php
-class product extends CI_Controller{
-	
-	
-	public function __construct()
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+class Caseslist extends MY_Controller
+{
+    function __construct()
     {
-        parent::__construct();
-        $this->load->model('product_model');
+        parent::__construct(); // Call the Model constructor
+        $this->load->model('cases_model');
 		$this->load->model('articles_model');
-        $this->load->helper('url_helper');
     }
 	
-	public function device()
-	{
-		$id = $this->uri->segment(4);
-		
-		switch($id)
-		{
-			case '1': $name = '爬坡能力';break;
-			case '2': $name = '四驱动力';break;
-			case '3': $name = '抓地力';break;
-			case '4': $name = '通过能力';break;
-			case '5': $name = '车身刚性';break;
-			case '6': $name = '稳定性';break;
-			case '7': $name = '悬挂系统';break;
-			case '8': $name = '下坡辅助能力';break;
-			default: $name = NULL;;
-		}
-		
-		if($name === NULL){
-			$productName = '';
-		} else{
-			$productName = "WHERE name = '" .$name. "'";
-		}
-		
-		$banner = $this->articles_model->select(array(	
-            'code' => 'deviceBanner'
-        ));
-		
-		// 分页
-		$count_sql = "SELECT * FROM product ". $productName;
-		$count_query = $this->db->query($count_sql);
-        $count = $count_query->num_rows();
-        
-        $page_num = 4; //每页个数
-        $total_page = ceil($count / $page_num); //获取总页数
-        
-        // 当前页
-        $nowpage = $this->uri->segment(3);
-		
-		if ($nowpage <= 0)
-        {
-            // 无效页码
-            $nowpage = 1;
-        }
-        if ($total_page > 0 && $nowpage > $total_page)
-        {
-            // 超过最大页
-            $nowpage = $total_page;
-        }
-		
-		$page_sql = "SELECT * FROM product ". $productName;
-
-        $page_sql .= ' limit '.(($nowpage-1)*$page_num).','.$page_num;
-		
-        $result = $this->db->query($page_sql); //处理数据
-		
-		// 上下页链接
-        $base_url = '/product/device';
-        if($nowpage==1){
-            $prevlink = '<li class="previous disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>';
-        }else{
-            $prevurl = $this->create_page_url($base_url, ($nowpage-1), array($id));
-            $prevlink = '<li class="previous"><a href="'.$prevurl.'"><i class="fa fa-angle-left"></i></a></li>';
-        }
-        if($nowpage == $total_page){
-            $nextlink = '<li class="next disabled"><a href="#"><i class="fa fa-angle-right"></i></a></li>';
-        }else{
-            $nexturl = $this->create_page_url($base_url, ($nowpage+1), array($id));
-            $nextlink = '<li class="next"><a href="'.$nexturl.'"><i class="fa fa-angle-right"></i></a></li>';
-        }
-        
-        //生成分页
-        $pagelink = $prevlink.'<li class="page-number current"><span class="number-wrap"><b>'.$nowpage.'</b><i>'.$total_page.'</i></span></li>'.$nextlink;
-		
-		$data = array(
-			'dataList' => $result->result_array(),
-			'pagelink' => $pagelink,
-			'nowpage' => $nowpage,
-			'banner' => $banner,
-			'id' => $id,
-			'has_data' => count($result->result_array()) > 0,
-            'css' => array(),
-            'js' => array()
-		);
-		
-		$this->load->view('header');
-		$this->load->view('product/device', $data);
-		$this->load->view('footer');
-	}
-	  
+	
 	// 创建分页url
     private function create_page_url($base_url, $page, $conditions=array())
     {
@@ -111,64 +22,6 @@ class product extends CI_Controller{
             }
         }
         return $url;
-    }
-
-    public function view()
-    {
-		$id = $this->uri->segment(3);
-		
-        $result = $this->loadModel($id);
-		
-		$data['row'] = $result->row();
-    
-        $this->load->view('header', $data);
-        $this->load->view('product/view', $data);
-        $this->load->view('footer', $data);
-    }
-	
-	private function loadModel($id)
-	{
-		$sql = 'SELECT * FROM product WHERE id ='. $id;
-		$model = $this->db->query($sql);
-		
-		if ($model === null) {
-            show_404();
-        }
-		
-		return $model;
-	}
-    
-    // ajax获取地址下拉菜单
-    public function region()
-    {
-        $html = '';
-        $province_id = (int)$this->uri->segment(3);
-        if ($province_id)
-        {
-            $rows = $this->product_model->get_regions(2, $province_id);
-            if ($rows)
-            {
-                foreach ($rows as $row)
-                {
-                    $html .= '<option value="'.$row['region_id'].'">'.$row['region_name'].'</option>';
-                }
-            }
-        }
-        exit($html);
-    }
-    
-    // 生成sql的where字句
-    private function generate_where($conditions)
-    {
-        $where = ' where 1 ';
-        if (is_array($conditions))
-        {
-            foreach ($conditions as $column => $value)
-            {
-                $where .= " AND {$column} = '{$value}' ";
-            }
-        }
-        return $where;
     }
 
     public function load_article()
@@ -204,11 +57,11 @@ class product extends CI_Controller{
 
         if (isset($_POST['id'])) {
             $_POST['mtime'] = time();
-            $this->product_model->update($_POST);
+            $this->cases_model->update($_POST);
         } else {
             $_POST['ctime'] = time();
             $_POST['mtime'] = time();
-            $this->product_model->insert($_POST);
+            $this->cases_model->insert($_POST);
         }
 
         echo json_encode(array('success' => true));
@@ -245,13 +98,6 @@ class product extends CI_Controller{
         rename($file_path, $new_file_path);
 
         return $new_file_name;
-    }
-
-    public function getList()
-    {
-        $option = $_POST;
-        $data = $this->product_model->get($option);
-        echo json_encode($data);
     }
 
     public function getDownloadList()
@@ -421,28 +267,19 @@ class product extends CI_Controller{
     {
         $id = $_POST['id'];
 
-        $this->product_model->deleteByID($id);
+        $this->cases_model->deleteByID($id);
 
         echo json_encode(array(
             'success' => true
         ));
     }
+	
+    public function getList()
+    {
+        $option = $_POST;
+        $data = $this->cases_model->get($option);
+        echo json_encode($data);
+    }
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+/* End of file */

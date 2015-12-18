@@ -4,7 +4,7 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
     constructor: function (config) {
         var me = this;
         config = Ext.apply({
-            title: '成功案例',
+            title: '新闻中心',
             bodyStyle: 'padding:10px;',
             layout: 'anchor'
         }, config);
@@ -44,7 +44,7 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
 				allowBlank: false,
                 anchor: '50%',
                 name: 'type',
-                emptyText: 'activity为试驾活动, display为静态展示, newcar为新车上市, join为招商加盟'
+                emptyText: 'consultation为企业资讯, trends为行业动态, highlight为活动集锦'
             },
 			{
                 xtype: 'textfield',
@@ -120,7 +120,7 @@ Ext.define('Tomtalk.product.EditFormAction', {extend: 'Tomtalk.product.EditFormU
 
         if (form.isValid()) {
             form.getForm().submit({
-                url: '/caseslist/save',//后台处理的页面
+                url: '/newslist/save',//后台处理的页面
                 waitMsg: '正在保存数据...',
                 submitEmptyText: false,
                 success: function (fp, o) {
@@ -209,7 +209,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
             fields: ['id', 'dates', 'name', 'type', 'intro', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
             proxy: {
                 type: 'ajax',
-                url: '/caseslist/getList',
+                url: '/newslist/getList',
                 reader: {
                     type: 'json',
                     root: 'data',
@@ -420,7 +420,7 @@ Tomtalk.IdcAction = Ext.extend(Tomtalk.IdcUI, {
         var me = this;
 
         Ext.Ajax.request({
-            url: '/caseslist/delete',
+            url: '/newslist/delete',
             params: {
                 id: id
             },

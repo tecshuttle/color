@@ -516,17 +516,17 @@
 						</h1>
 						<ul class="clearfix list-unstyled pull-right tab" role="tablist">
 							<li>
-								<a href="/index.php?type=试驾活动类">
+								<a href="/index.php?type=activity">
 									试驾活动类
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?type=静态展示类">
+								<a href="/index.php?type=display">
 									静态展示类
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?type=新车上市类">
+								<a href="/index.php?type=newcar">
 									新车上市类
 								</a>
 							</li>
@@ -534,12 +534,20 @@
 					</header>
 					<div class="body">
 						<div class="row js-match">
+							<?php if($cases_menu !== NULL):?>
+							<?php
+								$i=0;
+								foreach($cases_menu as $row):
+								if($i == 4){
+									break;
+								}
+							?>
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 js-match-item">
-								<a class="thumbnail" href="#">
-									<img src="assets/img/product/index-case01.jpg">
+								<a class="thumbnail" href="<?= '/cases/view/'. $row['id']?>">
+									<?= $row['content']; ?>
 									<div class="caption">
 										<h4>
-											<b>【重庆】阿斯顿马丁20140913</b>
+											<b><?= $row['name'] ?></b>
 										</h4>
 										<span>
 											<i class="fa fa-angle-double-right">
@@ -548,48 +556,17 @@
 									</div>
 								</a>
 							</div>
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 js-match-item">
+							<?php $i++;endforeach;?>
+							<?php else:?>
 								<a class="thumbnail" href="#">
-									<img src="assets/img/product/index-case02.jpg">
 									<div class="caption">
-										<h4>
-											<b>【长沙·松雅湖】宝马3行动活动150508-150510</b>
-										</h4>
 										<span>
 											<i class="fa fa-angle-double-right">
-											</i>了解更多信息
+											</i>暂无记录
 										</span>
 									</div>
 								</a>
-							</div>
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 js-match-item">
-								<a class="thumbnail" href="#">
-									<img src="assets/img/product/index-case03.jpg">
-									<div class="caption">
-										<h4>
-											<b>【昆明·巫家坝】奥迪驾控汇150814-150816</b>
-										</h4>
-										<span>
-											<i class="fa fa-angle-double-right">
-											</i>了解更多信息
-										</span>
-									</div>
-								</a>
-							</div>
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 js-match-item">
-								<a class="thumbnail" href="#">
-									<img src="assets/img/product/index-case04.jpg">
-									<div class="caption">
-										<h4>
-											<b>【东莞·水濂山】奔驰C级活动150605-150607</b>
-										</h4>
-										<span>
-											<i class="fa fa-angle-double-right">
-											</i>了解更多信息
-										</span>
-									</div>
-								</a>
-							</div>
+						<?php endif;?>
 						</div>
 					</div>
 					<!--/.body END-->
@@ -604,17 +581,17 @@
 						</h1>
 						<ul class="clearfix list-unstyled pull-right tab" role="tablist">
 							<li>
-								<a href="/index.php?newType=行业动态">
+								<a href="/index.php?newType=consultation">
 									行业动态
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?newType=企业资讯">
+								<a href="/index.php?newType=trends">
 									企业资讯
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?newType=试驾活动">
+								<a href="/index.php?newType=highlight">
 									试驾活动
 								</a>
 							</li>
@@ -622,45 +599,44 @@
 					</header>
 					<div class="body">
 						<div class="row js-match">
+						<div class="row js-match">
+							<?php if($news_menu !== NULL):?>
+							<?php
+								$i=0;
+								foreach($news_menu as $row):
+								if($i == 3){
+									break;
+								}
+							?>
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 js-match-item">
-								<a class="thumbnail" href="#">
-									<img src="assets/img/product/index-news01.jpg">
+								<a class="thumbnail" href="<?= '/news/view/'. $row['id']?>">
+									<?= $row['content'] ?>
 									<div class="caption">
 										<h4>
-											<b>特斯拉牵手联通，打造20城超级充电站</b>
+											<b><?= $row['name'] ?></b>
 										</h4>
 										<p>
-											8月29日，特斯拉汽车在成都宣布与中国联通达成战略合作协议，将在全国120个城市依托联通营业厅共同建设......
+											<?php 
+												if(mb_strlen($row['intro'], 'utf-8') <= 60)
+													echo mb_substr($row['intro'], 0, 60, 'utf-8'); 
+												else
+													echo mb_substr($row['intro'], 0, 60, 'utf-8').'....'; 
+											?>
 										</p>
 									</div>
 								</a>
 							</div>
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 js-match-item">
+							<?php $i++;endforeach;?>
+							<?php else:?>
 								<a class="thumbnail" href="#">
-									<img src="assets/img/product/index-news02.jpg">
 									<div class="caption">
-										<h4>
-											<b>上海2020年推出无人驾驶汽车</b>
-										</h4>
-										<p>
-											2020年左右，上汽将推出能在高速公路、公园道路、崇明岛环岛公路等结构化道路上行驶的无人驾驶汽车......
-										</p>
+										<span>
+											<i class="fa fa-angle-double-right">
+											</i>暂无记录
+										</span>
 									</div>
 								</a>
-							</div>
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 js-match-item">
-								<a class="thumbnail" href="#">
-									<img src="assets/img/product/index-news03.jpg">
-									<div class="caption">
-										<h4>
-											<b>保时捷中国携手著名导演张艺谋</b>
-										</h4>
-										<p>
-											保时捷中国2014年8月29日于北京举办新闻发布会，见证其全力推动的企业社会责任项目—“保时捷溢彩心”的五周年纪念......
-										</p>
-									</div>
-								</a>
-							</div>
+						<?php endif;?>
 						</div>
 					</div>
 					<!--/.body END-->

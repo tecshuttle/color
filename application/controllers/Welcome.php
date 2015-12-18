@@ -44,20 +44,22 @@ class Welcome extends MY_Controller
 		else
 			$cases_menu_sql = 'select * from cases '.$type;
 		
-		// if($this->input->get('newType') === NULL)
-			// $_menu_sql = 'select * from product';
-		// else
-			// $_menu_sql = 'select * from product '.$newType;
+		if($this->input->get('newType') === NULL)
+			$news_menu_sql = 'select * from news';
+		else
+			$news_menu_sql = 'select * from news '.$newType;
 		
 		$bases_menu = $this->db->query($bases_menu_sql);
 		$product_menu = $this->db->query($product_menu_sql);
 		$cases_menu = $this->db->query($cases_menu_sql);
+		$news_menu = $this->db->query($news_menu_sql);
 
         $data = array(
             'about_menu' => $about_menu['data'],
             'bases_menu' => $bases_menu->result_array(),
             'product_menu' => $product_menu->result_array(),
             'cases_menu' => $cases_menu->result_array(),
+            'news_menu' => $news_menu->result_array(),
 			'article' => $article
         );
 

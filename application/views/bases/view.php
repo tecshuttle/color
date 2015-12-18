@@ -34,7 +34,7 @@
 
 					<header class="text-center">
 						<h2><strong><?= $row->name?></strong></h2>
-						<hr />
+						<br/>
 					</header>
 					<?= $row->viewcontent?>
 				</article>
