@@ -63,6 +63,7 @@
 					</a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
+				
 				<div class="collapse navbar-collapse" id="navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li class="dropdown">
@@ -70,164 +71,174 @@
 								首页 <span class="sr-only">(current)</span>
 							</a>
 						</li>
-						<li class="dropdown">
+						<li class="dropdown <?=	 $this->uri->segment(1) === 'about' ? 'active' : '' ?>">
 							<a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								关于我们&nbsp;
 								<i class="fa fa-angle-down">
 								</i>
 							</a>
 							<ul class="dropdown-menu">
-								<li class="active-sub">
+								<li <?= $this->uri->segment(2) === 'overview' ? 'class="active-sub"' : '' ?>>
 									<a href="/about/overview">
 										企业概况
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(2) === 'manage_address' ? 'class="active-sub"' : '' ?>>
 									<a href="/about/manage_address">
 										总经理致辞
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(2) === 'framework' ? 'class="active-sub"' : '' ?>>
 									<a href="/about/framework">
 										组织架构
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(2) === 'heretofore' ? 'class="active-sub"' : '' ?>>
 									<a href="/about/heretofore">
 										发展历程
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(2) === 'culture' ? 'class="active-sub"' : '' ?>>
 									<a href="/about/culture">
 										企业文化
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(2) === 'team' ? 'class="active-sub"' : '' ?>>
 									<a href="/about/team">
 										精英团队
 									</a>
 								</li>
 							</ul>
 						</li>
-						<li class="dropdown">
+						<li class="dropdown
+						<?php 
+								if($this->uri->segment(1) === 'bases' || $this->uri->segment(1) === 'product' || $this->uri->segment(1) === 'downcenter' || $this->uri->segment(1) === 'questionanswer')
+									echo 'active';
+							?>">
+							
 							<a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								产品中心&nbsp;
 								<i class="fa fa-angle-down">
 								</i>
 							</a>
 							<ul class="dropdown-menu">
-								<li>
+								<li <?= $this->uri->segment(1) === 'bases' ? 'class="active-sub"' : '' ?>>
 									<a href="/bases">
 										试驾基地
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(2) === 'device' ? 'class="active-sub"' : '' ?>>
 									<a href="/product/device">
 										越野器械
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(1) === 'downcenter' ? 'class="active-sub"' : '' ?>>
 									<a href="/downcenter">
 										下载中心
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(1) === 'questionanswer' ? 'class="active-sub"' : '' ?>>
 									<a href="/questionanswer">
 										Q&A
 									</a>
 								</li>
 							</ul>
 						</li>
-						<li class="dropdown">
+						<li class="dropdown <?= $this->uri->segment(1) === 'business' ? 'active' : '' ?>">
 							<a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								业务范围&nbsp;
 								<i class="fa fa-angle-down">
 								</i>
 							</a>
 							<ul class="dropdown-menu">
-								<li>
+								<li <?= $this->uri->segment(2) === 'solution' ? 'class="active-sub"' : '' ?>>
 									<a href="/business/solution">
 										一站式试驾解决方案
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(2) === 'affiliates' ? 'class="active-sub"' : '' ?>>
 									<a href="/business/affiliates">
 										招商加盟
 									</a>
 								</li>
 							</ul>
 						</li>
-						<li class="dropdown">
+						<li class="dropdown <?= $this->uri->segment(1) === 'cases' ? 'active' : '' ?>">
 							<a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								成功案例&nbsp;
 								<i class="fa fa-angle-down">
 								</i>
 							</a>
 							<ul class="dropdown-menu">
-								<li>
+								<li <?= $this->uri->segment(2) === 'activity' ? 'class="active-sub"' : '' ?>>
 									<a href="/cases/activity">
 										试驾类活动
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(2) === 'display' ? 'class="active-sub"' : '' ?>>
 									<a href="/cases/display">
 										静态展示类
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(2) === 'newcar' ? 'class="active-sub"' : '' ?>>
 									<a href="/cases/newcar">
 										新车上市类
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(2) === 'join' ? 'class="active-sub"' : '' ?>>
 									<a href="/cases/join">
 										招商加盟类
 									</a>
 								</li>
 							</ul>
 						</li>
-						<li class="dropdown">
+						<li class="dropdown <?= $this->uri->segment(1) === 'news' ? 'active' : '' ?>">
 							<a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								新闻中心&nbsp;
 								<i class="fa fa-angle-down">
 								</i>
 							</a>
 							<ul class="dropdown-menu">
-								<li>
+								<li <?= $this->uri->segment(2) === 'consultation' ? 'class="active-sub"' : '' ?>>
 									<a href="/news/consultation">
 										企业资讯
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(2) === 'trends' ? 'class="active-sub"' : '' ?>>
 									<a href="/news/trends">
 										行业动态
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(2) === 'highlight' ? 'class="active-sub"' : '' ?>>
 									<a href="/news/highlight">
 										活动集锦
 									</a>
 								</li>
 							</ul>
 						</li>
-						<li class="dropdown">
+						<li class="dropdown
+							<?php 
+								if($this->uri->segment(1) === 'contact' || $this->uri->segment(1) === 'recruitment' || $this->uri->segment(1) === 'messageboard')
+									echo 'active';
+							?>">
+							
 							<a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								联系我们&nbsp;
 								<i class="fa fa-angle-down">
 								</i>
 							</a>
 							<ul class="dropdown-menu">
-								<li>
+								<li <?= $this->uri->segment(1) === 'contact' ? 'class="active-sub"' : '' ?>>
 									<a href="/contact">
 										企业版图
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(1) === 'recruitment' ? 'class="active-sub"' : '' ?>>
 									<a href="/recruitment">
 										人才招聘
 									</a>
 								</li>
-								<li>
+								<li <?= $this->uri->segment(1) === 'messageboard' ? 'class="active-sub"' : '' ?>>
 									<a href="/messageboard">
 										留言板
 									</a>

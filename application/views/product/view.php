@@ -45,10 +45,10 @@
 
 				<!--detail-article-->
 				<article class="detail-article">
-					<p>
-						<h3><?= $row->road_name?></h3>
-					</p>
-
+					<header class="text-center">
+						<h3><strong><?= $row->road_name?></strong></h3>
+						<br/>
+					</header>
 					<p>
 						<?= $row->content?>
 					</p>

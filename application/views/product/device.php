@@ -32,72 +32,75 @@
 
 			<div class="container">
 
-				<!--筛选
+				<!--筛选-->
 				<header class="cp-select select-horizontal">
 					<div class="clearfix inner">
 						<div class="pull-left select-item">
-							<select class="selectpicker" title='测试性能' id="select_product">
-								<option>爬坡性能</option>
-								<option>悬挂承受能力</option>
-								<option>四驱动力</option>
-								<option>侧向通过能力</option>
-								<option>抓地力</option>
+							<select class="selectpicker" title='请选择' id="select_product">
+								<option <?php if($id === '1'){echo 'selected';}?> value='1'>爬坡能力</option>
+								<option <?php if($id === '2'){echo 'selected';}?> value='2'>四驱动力</option>
+								<option <?php if($id === '3'){echo 'selected';}?> value='3'>抓地力</option>
+								<option <?php if($id === '4'){echo 'selected';}?> value='4'>通过能力</option>
+								<option <?php if($id === '5'){echo 'selected';}?> value='5'>车身刚性</option>
+								<option <?php if($id === '6'){echo 'selected';}?> value='6'>稳定性</option>
+								<option <?php if($id === '7'){echo 'selected';}?> value='7'>悬挂系统</option>
+								<option <?php if($id === '8'){echo 'selected';}?> value='8'>下坡辅助能力</option>
 							</select>
 						</div>
 					</div>
-				</header>-->
+				</header>
 				<!--/.cp-select END-->
 				<div id="page_container">
-				<div class="performance-wrap" >
-					<?php foreach($dataList as $row): ?>
-					<div class="section">
-						<a class="clearfix performance-inner js-open-popup" href="<?= '/product/view/'. $row['id'];?>">
+					<div class="performance-wrap" >
+						<?php foreach($dataList as $row): ?>
+						<div class="section">
+							<a class="clearfix performance-inner js-open-popup" href="<?= '/product/view/'. $row['id'];?>">
 
-							<div class="performance-photo">
-								<div class="base-photo cp-picture-effect">
-									<?= $row['content']?>
+								<div class="performance-photo">
+									<div class="base-photo cp-picture-effect">
+										<?= $row['content']?>
+									</div>
 								</div>
-							</div>
 
-							<div class="performance-description">
+								<div class="performance-description">
 
-								<hgroup class="performance-heading">
-									<h3><?= $row['road_name']?></h3>
-									<h4><?= $row['intro']?></h4>
-								</hgroup>
+									<hgroup class="performance-heading">
+										<h3><?= $row['road_name']?></h3>
+										<h4><?= $row['intro']?></h4>
+									</hgroup>
 
-								<p class="level-wrap">
-									<!--五个等级-->
-									<!--类名：-->
-									<!--level1|level2|level3|level4|level5-->
-									<span class="glyphicon-group level3">
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
-									<span class="glyphicon glyphicon-star"></span>
-									</span>
-								</p>
+									<p class="level-wrap">
+										<!--五个等级-->
+										<!--类名：-->
+										<!--level1|level2|level3|level4|level5-->
+										<span class="glyphicon-group level3">
+										<span class="glyphicon glyphicon-star"></span>
+										<span class="glyphicon glyphicon-star"></span>
+										<span class="glyphicon glyphicon-star"></span>
+										<span class="glyphicon glyphicon-star"></span>
+										<span class="glyphicon glyphicon-star"></span>
+										</span>
+									</p>
 
-							</div>
-							<!--/.description END-->
-						</a>
+								</div>
+								<!--/.description END-->
+							</a>
+						</div>
+						<?php endforeach; ?>
 					</div>
-					<?php endforeach; ?>
-				</div>
-				<!--/.wrap END-->
+					<!--/.wrap END-->
 
-				<?php if ($has_data) : ?>
-				<!--分页-->
-				<footer class="clearfix cp-pagination">
-					<nav class="pull-right">
-						<ul class="pager">
-							<?= $pagelink ?>
-						</ul>
-					</nav>
-				</footer>
-				<!--/.cp-pagination END-->
-				<?php endif ?>
+					<?php if ($has_data) : ?>
+					<!--分页-->
+					<footer class="clearfix cp-pagination">
+						<nav class="pull-right">
+							<ul class="pager">
+								<?= $pagelink ?>
+							</ul>
+						</nav>
+					</footer>
+					<!--/.cp-pagination END-->
+					<?php endif ?>
 				</div>
 			</div>
 
@@ -105,8 +108,10 @@
 			<link type="text/css" href="//cdn.bootcss.com/magnific-popup.js/1.0.0/magnific-popup.min.css" rel="stylesheet">
 			<script src="//cdn.bootcss.com/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
 
+		</main>
+		<!--/.page-main END-->
 			<script>
-				// $('.js-open-popup').magnificPopup({
+			// $('.js-open-popup').magnificPopup({
 					// type: 'image',
 					// tLoading: '图片正在读取中 #%curr%...',
 					// removalDelay: 300,
@@ -124,22 +129,16 @@
 						// tError: '<a href="%url%">该图片#%curr%</a> 读取失败,请尝试刷新页面.',
 					// }
 				// });
-			</script>
-
-		</main>
-		<!--/.page-main END-->
-			<script>
+				
 				$('#select_product').on('change', function(){
-					var name = $(this).find("option:selected").text();
+					var name = $(this).find("option:selected").val();
 
-					$.post('/product/device_select',{name: name},function(result, obj){
-						if (result.success) {
-							$('#page_container').html(result.device_html);
-						} else {
-							console.log(result);
-						}
-					}, 'json');
+					$.get('/product/device/1/'+ name, function(res){
+							$('#page_container').html($(res).find('#page_container').html());
+					});
 				});
+				
+				$('.selectpicker').selectpicker('refresh');
 			</script>
 
 		</main>
