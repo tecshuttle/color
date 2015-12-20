@@ -4,9 +4,7 @@
 </head>
 <body>
 
-<h4>注册成功</h4>
-
-
+<p style="text-align:center"><h4>_______注册成功</h4></p>
 
 </body>
 </html>

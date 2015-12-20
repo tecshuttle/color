@@ -64,7 +64,7 @@
 	<body>
 
 		<header class="brand--common">
-			<a class="navbar-brand cp-text--indent" href="#">
+			<a class="navbar-brand cp-text--indent" href="/">
 				SUNYATHE|中国·三源色
 			</a>
 		</header>
@@ -75,10 +75,8 @@
 			<!--main的命名方式为page+主题-->
 			<!--main标签在页面中只能出现一次-->
 			<section class="body login">
-
 				<h1 class="title">登&nbsp;录</h1>
-
-<?php echo form_open('login/formsubmit'); ?>
+<?php echo form_open('login/index'); ?>
 				<div class="form-horizontal">
 					<div class="form-group">
 						<label class="col-xs-3 control-label">账&nbsp;户：</label>
@@ -106,10 +104,17 @@
 
 					<div class="form-group form-submit">
 						<div class="col-xs-12">
+                                <label class="btn">
+								   <a href="/register/index" target="_blank">未注册?&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								   请点此处注册</a>
+                                </label>
+						</div>
+						<div class="col-xs-12">
 							<button type="submit" class="btn btn-block btn-danger">
 								登&nbsp;录
 							</button>
 						</div>
+						
 					</div>
 
 				</div>

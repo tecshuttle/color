@@ -66,7 +66,7 @@ class Register extends CI_Controller
             $data = array(
                 'email' => $email,
                 'username' => $username,
-                'password' => $password,
+                'password' => md5($password),
                 'passconf' => $passconf,
             );
 
@@ -98,7 +98,7 @@ class Register extends CI_Controller
 
             $data = array(
                 'phoneuser' => $phoneuser,
-                'phonepassword' => $phonepassword,
+                'phonepassword' => md5($phonepassword),
                 'tel' => $tel,
             );
 

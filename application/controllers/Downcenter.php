@@ -74,6 +74,17 @@ class downcenter extends MY_Controller
 		$this->load->view('footer',$data);
     }
 	
+	public function down()
+    {
+		$fileName = $this->uri->segment(3);
+		
+		$data['filename'] = $fileName;
+		
+        $this->load->view('header', $data);
+        $this->load->view('downcenter/down', $data);
+        $this->load->view('footer', $data);
+    }
+	
 	// 创建分页url
     private function create_page_url($base_url, $page, $conditions=array())
     {
