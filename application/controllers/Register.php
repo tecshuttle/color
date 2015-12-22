@@ -11,7 +11,6 @@ class Register extends CI_Controller
             'form',
             'url'
         ));
-        $this->load->library('session');
         $this->load->model('email_register_model');
     }
 
@@ -71,7 +70,7 @@ class Register extends CI_Controller
             );
 
             $this->db->insert('email_register', $data);
-            $this->load->view('formsuccess');
+            $this->load->view('/formsuccess');
         }
     }
 
@@ -103,7 +102,7 @@ class Register extends CI_Controller
             );
 
             $this->db->insert('phone_register', $data);
-            $this->load->view('formsuccess');
+            $this->load->view('/formsuccess');
         }
     }
 }

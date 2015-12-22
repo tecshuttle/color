@@ -1,5 +1,5 @@
-<figure id="carousel" class="carousel slide" data-ride="carousel">
 
+<figure id="carousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 				<li data-target="#carousel" data-slide-to="0" class="active"></li>
@@ -27,32 +27,26 @@
 </figure>
 
 		<!--page-main START-->
-		<main class="page-main page-team page-ceo-speech page-introduction" id="content" tabindex="-1" role="main">
+		<main class="page-main page-team page-ceo-speech page-introduction page-culture" id="content" tabindex="-1" role="main">
 			<!--main的命名方式为page+主题-->
 			<!--main标签在页面中只能出现一次-->
 
 			<div class="container">
+
 				<?= $article->content ?>
 			</div>
-			
-			<link type="text/css" href="//cdn.bootcss.com/magnific-popup.js/1.0.0/magnific-popup.min.css" rel="stylesheet">
-			<script src="//cdn.bootcss.com/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
 
+			<!--本模版单独引用JS-->
+			<!--图片滑过特效-->
+			<script src="/assets/js/modernizr.custom.min.js"></script>
+			<script src="/assets/js/jquery.hoverdir.js"></script>
 			<script>
-				$('.js-open-popup').magnificPopup({
-					type: 'image',
-					tLoading: '图片正在读取中 #%curr%...',
-					removalDelay: 300,
-					items: [{
-						src: '',
-						title: '这里是标题'
-					}],
-					gallery: {
-						enabled: true
-					},
-					image: {
-						tError: '<a href="%url%">该图片#%curr%</a> 读取失败,请尝试刷新页面.',
-					}
+				//鼠标滑过特效
+				$(function() {
+					$('.cp-figure-group .item').each(function() {
+						$(this).hoverdir();
+					});
 				});
 			</script>
+
 		</main>

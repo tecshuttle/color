@@ -64,10 +64,10 @@ class Messageboard extends CI_Controller {
 						
 					$this->load->view('formsuccess');
 				}
-			}
-			$message = 'ninwei';
+			}else{
 			
-			redirect("login", $message);
+				echo "<p style='text-align:center'><h4><a href='/login/index'>__________您未登录，请点击这里进行登录</a></p>";
+			}
 		}
 		
 		$this->load->view('header');

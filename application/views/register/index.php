@@ -66,7 +66,7 @@
 <body>
 
 <header class="brand--common">
-    <a class="navbar-brand cp-text--indent" href="#">
+    <a class="navbar-brand cp-text--indent" href="/">
         SUNYATHE|中国·三源色
     </a>
 </header>
@@ -95,7 +95,7 @@
         <div class="tab-content">
             <!--邮箱注册-->
             <div role="tabpanel" class="tab-pane fade <?= ($which === 'email' ? 'in active' : '') ?>" id="sign-up__email">
-                <?php echo form_open('register/index') ?>
+                <form method="post" accept-charset="utf-8" action="/register/index">
                 <div class="form-horizontal">
                     <div class="form-group">
                         <label class="col-xs-3 control-label">邮&nbsp;箱：</label>
@@ -222,7 +222,7 @@
 
                 </div>
                 <!--/.form-horizontal END-->
-
+				</form>
             </div>
             <!--/.tab-pane END-->
 

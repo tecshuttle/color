@@ -9,7 +9,6 @@ class Login extends CI_Controller {
             'form',
             'url'
         ) );
-        $this->load->library('session');
         $this->load->model('email_register_model');
     }
 
@@ -46,12 +45,43 @@ class Login extends CI_Controller {
                     'username' => $data ['username']
                 ), 1, 0 );
 				
-				if($query->result() == NULL || $phonequery->result() == NULL){
-					$this->form_validation->set_message('username', '用户名不存在.');
+				$phone = $phonequery->result();
+				$email = $query->result();
+				
+				if($email == null){
+					$emailPw = '';
+				}else{
+					$emailPw = $email[0]->password;
+				}
+				
+				if($phone == null){
+					$phonePw = '';
+				}else{
+					$phonePw = $phone[0]->phonepassword;
+				}
+				
+				if($query->result() == NULL && $phonequery->result() == NULL){
+					echo "<p style='text-align:center'><h4>用户不存在</a></p>";
+				}else if($phonePw !== ''){
+					if($phonePw !== $phonedata['phonepassword']){
+						echo "<p style='text-align:center'><h4>密码错误</a></p>";
+					}else{
+						$this->input->set_cookie("userLogin", true, 660);
+					
+						echo "<p style='text-align:center'><h4>_______页面提示：登录成功！<a href='/downcenter/index'>点击这里继续下载</a> 或是 <a href='/messageboard/index'>点击这里继续留言</a></p>";
+					}
+				}else if($emailPw !== ''){
+					if($emailPw !== $data['password']){
+						echo "<p style='text-align:center'><h4>密码错误</a></p>";
+					}else{
+						$this->input->set_cookie("userLogin", true, 660);
+					
+						echo "<p style='text-align:center'><h4>_______页面提示：登录成功！<a href='/downcenter/index'>点击这里继续下载</a> 或是 <a href='/messageboard/index'>点击这里继续留言</a></p>";
+					}
 				}else{
 					$this->input->set_cookie("userLogin", true, 660);
 					
-					redirect("downcenter");
+					echo "<p style='text-align:center'><h4>_______页面提示：登录成功！<a href='/downcenter/index'>点击这里继续下载</a> 或是 <a href='/messageboard/index'>点击这里继续留言</a></p>";
 				}
 		}
 		
