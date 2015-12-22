@@ -85,7 +85,7 @@ class Register extends CI_Controller
             array('required' => '密码不可为空.')
         );
 
-        $this->form_validation->set_rules('tel', '手机号', 'trim|required|min_length[11]',
+        $this->form_validation->set_rules('tel', '手机号', 'trim|required|exact_length[11]',
             array('required' => '手机号不可为空.')
         );
 
