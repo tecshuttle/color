@@ -76,7 +76,7 @@
 			<!--main标签在页面中只能出现一次-->
 			<section class="body login">
 				<h1 class="title">登&nbsp;录</h1>
-<?php echo form_open('login/index'); ?>
+<form method="post" accept-charset="utf-8" action="/login/index">
 				<div class="form-horizontal">
 					<div class="form-group">
 						<label class="col-xs-3 control-label">账&nbsp;户：</label>
@@ -118,6 +118,7 @@
 					</div>
 
 				</div>
+				</form>
 				<!--/.form-horizontal END-->
 
 			</section>

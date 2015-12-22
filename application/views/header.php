@@ -11,34 +11,38 @@
 		<meta name="renderer" content="webkit">
 		<meta name="force-rendering" content="webkit">
 		<meta http-equiv="Cache-Control" content="no-siteapp">
-		<title>
-			首页
-		</title>
+		<title>首页</title>
+
 		<!--Core css-->
 		<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
 		<!--Custom css-->
 		<link href="/assets/css/style.css" rel="stylesheet">
+
 		<!--Font css-->
 		<link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
 		<!--Core js-->
 		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 		<!--HTML5 shim for IE8 support of HTML5 elements-->
 		<!--[if IE 8]>
-		<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-		<script src="//cdn.bootcss.com/selectivizr/1.0.2/selectivizr-min.js"></script>
-		<![endif]-->
+        	<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        	<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+      		<script src="//cdn.bootcss.com/selectivizr/1.0.2/selectivizr-min.js"></script>
+    	<![endif]-->
+
 		<!----Kill IE----->
 		<!--[if lte IE 7 ]>
-		<link rel="stylesheet" href="assets/iealert/iealert.min.css">
-		<script src="assets/iealert/iealert.min.js"></script>
-		<script>
-		$(document).ready(function () {
-		$("body").iealert();
-		});
-		</script>
-		<![endif]-->
+    	<link rel="stylesheet" href="assets/iealert/iealert.min.css">
+    	<script src="assets/iealert/iealert.min.js"></script>
+    	<script>
+        	$(document).ready(function () {
+           		 $("body").iealert();
+        	});
+    	</script>
+    	<![endif]-->
 	</head>
 	<body>
 		<a href="#content" class="sr-only sr-only-focusable">
