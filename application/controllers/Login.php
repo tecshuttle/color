@@ -25,7 +25,7 @@ class Login extends CI_Controller {
         $this->form_validation->set_rules ( 'password', 'Password', 'required',
             array('required' => '密码不可为空.')
         );
-		
+
 		if ($this->form_validation->run() == TRUE) {
 				
                 $data = array (

@@ -77,7 +77,7 @@ class Register extends CI_Controller
 
     private function phone_register()
     {
-        $this->form_validation->set_rules('phoneuser', '用户名', 'required',
+        $this->form_validation->set_rules('phoneuser', '用户名', 'trim|required|min_length[3]|max_length[16]',
             array('required' => '用户名不可为空.')
         );
 
@@ -90,7 +90,7 @@ class Register extends CI_Controller
         );
 
         if ($this->form_validation->run() == FALSE) {
-            //redirect('/register/index', 'refresh');
+            
         } else {
             $phoneuser = $this->input->post('phoneuser');
             $phonepassword = $this->input->post('phonepassword');
