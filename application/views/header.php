@@ -51,6 +51,7 @@
 		<!--page-navbar START-->
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
+				
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
@@ -252,6 +253,17 @@
 					</ul>
 				</div>
 				<!-- /.navbar-collapse END -->
+																
+				<div class="login-wrap">
+					<a class="login" href="#">
+						<i class="fa fa-angle-right"></i>登录
+					</a>
+					<a class="sign-up" href="#">
+						<i class="fa fa-angle-right"></i>注册
+					</a>
+				</div>
+				<!-- /.login-wrap END -->
+				
 			</div>
 			<!-- /.container-fluid END -->
 		</nav>

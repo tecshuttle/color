@@ -627,6 +627,7 @@ select.mobile-device {
 
 .select-horizontal .inner {
 	max-width: 800px;
+	max-height: 250px !important;
 }
 
 .select-vertical {
@@ -1037,6 +1038,27 @@ select.mobile-device {
 }
 
 
+/*登录 & 注册*/
+
+.login-wrap {
+	position: absolute;
+	right: 80px;
+	top: 10px;
+	z-index: 99;
+}
+
+.login-wrap a {
+	display: inline-block;
+	margin-left: 15px;
+	font-size: 16px;
+	letter-spacing: 5px;
+}
+
+.login-wrap a .fa {
+	font-size: 20px;
+}
+
+
 /*脚部*/
 
 .page-footer {
@@ -1310,32 +1332,6 @@ select.mobile-device {
 	right: 0;
 	text-align: right;
 }
-
-
-/*.page-index figure.base .item {
-	width: 100%;
-	min-height: 666px;
-	background: url(../img/web/placeholder.jpg) repeat center center / contain;
-}
-
-@media (max-width: 992px) {
-	.page-index figure.base .item {
-		min-height: 1332px;
-	}
-}*/
-
-
-/*@media (max-width: 768px) {
-	.page-index figure.base .item>.img-responsive {
-		max-height: 300px;
-	}
-}
-
-@media (min-width: 768px) {
-	.page-index figure.base .control {
-		font-size: 5.5em;
-	}
-}*/
 
 
 /*

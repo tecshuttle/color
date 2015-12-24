@@ -237,10 +237,22 @@
 					</ul>
 				</div>
 				<!-- /.navbar-collapse END -->
+																
+				<div class="login-wrap">
+					<a class="login" href="#">
+						<i class="fa fa-angle-right"></i>登录
+					</a>
+					<a class="sign-up" href="#">
+						<i class="fa fa-angle-right"></i>注册
+					</a>
+				</div>
+				<!-- /.login-wrap END -->
+				
 			</div>
 			<!-- /.container-fluid END -->
 		</nav>
 		<!--/.page-navbar END-->
+		
 		<!--slide START-->
 		<figure id="carousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
@@ -275,10 +287,12 @@
 			</a>
 		</figure>
 		<!--/.slide END-->
+		
 		<!--page-index START-->
 		<main class="page-index" id="content" tabindex="-1" role="main" >
 			<!--main的命名方式为page+主题-->
 			<!--main标签在页面中只能出现一次-->
+			
 			<section class="section base">
 				<div class="container-fluid">
 					<header class="clearfix">
