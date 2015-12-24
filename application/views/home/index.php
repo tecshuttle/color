@@ -323,11 +323,13 @@
 							</li>
 						</ul>
 					</header>
+					
 					<!--slide START-->
 					<figure id="base" class="carousel slide base" data-ride="carousel">
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner" role="listbox">
 							<div class="item active">
+								
 								<!--描述-->
 								<div class="row caption">
 									<?php
@@ -435,11 +437,13 @@
 							</i>
 							<span class="sr-only">Next</span>
 						</a>
+						</div>
 					</figure>
 					<!--/.slide END-->
 				</div>
 			</section>
 			<!--/.section END-->
+			
 			<section class="section test-drive">
 				<div class="container-fluid">
 					<header class="clearfix">
@@ -640,6 +644,7 @@
 						</div>
 					</div>
 					<!--/.body END-->
+				</div>
 				</div>
 			</section>
 			<!--/.section END-->

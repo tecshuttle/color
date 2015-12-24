@@ -1,5 +1,3 @@
-
-		
 		<!--slide START-->
 		<figure id="carousel" class="carousel slide" data-ride="carousel">
 

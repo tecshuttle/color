@@ -2437,26 +2437,9 @@ select.mobile-device {
 }
 
 .page-ceo-speech dl {
-	position: relative;
 	padding-left: 30px;
 	margin-bottom: 35px;
 	font-size: 16px;
-}
-
-.page-ceo-speech dl:before {
-	position: absolute;
-	top: 5px;
-	left: -2px;
-	display: inline-block;
-	font-family: 'Glyphicons Halflings';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 1;
-	content: "\e072";
-	color: #c82226;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
 .page-ceo-speech dl>dt {

@@ -1,4 +1,4 @@
-<!--slide START-->
+		<!--slide START-->
 		<figure id="carousel" class="carousel slide" data-ride="carousel">
 
 			<!-- Indicators -->
@@ -48,8 +48,7 @@
 								$(this).toggleClass('active');
 							});
 						</script>
-					</figure>
-
+		
 				</div>
 				<!--/.wrap END-->
 
