@@ -21,7 +21,7 @@ $(function() {
 
 //焦点图
 $('.carousel').carousel({
-  interval: 2000
+  interval: 3000
 })
 
 //bootstrap-hover-dropdown.js

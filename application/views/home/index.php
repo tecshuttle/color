@@ -276,7 +276,7 @@
 		</figure>
 		<!--/.slide END-->
 		<!--page-index START-->
-		<main class="page-index" id="content" tabindex="-1" role="main">
+		<main class="page-index" id="content" tabindex="-1" role="main" >
 			<!--main的命名方式为page+主题-->
 			<!--main标签在页面中只能出现一次-->
 			<section class="section base">
@@ -285,39 +285,40 @@
 						<h1 class="pull-left title">
 							<strong>试驾基地</strong>
 						</h1>
+                        
 						<ul class="clearfix list-unstyled pull-right tab" role="tablist">
 							<li>
-								<a href="/index.php?area=华南">
+								<a href="/index.php?area=华南#content">
 									华南地区
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?area=华东">
+								<a href="/index.php?area=华东#content">
 									华东地区
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?area=华中">
+								<a href="/index.php?area=华中#content">
 									华中地区
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?area=西南">
+								<a href="/index.php?area=西南#content">
 									西南地区
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?area=华北">
+								<a href="/index.php?area=华北#content">
 									华北地区
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?area=华南">
+								<a href="/index.php?area=华南#content">
 									西北地区
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?area=东北">
+								<a href="/index.php?area=东北#content">
 									东北地区
 								</a>
 							</li>
@@ -365,7 +366,7 @@
 										?>
 											<a class="col-xs-12 col-sm-12 col-md-12 col-lg-6" href="#">
 												<span>
-													<i class="fa fa-angle-double-right" style="">
+													<i class="fa fa-angle-double-right" style="" >
 													</i>暂无记录
 												</span>
 											</a>
@@ -427,12 +428,12 @@
 								</div>
 						</div>
 						<!-- Controls -->
-						<a class="left control" href="#base" role="button" data-slide="prev">
+						<a class="left control" href="#base" role="button" data-slide="prev" >
 							<i class="fa fa-angle-left">
 							</i>
 							<span class="sr-only">Previous</span>
 						</a>
-						<a class="right control" href="#base" role="button" data-slide="next">
+						<a class="right control" href="#base" role="button" data-slide="next" >
 							<i class="fa fa-angle-right">
 							</i>
 							<span class="sr-only">Next</span>
@@ -442,34 +443,35 @@
 					<!--/.slide END-->
 				</div>
 			</section>
+			
 			<!--/.section END-->
 			
-			<section class="section test-drive">
-				<div class="container-fluid">
+			<section class="section test-drive" id="device">
+				<div class="container-fluid" >
 					<header class="clearfix">
 						<h1 class="pull-left title">
 							<strong>越野器械</strong>
 						</h1>
 						<ul class="clearfix list-unstyled pull-right tab" role="tablist">
 							<li>
-								<a href="/index.php?nodus=稍难">
+								<a href="/index.php?nodus=稍难#device">
 									稍难
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?nodus=适中">
+								<a href="/index.php?nodus=适中#device">
 									适中
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?nodus=容易">
+								<a href="/index.php?nodus=容易#device">
 									容易
 								</a>
 							</li>
 						</ul>
 					</header>
 					<div class="body">
-						<div class="row js-match">
+						<div class="row js-match" >
 						<?php if($product_menu !== NULL):?>
 							<?php
 								$i=0;
@@ -478,7 +480,7 @@
 									break;
 								}
 							?>
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 js-match-item">
+							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 js-match-item" >
 								<a class="thumbnail" href="<?= '/product/view/'. $row['id']?>">
 									<?= $row['content']?>
 									<div class="caption">
@@ -512,7 +514,7 @@
 				</div>
 			</section>
 			<!--/.section END-->
-			<section class="section case">
+			<section class="section case" >
 				<div class="container-fluid">
 					<header class="clearfix">
 						<h1 class="pull-left title">
