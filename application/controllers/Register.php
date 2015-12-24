@@ -11,7 +11,6 @@ class Register extends CI_Controller
             'form',
             'url'
         ));
-        $this->load->library('session');
         $this->load->model('email_register_model');
     }
 
@@ -66,18 +65,18 @@ class Register extends CI_Controller
             $data = array(
                 'email' => $email,
                 'username' => $username,
-                'password' => $password,
+                'password' => md5($password),
                 'passconf' => $passconf,
             );
 
             $this->db->insert('email_register', $data);
-            $this->load->view('formsuccess');
+            $this->load->view('/formsuccess');
         }
     }
 
     private function phone_register()
     {
-        $this->form_validation->set_rules('phoneuser', '用户名', 'required',
+        $this->form_validation->set_rules('phoneuser', '用户名', 'trim|required|min_length[3]|max_length[16]',
             array('required' => '用户名不可为空.')
         );
 
@@ -85,12 +84,12 @@ class Register extends CI_Controller
             array('required' => '密码不可为空.')
         );
 
-        $this->form_validation->set_rules('tel', '手机号', 'trim|required|min_length[11]',
+        $this->form_validation->set_rules('tel', '手机号', 'trim|required|exact_length[11]',
             array('required' => '手机号不可为空.')
         );
 
         if ($this->form_validation->run() == FALSE) {
-            //redirect('/register/index', 'refresh');
+            
         } else {
             $phoneuser = $this->input->post('phoneuser');
             $phonepassword = $this->input->post('phonepassword');
@@ -98,12 +97,12 @@ class Register extends CI_Controller
 
             $data = array(
                 'phoneuser' => $phoneuser,
-                'phonepassword' => $phonepassword,
+                'phonepassword' => md5($phonepassword),
                 'tel' => $tel,
             );
 
             $this->db->insert('phone_register', $data);
-            $this->load->view('formsuccess');
+            $this->load->view('/formsuccess');
         }
     }
 }

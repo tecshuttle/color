@@ -38,7 +38,7 @@
 				<?php if($countData):?>
 				<?php foreach($data as $row):?>
 					<div class="section">
-						<a class="clearfix download-inner" href="<?= $row['url'];?>">
+						<a class="clearfix download-inner" href="/downcenter/down/<?= $row['url'];?>">
 							<div class="download-picture cp-picture-effect">
 								<?= $row['content'];?>
 							</div>

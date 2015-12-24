@@ -1,9 +1,7 @@
 ﻿<?php
 class Login extends CI_Controller {
     private $pass = '';
-
-
-
+	
     public function __construct() {
         parent::__construct ();
 
@@ -11,19 +9,13 @@ class Login extends CI_Controller {
             'form',
             'url'
         ) );
-        $this->load->library('session');
+        $this->load->model('email_register_model');
     }
 
 
     public function index() {
-        $this->load->view ( 'login/index' );
-    }
-
-
-
-    public function formsubmit() {
-
-        $this->load->library ( 'form_validation' );
+		
+		$this->load->library ( 'form_validation' );
 
         $this->form_validation->set_rules ( 'username', 'Username', 'required',
             array('required' => '用户名不可为空.')
@@ -33,48 +25,67 @@ class Login extends CI_Controller {
             array('required' => '密码不可为空.')
         );
 
-
-
-        if ($this->form_validation->run () == FALSE) {
-            $this->load->view ( 'login/index' );
-        } else {
-
-            if (isset ( $_POST ['submit'] ) && ! empty ( $_POST ['submit'] )) {
-
+		if ($this->form_validation->run() == TRUE) {
+				
                 $data = array (
-                    'user' => $_POST ['username'],
-                    'pass' => md5($_POST ['password'])
+                    'username' => $_POST ['username'],
+                    'password' => md5($_POST ['password'])
                 );
-
-                $newdata = array(
-                    'username'  =>  $data ['user'] ,
-                    'userip'    => $_SERVER['REMOTE_ADDR'],
-                    'luptime'   =>time()
+				
+				$phonedata = array (
+                    'phoneuser' => $_POST ['username'],
+                    'phonepassword' => md5($_POST ['password'])
                 );
-
-                if ($_POST ['submit'] == 'login') {
-                    $query = $this->db->get_where ('uc_user', array(
-                        'user' => $data ['user']
-                    ), 1, 0 );
-
-                    foreach ( $query->result () as $row ) {
-                        $pass = $row->pass;
-                    }
-                    if ($pass == $data ['pass']) {
-
-                        $this->session->set_userdata($newdata);
-                        $this->load->view ( 'usercenter', $data );
-                    }
-                } else if ($_POST ['submit'] == 'register') {
-
-                    $this->session->set_userdata($newdata);
-                    $this->db->insert ( 'uc_user', $data );
-                    $this->load->view ( 'usercenter', $data );
-                } else {
-                    $this->session->sess_destroy();
-                    $this->load->view ( '' );
-                }
-            }
-        }
+                
+				$phonequery = $this->db->get_where ('phone_register', array(
+                    'phoneuser' => $phonedata ['phoneuser']
+                ), 1, 0 );
+				
+				$query = $this->db->get_where ('email_register', array(
+                    'username' => $data ['username']
+                ), 1, 0 );
+				
+				$phone = $phonequery->result();
+				$email = $query->result();
+				
+				if($email == null){
+					$emailPw = '';
+				}else{
+					$emailPw = $email[0]->password;
+				}
+				
+				if($phone == null){
+					$phonePw = '';
+				}else{
+					$phonePw = $phone[0]->phonepassword;
+				}
+				
+				if($query->result() == NULL && $phonequery->result() == NULL){
+					echo "<p style='text-align:center'><h4>用户不存在</a></p>";
+				}else if($phonePw !== ''){
+					if($phonePw !== $phonedata['phonepassword']){
+						echo "<p style='text-align:center'><h4>密码错误</a></p>";
+					}else{
+						$this->input->set_cookie("userLogin", true, 660);
+					
+						echo "<p style='text-align:center'><h4>_______页面提示：登录成功！<a href='/downcenter/index'>点击这里继续下载</a> 或是 <a href='/messageboard/index'>点击这里继续留言</a></p>";
+					}
+				}else if($emailPw !== ''){
+					if($emailPw !== $data['password']){
+						echo "<p style='text-align:center'><h4>密码错误</a></p>";
+					}else{
+						$this->input->set_cookie("userLogin", true, 660);
+					
+						echo "<p style='text-align:center'><h4>_______页面提示：登录成功！<a href='/downcenter/index'>点击这里继续下载</a> 或是 <a href='/messageboard/index'>点击这里继续留言</a></p>";
+					}
+				}else{
+					$this->input->set_cookie("userLogin", true, 660);
+					
+					echo "<p style='text-align:center'><h4>_______页面提示：登录成功！<a href='/downcenter/index'>点击这里继续下载</a> 或是 <a href='/messageboard/index'>点击这里继续留言</a></p>";
+				}
+		}
+		
+		$this->load->view ( 'login/index' );
+		
     }
 }

@@ -768,7 +768,7 @@
 						</ul>
 					</div>
 					<div class="col-xs-12 col-md-12 col-lg-4 footer-right">
-						<a class="link-drive" href="#" title="我要试驾">
+						<a class="link-drive" href="device/index" title="我要试驾">
 							<img src="assets/img/web/drive.png" alt="我要试驾">
 						</a>
 						<span class="qr-code">
