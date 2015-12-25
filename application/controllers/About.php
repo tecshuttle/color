@@ -23,11 +23,13 @@ class About extends CI_Controller
         $this->load->model('articles_model');
 		
 		$url = $this->uri->segment(2);
+
+		
 		
 		$article = $this->articles_model->select(array(
             'code' => $code
         ));
-		
+
 		//banner图修改
         $overviewBanner = $this->articles_model->select(array(
             'code' => 'overviewBanner'

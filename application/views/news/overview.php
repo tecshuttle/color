@@ -13,7 +13,13 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<?= $article->content;?>
+				<?php switch($url){
+					case 'consultation': echo $consultationBanner->content;break;
+					case 'trends': echo $trendsBanner->content;break;
+					case 'highlight': echo $highlightBanner->content;break;
+					
+
+				}?>
 			</div>
 
 			<!-- Controls -->
