@@ -239,10 +239,10 @@
 				<!-- /.navbar-collapse END -->
 																
 				<div class="login-wrap">
-					<a class="login" href="#">
+					<a class="login" href="/login/index">
 						<i class="fa fa-angle-right"></i>登录
 					</a>
-					<a class="sign-up" href="#">
+					<a class="sign-up" href="/register/index">
 						<i class="fa fa-angle-right"></i>注册
 					</a>
 				</div>
@@ -721,12 +721,12 @@
 			<!--微博-->
 			<dl class="contact-item weibo">
 				<dt>
-					<a href="#" title="官网微博">
+					<a href="http://weibo.com/sunyathe" title="官网微博">
 						<i class="fa fa-weibo"></i>
 					</a>
 				</dt>
 				<dd>
-					<b>@三原色文化传播</b>
+					<b>@三源色文化传播</b>
 				</dd>
 			</dl>
 
