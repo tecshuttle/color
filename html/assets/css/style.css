@@ -2401,10 +2401,6 @@ select.mobile-device {
 	cursor: default;
 }
 
-.page-team a[class*="byword"] {
-	background-repeat: no-repeat;
-}
-
 .page-team .byword01 {
 	background: url(../img/team/byword01.png) 136px 221px;
 	background-size: 215px auto;
@@ -2451,7 +2447,7 @@ select.mobile-device {
 }
 
 .page-team .byword11 {
-	background: url(../img/team/byword11.png) 30px 95px;
+	background: url(../img/team/byword11.png) 30px 250px;
 	background-size: 150px auto;
 }
 
@@ -2475,7 +2471,11 @@ select.mobile-device {
 	background-size: 200px auto;
 }
 
-
+.page-team a[class*="byword"] {
+	position: relative;
+	background-repeat: no-repeat;
+	-ms-behavior: url(../js/htc/backgroundsize.min.htc);
+}
 /*
  *关于我们-总经理致辞
  ***************************************/

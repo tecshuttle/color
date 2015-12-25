@@ -1,4 +1,4 @@
-<!--slide START-->
+		<!--slide START-->
 		<figure id="carousel" class="carousel slide" data-ride="carousel">
 
 			<!-- Indicators -->
@@ -109,8 +109,6 @@
 			<link type="text/css" href="//cdn.bootcss.com/magnific-popup.js/1.0.0/magnific-popup.min.css" rel="stylesheet">
 			<script src="//cdn.bootcss.com/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
 
-		</main>
-		<!--/.page-main END-->
 			<script>
 			// $('.js-open-popup').magnificPopup({
 					// type: 'image',
@@ -143,3 +141,4 @@
 			</script>
 
 		</main>
+		<!--/.page-main END-->

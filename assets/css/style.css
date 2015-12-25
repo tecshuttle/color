@@ -627,6 +627,7 @@ select.mobile-device {
 
 .select-horizontal .inner {
 	max-width: 800px;
+	max-height: 250px !important;
 }
 
 .select-vertical {
@@ -1037,6 +1038,27 @@ select.mobile-device {
 }
 
 
+/*登录 & 注册*/
+
+.login-wrap {
+	position: absolute;
+	right: 80px;
+	top: 10px;
+	z-index: 99;
+}
+
+.login-wrap a {
+	display: inline-block;
+	margin-left: 15px;
+	font-size: 16px;
+	letter-spacing: 5px;
+}
+
+.login-wrap a .fa {
+	font-size: 20px;
+}
+
+
 /*脚部*/
 
 .page-footer {
@@ -1310,32 +1332,6 @@ select.mobile-device {
 	right: 0;
 	text-align: right;
 }
-
-
-/*.page-index figure.base .item {
-	width: 100%;
-	min-height: 666px;
-	background: url(../img/web/placeholder.jpg) repeat center center / contain;
-}
-
-@media (max-width: 992px) {
-	.page-index figure.base .item {
-		min-height: 1332px;
-	}
-}*/
-
-
-/*@media (max-width: 768px) {
-	.page-index figure.base .item>.img-responsive {
-		max-height: 300px;
-	}
-}
-
-@media (min-width: 768px) {
-	.page-index figure.base .control {
-		font-size: 5.5em;
-	}
-}*/
 
 
 /*
@@ -2178,6 +2174,65 @@ select.mobile-device {
 	margin: 0;
 }
 
+.tool-container {
+	background-color: #333;
+	border-color: #333;
+	border-radius: 6px;
+	position: absolute;
+}
+
+.tool-container.tool-top {
+	height: 40px;
+	border-bottom: 0px solid #beb8b8;
+}
+
+.tool-container.tool-top .tool-item {
+	float: left;
+	border-right: 0;
+	border-left: 0;
+}
+
+.tool-item {
+	height: 100%;
+	display: block;
+	width: auto;
+	height: 40px;
+	text-align: center;
+	padding: 10px;
+	transition: none;
+}
+
+.tool-container .arrow {
+	width: 0;
+	height: 0;
+	position: absolute;
+	border-width: 7px;
+	border-style: solid;
+}
+
+.tool-container.tool-top .arrow {
+	border-color: #333 transparent transparent;
+	left: 50%;
+	bottom: -14px;
+	margin-left: -7px;
+}
+
+.animate-standard {
+	-webkit-animation: standardAnimate 0.3s 1 ease;
+}
+
+
+@-webkit-keyframes standardAnimate {
+	from {
+		transform: translateY(20px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
 
 /*
  *联系我们-人才招聘
@@ -2485,26 +2540,9 @@ select.mobile-device {
 }
 
 .page-ceo-speech dl {
-	position: relative;
 	padding-left: 30px;
 	margin-bottom: 35px;
 	font-size: 16px;
-}
-
-.page-ceo-speech dl:before {
-	position: absolute;
-	top: 5px;
-	left: -2px;
-	display: inline-block;
-	font-family: 'Glyphicons Halflings';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 1;
-	content: "\e072";
-	color: #c82226;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
 .page-ceo-speech dl>dt {

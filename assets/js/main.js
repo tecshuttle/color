@@ -19,6 +19,10 @@ $(function() {
 	$(document).find("a[href=#]").attr("href", "javascript:void(0)");
 });
 
+//焦点图
+$('.carousel').carousel({
+  interval: 3000
+})
 
 //bootstrap-hover-dropdown.js
 //导航滑过

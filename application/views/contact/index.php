@@ -1,5 +1,3 @@
-
-		
 		<!--slide START-->
 		<figure id="carousel" class="carousel slide" data-ride="carousel">
 
@@ -79,145 +77,150 @@
 
 						<!--城市绝对定位已排列好顺序-->
 						<!--data-name="城市字母"-->
-						<!--data-content中的html部分务必排成一行-->
-						<input type="hidden" id="all_city_bases" value='<?= json_encode($allCityBases)?>' />
 						
-						<a class="city" name="广州" data-name="guangzhou" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<!--提示层-->
+						<div id="toolbar-options" class="hidden">
+						   <a href="#">该城市暂无试驾基地基</a>
+						</div>
+						
+						<input type="hidden" id="all_city_bases" value='<?= json_encode($allCityBases)?>' />
+											
+						<a class="city" data-toolbar="city" name="广州" data-name="guangzhou" tabindex="0" role="button">
 							广州
 						</a>
 
-						<a class="city" name="深圳" data-name="shenzhen" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地基</h5>">
+						<a class="city" data-toolbar="city" name="深圳" data-name="shenzhen" tabindex="0" role="button">
 							深圳
 						</a>
 						
-						<a class="city" name="呼伦贝尔" data-name="hulunbeier" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="呼伦贝尔" data-name="hulunbeier" tabindex="0" role="button">
 							呼伦
 						</a>
 
-						<a class="city" name="哈尔滨" data-name="haerbin" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="哈尔滨" data-name="haerbin" tabindex="0" role="button">
 							哈尔滨
 						</a>
 
-						<a class="city" name="长春" data-name="changchun" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="长春" data-name="changchun" tabindex="0" role="button">
 							长春
 						</a>
 
-						<a class="city" name="沈阳" data-name="shenyang" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="沈阳" data-name="shenyang" tabindex="0" role="button">
 							沈阳
 						</a>
 
-						<a class="city" name="北京" data-name="beijing" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="北京" data-name="beijing" tabindex="0" role="button">
 							北京
 						</a>
 
-						<a class="city" name="石家庄" data-name="shijiazhuang" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="石家庄" data-name="shijiazhuang" tabindex="0" role="button">
 							石家庄
 						</a>
 
-						<a class="city" name="银川" data-name="yinchuan" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="银川" data-name="yinchuan" tabindex="0" role="button">
 							银川
 						</a>
 
-						<a class="city" name="太原" data-name="taiyuan" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h55>">
+						<a class="city" data-toolbar="city" name="太原" data-name="taiyuan" tabindex="0" role="button">
 							太原
 						</a>
 
-						<a class="city" name="济南" data-name="jinan" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="济南" data-name="jinan" tabindex="0" role="button">
 							济南
 						</a>
 
-						<a class="city" name="青岛" data-name="qingdao" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="青岛" data-name="qingdao" tabindex="0" role="button">
 							青岛
 						</a>
 
-						<a class="city" name="西宁" data-name="xining" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="西宁" data-name="xining" tabindex="0" role="button">
 							西宁
 						</a>
 
-						<a class="city" name="兰州" data-name="lanzhou" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="兰州" data-name="lanzhou" tabindex="0" role="button">
 							兰州
 						</a>
 
-						<a class="city" name="西安" data-name="xian" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="西安" data-name="xian" tabindex="0" role="button">
 							西安
 						</a>
 
-						<a class="city" name="郑州" data-name="zhengzhou" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="郑州" data-name="zhengzhou" tabindex="0" role="button">
 							郑州
 						</a>
 
-						<a class="city" name="南京" data-name="nanjing" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="南京" data-name="nanjing" tabindex="0" role="button">
 							南京
 						</a>
 
-						<a class="city" name="合肥" data-name="hefei" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="合肥" data-name="hefei" tabindex="0" role="button">
 							合肥
 						</a>
 
-						<a class="city" name="苏州" data-name="suzhou" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="苏州" data-name="suzhou" tabindex="0" role="button">
 							苏州
 						</a>
 
-						<a class="city" name="上海" data-name="shanghai" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="上海" data-name="shanghai" tabindex="0" role="button">
 							上海
 						</a>
 
-						<a class="city" name="成都" data-name="chengdu" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="成都" data-name="chengdu" tabindex="0" role="button">
 							成都
 						</a>
 
-						<a class="city" name="重庆" data-name="chongqing" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="重庆" data-name="chongqing" tabindex="0" role="button">
 							重庆
 						</a>
 
-						<a class="city" name="武汉" data-name="wuhan" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="武汉" data-name="wuhan" tabindex="0" role="button">
 							武汉
 						</a>
 
-						<a class="city" name="南昌" data-name="nanchang" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="南昌" data-name="nanchang" tabindex="0" role="button">
 							南昌
 						</a>
 
-						<a class="city" name="杭州" data-name="hangzhou" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="杭州" data-name="hangzhou" tabindex="0" role="button">
 							杭州
 						</a>
 
-						<a class="city" name="贵阳" data-name="guiyang" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="贵阳" data-name="guiyang" tabindex="0" role="button">
 							贵阳
 						</a>
 
-						<a class="city" name="长沙" data-name="changsha" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="长沙" data-name="changsha" tabindex="0" role="button">
 							长沙
 						</a>
 
-						<a class="city" name="福州" data-name="fuzhou" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="福州" data-name="fuzhou" tabindex="0" role="button">
 							福州
 						</a>
 
-						<a class="city" name="昆明" data-name="kunming" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="昆明" data-name="kunming" tabindex="0" role="button">
 							昆明
 						</a>
 
-						<a class="city" name="南宁" data-name="nanning" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="南宁" data-name="nanning" tabindex="0" role="button">
 							南宁
 						</a>
 
-						<a class="city" name="厦门" data-name="xiamen" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="厦门" data-name="xiamen" tabindex="0" role="button">
 							厦门
 						</a>
-						<a class="city" name="东莞" data-name="dongguan" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="东莞" data-name="dongguan" tabindex="0" role="button">
 							东莞
 						</a>
 
-						<a class="city" name="佛山" data-name="foshan" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="佛山" data-name="foshan" tabindex="0" role="button">
 							佛山
 						</a>
 
-						<a class="city" name="海口" data-name="haikou" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="海口" data-name="haikou" tabindex="0" role="button">
 							海口
 						</a>
 
-						<a class="city" name="三亚" data-name="sanya" tabindex="0" role="button" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="left" data-html="true" data-content="<h5>该城市暂无试驾基地</h5>">
+						<a class="city" data-toolbar="city" name="三亚" data-name="sanya" tabindex="0" role="button">
 							三亚
 						</a>
 
@@ -226,57 +229,65 @@
 
 				</div>
 				<!--/.wrap END-->
-<script>
-		var page_url = '/contact/index';
-		var region_url = '/contact/region';
-		
-		var allCityBases = JSON.parse(document.getElementById("all_city_bases").value);
-		
-		$("[data-content]").each(function () {
-			var cityName = $(this).attr("name");
-			var isThis = this;
-			$.each(allCityBases, function(i, item){
-				console.log(item.keywords);
-				if(cityName == item.keywords){
-					$(isThis).attr("data-content", item.name);
-				}
-			});
-		});
-		
-		$('[data-toggle="popover"]').popover();
-</script>
-<script>
-        $(function(){
-           // 选择省份
-            $('#select_province').on('change', function(){
-                var id = $(this).val();
-                $.get(region_url + '/' + id, function(res){
-                    $('#select_city').html(res);
-                    reload_list(id, 0);
-                });
-            });
-            
-            // 选择城市
-            $('#select_city').on('change', function(){
-                var pid = $('#select_province').val();
-                var cid = $(this).val();
-                reload_list(pid, cid)
-            }); 
-            
-            // 重新加载记录列表
-             function reload_list(pid, cid){
-                $.get(page_url + '/1/' + pid + '/' + cid + '/sync', function(res){
-                    $('#page_container').html($(res).find('#page_container').html());
-                });
-            } 
 			
-			$('.selectpicker').selectpicker('refresh');
-        });
-</script>
+				<script src="/assets/js/jquery.toolbar.min.js"></script>
+				<script>
+					$('a[data-toolbar="city"]').toolbar({
+						content: '#toolbar-options',
+						position: 'top'
+					});
+				</script>				
+				
+				
+				<script>
+					var page_url = '/contact/index';
+					var region_url = '/contact/region';
+					
+					var allCityBases = JSON.parse(document.getElementById("all_city_bases").value);
+					
+					$("[data-content]").each(function () {
+						var cityName = $(this).attr("name");
+						var isThis = this;
+						$.each(allCityBases, function(i, item){
+							console.log(item.keywords);
+							if(cityName == item.keywords){
+								$(isThis).attr("data-content", item.name);
+							}
+						});
+					});
+					
+					$('[data-toggle="popover"]').popover();
+				</script>
+			
+				<script>
+			        $(function(){
+			           // 选择省份
+			            $('#select_province').on('change', function(){
+			                var id = $(this).val();
+			                $.get(region_url + '/' + id, function(res){
+			                    $('#select_city').html(res);
+			                    reload_list(id, 0);
+			                });
+			            });
+			            
+			            // 选择城市
+			            $('#select_city').on('change', function(){
+			                var pid = $('#select_province').val();
+			                var cid = $(this).val();
+			                reload_list(pid, cid)
+			            }); 
+			            
+			            // 重新加载记录列表
+			             function reload_list(pid, cid){
+			                $.get(page_url + '/1/' + pid + '/' + cid + '/sync', function(res){
+			                    $('#page_container').html($(res).find('#page_container').html());
+			                });
+			            } 
+						
+						$('.selectpicker').selectpicker('refresh');
+			       	 });
+				</script>
 			</div>
 
 		</main>
-		<!--/.page-main END-->
-
-		
-		
+		<!--/.page-main END-->		
