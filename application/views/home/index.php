@@ -529,24 +529,24 @@
 			</section>
 			<!--/.section END-->
 			<section class="section case" >
-				<div class="container-fluid">
+				<div class="container-fluid" id="case">
 					<header class="clearfix">
 						<h1 class="pull-left title">
 							<strong>案例分享</strong>
 						</h1>
 						<ul class="clearfix list-unstyled pull-right tab" role="tablist">
 							<li>
-								<a href="/index.php?type=activity">
+								<a href="/index.php?type=activity#case">
 									试驾活动类
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?type=display">
+								<a href="/index.php?type=display#case">
 									静态展示类
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?type=newcar">
+								<a href="/index.php?type=newcar#case">
 									新车上市类
 								</a>
 							</li>
@@ -594,24 +594,24 @@
 			</section>
 			<!--/.section END-->
 			<section class="section news">
-				<div class="container-fluid">
+				<div class="container-fluid" id="news">
 					<header class="clearfix">
 						<h1 class="pull-left title">
 							<strong>新闻中心</strong>
 						</h1>
 						<ul class="clearfix list-unstyled pull-right tab" role="tablist">
 							<li>
-								<a href="/index.php?newType=consultation">
+								<a href="/index.php?newType=consultation#news">
 									行业动态
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?newType=trends">
+								<a href="/index.php?newType=trends#news">
 									企业资讯
 								</a>
 							</li>
 							<li>
-								<a href="/index.php?newType=highlight">
+								<a href="/index.php?newType=highlight#news">
 									试驾活动
 								</a>
 							</li>
