@@ -43,7 +43,7 @@
                         <h3>
                             <b><?= $row['name'] ?></b>
 						</h3>
-						<a class="clearfix news-inner" href="<?= '/cases/view/'.$row['id']?>">
+						<a class="clearfix news-inner" href="<?= '/news/view/'.$row['id']?>">
 							<div class="news-picture">
 								<?= $row['content'] ?>
 							</div>
