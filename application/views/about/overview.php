@@ -12,7 +12,14 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<?= $banner->content;?>
+				<?php switch($url){
+					case 'overview': echo $overviewBanner->content;break;
+					case 'manage_address': echo $manageAddressBanner->content;break;
+					case 'framework': echo $frameworkBanner->content;break;
+					case 'heretofore': echo $heretoforeBanner->content;break;
+					case 'culture': echo $cultureBanner->content;break;
+					case 'team': echo $teamBanner->content;break;
+				}?>
 			</div>
 
 			<!-- Controls -->

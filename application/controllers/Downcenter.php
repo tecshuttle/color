@@ -171,7 +171,7 @@ class downcenter extends MY_Controller
 
     public function save()
     {
-		$download = $this->upload_file('userfile');
+		$download = $this->upload_product_cover('userfile');
         $_POST['url'] = ($download == '' ? '' : $download);
 
         foreach ($_POST as $key => $item) {
@@ -194,28 +194,42 @@ class downcenter extends MY_Controller
         echo json_encode(array('success' => true));
     }
 
-    private function upload_file($name)
+	private function upload_product_cover($field)
     {
-        $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png|txt|doc|pdf|docx';
-        $config['max_size'] = '90000000'; //9MB
-        $config['max_width'] = '4096';
-        $config['max_height'] = '4096';
+        $file_name = '';
 
-        $this->load->library('upload', $config);
-
-        if (!$this->upload->do_upload($name)) {
-            $error = array('error' => $this->upload->display_errors());
-			//print_r($error);
-			return '';
+        if (isset($_FILES[$field]) and $_FILES[$field]['error'] == 0) {
+            $ds = DIRECTORY_SEPARATOR;
+            $dest = dirname((dirname(dirname(__FILE__)))) . $ds . 'uploads' . $ds . $_FILES[$field]['name'];
+            copy($_FILES[$field]['tmp_name'], $dest);
+            $file_name = $_FILES[$field]['name'];
         }
 
-        $data = array('upload_data' => $this->upload->data());
-		
-		//print_r($data);
-
-        return $this->time_file_name($data['upload_data']['full_path']);
+        return $file_name;
     }
+	
+    // private function upload_file($name)
+    // {
+        // $config['upload_path'] = './uploads/';
+        // $config['allowed_types'] = 'gif|jpg|png|txt|doc|pdf|docx';
+        // $config['max_size'] = '90000000'; //9MB
+        // $config['max_width'] = '4096';
+        // $config['max_height'] = '4096';
+
+        // $this->load->library('upload', $config);
+
+        // if (!$this->upload->do_upload($name)) {
+            // $error = array('error' => $this->upload->display_errors());
+			// print_r($error);
+			// return '';
+        // }
+
+        // $data = array('upload_data' => $this->upload->data());
+		
+		// print_r($data);
+
+        // return $this->time_file_name($data['upload_data']['full_path']);
+    // }
 
     private function time_file_name($file_path)
     {

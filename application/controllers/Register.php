@@ -62,6 +62,20 @@ class Register extends CI_Controller
             $password = $this->input->post('password');
             $passconf = $this->input->post('passconf');
 
+			$phonequery = $this->db->get_where ('phone_register', array(
+                'phoneuser' => $username
+            ), 1, 0 );
+				
+			$emailquery = $this->db->get_where ('email_register', array(
+				'username' => $username
+			), 1, 0 );
+			
+			if($phonequery->result() != NULL || $emailquery->result() != NULL){
+				echo "<p style='text-align:center'><h4>_______页面提示：用户名已存在</a></p>";
+				return;
+			}
+			
+			
             $data = array(
                 'email' => $email,
                 'username' => $username,
@@ -95,6 +109,19 @@ class Register extends CI_Controller
             $phonepassword = $this->input->post('phonepassword');
             $tel = $this->input->post('tel');
 
+			$phonequery = $this->db->get_where ('phone_register', array(
+                'phoneuser' => $phoneuser
+            ), 1, 0 );
+				
+			$emailquery = $this->db->get_where ('email_register', array(
+				'username' => $phoneuser
+			), 1, 0 );
+			
+			if($phonequery->result() != NULL || $emailquery->result() != NULL){
+				echo "<p style='text-align:center'><h4>_______页面提示：用户名已存在</a></p>";
+				return;
+			}
+			
             $data = array(
                 'phoneuser' => $phoneuser,
                 'phonepassword' => md5($phonepassword),

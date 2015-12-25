@@ -21,13 +21,36 @@ class About extends CI_Controller
     private function get_article($code)
     {
         $this->load->model('articles_model');
-
-        $article = $this->articles_model->select(array(
+		
+		$url = $this->uri->segment(2);
+		
+		$article = $this->articles_model->select(array(
             'code' => $code
         ));
 		
-		$banner = $this->articles_model->select(array(	
-            'code' => 'aboutBanner'
+		//banner图修改
+        $overviewBanner = $this->articles_model->select(array(
+            'code' => 'overviewBanner'
+        ));
+		
+		$manageAddressBanner = $this->articles_model->select(array(
+            'code' => 'manageAddressBanner'
+        ));
+		
+		$frameworkBanner = $this->articles_model->select(array(
+            'code' => 'frameworkBanner'
+        ));
+		
+		$heretoforeBanner = $this->articles_model->select(array(
+            'code' => 'heretoforeBanner'
+        ));
+		
+		$cultureBanner = $this->articles_model->select(array(
+            'code' => 'cultureBanner'
+        ));
+		
+		$teamBanner = $this->articles_model->select(array(	
+            'code' => 'teamBanner'
         ));
 
         $class = array(
@@ -43,7 +66,13 @@ class About extends CI_Controller
         $data = array(
             'title' => 'News archive',
             'article' => $article,
-            'banner' => $banner
+            'overviewBanner' => $overviewBanner,
+            'manageAddressBanner' => $manageAddressBanner,
+            'frameworkBanner' => $frameworkBanner,
+            'heretoforeBanner' => $heretoforeBanner,
+            'cultureBanner' => $cultureBanner,
+            'teamBanner' => $teamBanner,
+			'url' => $url
         );
 
         return $data;
