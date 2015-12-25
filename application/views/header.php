@@ -255,10 +255,10 @@
 				<!-- /.navbar-collapse END -->
 																
 				<div class="login-wrap">
-					<a class="login" href="#">
+					<a class="login" href="/login/index">
 						<i class="fa fa-angle-right"></i>登录
 					</a>
-					<a class="sign-up" href="#">
+					<a class="sign-up" href="/register/index">
 						<i class="fa fa-angle-right"></i>注册
 					</a>
 				</div>
