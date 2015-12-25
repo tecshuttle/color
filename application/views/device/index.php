@@ -18,7 +18,7 @@
 		<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
 		<!--Custom css-->
-		<link href="assets/css/style.css" rel="stylesheet">
+		<link href="/assets/css/style.css" rel="stylesheet">
 
 		<!--Font css-->
 		<link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -61,7 +61,7 @@
 					<!--top-->
 					<figure class="top">
 						<a class="navbar-brand cp-text--indent" href="首页.html">SUNYATHE|中国·三源色</a>
-						<img src="assets/img/product/test-drive.jpg" alt="我要试驾">
+						<img src="/assets/img/product/test-drive.jpg" alt="我要试驾">
 						<figcaption class="title">
 							<h1><strong>申 请 试 驾</strong></h1>
 						</figcaption>
@@ -73,8 +73,7 @@
 						<h2 class="declare">我们承诺，您的信息将只用于三源色市场活动，绝无可能泄露给第三方。请填写您的真实信息，方便我们尽快与您取得联系，安排您的试驾事宜。</h2>
 
 						<!--FORM START-->
-						<form method="post" accept-charset="utf-8" action="/device/index">
-						<form class="row form-format">
+						<form class="row form-format" method="post" accept-charset="utf-8" action="/device/index">
 
 							<!--标题-->
 							<div class="col-xs-12 form-heading">
@@ -90,7 +89,7 @@
 								<div class="form-group">
 									<label><i class="icon-required">*</i>姓名</label>
 									<input required type="text" name="name" class="form-control input-lg" placeholder="请输入真实姓名">
-									<p class="form-control-static"><?php echo form_error('name'); ?></p>
+									<p><?php echo form_error('name'); ?></p>
 								</div>
 
 								<div class="form-group">
@@ -99,12 +98,13 @@
 									<div class="row">
 										<div class="col-xs-12">
 											<div class="btn-group" data-toggle="buttons">
-												<label class="btn btn-radio active">
-													<input type="radio" name="sex" id="option1" autocomplete="off">先生
+												<label class="btn btn-radio">
+													<input type="radio" name="sex" id="option1" autocomplete="off" value="先生">先生
 												</label>
 												<label class="btn btn-radio">
-													<input type="radio" name="sex" id="option2" autocomplete="off">女士
+													<input type="radio" name="sex" id="option2" autocomplete="off" value="女士">女士
 												</label>
+												<p><?php echo form_error('sex'); ?></p>
 											</div>
 										</div>
 									</div>
@@ -112,12 +112,14 @@
 
 								<div class="form-group">
 									<label><i class="icon-required">*</i>手机号码</label>
-									<input required type="text" class="form-control input-lg">
+									<input required type="text" name="phone" class="form-control input-lg">
+									<p><?php echo form_error('phone'); ?></p>
 								</div>
 
 								<div class="form-group">
 									<label><i class="icon-required">*</i>电子邮箱</label>
-									<input required type="text" class="form-control input-lg">
+									<input required type="text" name="email" class="form-control input-lg">
+									<p><?php echo form_error('email'); ?></p>
 								</div>
 
 								<div class="form-group">
@@ -126,18 +128,19 @@
 									<div class="row">
 										<div class="col-xs-12">
 											<div class="btn-group" data-toggle="buttons">
-												<label class="btn btn-checkbox active">
-													<input type="checkbox" autocomplete="off">电话
+												<label class="btn btn-checkbox">
+													<input type="checkbox" name="callFrom[]" autocomplete="off" value="电话">电话
 												</label>
 												<label class="btn btn-checkbox">
-													<input type="checkbox" autocomplete="off">电子邮件
+													<input type="checkbox" name="callFrom[]" autocomplete="off" value="电子邮件">电子邮件
 												</label>
 												<label class="btn btn-checkbox">
-													<input type="checkbox" autocomplete="off">直邮
+													<input type="checkbox" name="callFrom[]" autocomplete="off" value="直邮">直邮
 												</label>
 												<label class="btn btn-checkbox">
-													<input type="checkbox" autocomplete="off">短信
+													<input type="checkbox" name="callFrom[]" autocomplete="off" value="短信">短信
 												</label>
+												<p><?php echo form_error('callFrom[]'); ?></p>
 											</div>
 
 										</div>
@@ -146,12 +149,14 @@
 
 								<div class="form-group">
 									<label>您的地址</label>
-									<input type="text" class="form-control input-lg">
+									<input type="text" name="address" class="form-control input-lg">
+									<p><?php echo form_error('address'); ?></p>
 								</div>
 
 								<div class="form-group">
 									<label>您的邮政编码</label>
-									<input type="text" class="form-control input-lg">
+									<input type="text" name="zipCode" class="form-control input-lg">
+									<p><?php echo form_error('zipCode'); ?></p>
 								</div>
 
 							</div>
@@ -165,17 +170,21 @@
 
 									<div class="row">
 										<div class="col-xs-6">
-											<select class="selectpicker" title='请选择省份'>
-												<option>广东</option>
+											<select class="selectpicker" id="select_province" name="province" title='请选择省份'>
+												<?php foreach ($province_list as $row): ?>
+												<option value="<?php echo $row['region_id'] ?>"><?php echo $row['region_name'] ?></option>
+												<?php endforeach ?>
 											</select>
+											<p><?php echo form_error('province'); ?></p>
 										</div>
 
 										<div class="col-xs-6">
-											<select class="selectpicker" title='请选择城市'>
-												<option>广州</option>
-												<option>深圳</option>
-												<option>中山</option>
+											<select class="selectpicker" id="select_city" name="city" title='请选择城市'>
+												<?php foreach ($city_list as $row): ?>
+												<option value="<?php echo $row['region_id'] ?>"><?php echo $row['region_name'] ?></option>
+												<?php endforeach ?>
 											</select>
+											<p><?php echo form_error('city'); ?></p>
 										</div>
 									</div>
 								</div>
@@ -185,10 +194,10 @@
 
 									<div class="row">
 										<div class="col-xs-12">
-											<select class="selectpicker" title='请选择试驾基地'>
-												<option>广州白云山试驾基地</option>
-												<option>深圳香蜜湖试驾基地</option>
+											<select class="selectpicker" name="base" title='请选择试驾基地'>
+											
 											</select>
+											<p><?php echo form_error('base'); ?></p>
 										</div>
 									</div>
 								</div>
@@ -198,18 +207,19 @@
 
 									<div class="row">
 										<div class="col-xs-12">
-											<select class="selectpicker" title='请选择越野器械'>
-												<option>高空跷跷板</option>
-												<option>平衡桥</option>
+											<select class="selectpicker" name="device" title='请选择越野器械'>
+											
 											</select>
+											<p><?php echo form_error('device'); ?></p>
 										</div>
 									</div>
 								</div>
 
 								<div class="form-group has-feedback">
 									<label><i class="icon-required">*</i>预计试驾时间</label>
-									<input id="datetimepicker" type="text" readonly class="form-control input-lg datetimepicker" value="" placeholder="请选择试驾时间">
+									<input id="datetimepicker" type="text" readonly class="form-control input-lg datetimepicker" value="" name="datetime" placeholder="请选择试驾时间">
 									<i class="fa fa-angle-down form-control-feedback" aria-hidden="true"></i>
+									<p><?php echo form_error('datetime'); ?></p>
 								</div>
 
 							</div>
@@ -225,6 +235,7 @@
 										<div class="btn-group" data-toggle="buttons">
 											<label class="btn btn-checkbox">
 												<input type="checkbox" name="assent" autocomplete="off">同意
+												<p><?php echo form_error('assent'); ?></p>
 											</label>
 										</div>
 									</div>
@@ -262,14 +273,28 @@
 					});
 				});
 			</script>
-
+			<script>
+				var region_url = '/device/region';
+				</script>
+				<script>
+				$(function(){
+					// 选择省份
+					$('#select_province').on('change', function(){
+						var id = $(this).val();
+						$.get(region_url + '/' + id, function(res){
+							$('#select_city').html(res);
+							$('.selectpicker').selectpicker('refresh');
+						});
+					});
+				});
+			</script>
 		</main>
 		<!--/.page-test-drive END-->
 
 		<!--common-->
 		<script src="//cdn.bootcss.com/scrollup/2.4.0/jquery.scrollUp.min.js"></script>
-		<script src="assets/js/bootstrap-select.js"></script>
-		<script src="assets/js/defaults-zh_CN.js"></script>
-		<script src="assets/js/main.js"></script>
+		<script src="/assets/js/bootstrap-select.js"></script>
+		<script src="/assets/js/defaults-zh_CN.js"></script>
+		<script src="/assets/js/main.js"></script>
 
 	</body>
