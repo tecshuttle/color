@@ -117,9 +117,14 @@ class product extends CI_Controller{
     {
 		$id = $this->uri->segment(3);
 		
+		$deviceViewBanner = $this->articles_model->select(array(
+            'code' => 'deviceViewBanner'
+        ));
+		
         $result = $this->loadModel($id);
 		
 		$data['row'] = $result->row();
+		$data['deviceViewBanner'] = $deviceViewBanner;
     
         $this->load->view('header', $data);
         $this->load->view('product/view', $data);

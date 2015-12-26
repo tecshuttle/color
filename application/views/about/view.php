@@ -7,11 +7,13 @@
 				<li data-target="#carousel" data-slide-to="1"></li>
 				<li data-target="#carousel" data-slide-to="2"></li>
 				<li data-target="#carousel" data-slide-to="3"></li>
+				<li data-target="#carousel" data-slide-to="4"></li>
+				<li data-target="#carousel" data-slide-to="5"></li>
 			</ol>
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<?= $deviceViewBanner->content;?>
+				<?= $viewBanner->content;?>
 			</div>
 
 			<!-- Controls -->
@@ -36,22 +38,56 @@
 
 				<!--detail-article-->
 				<article class="detail-article">
-					<header class="text-center">
-						<h3><strong><?= $row->road_name?></strong></h3>
-						<br/>
-					</header>
-					<p>
-						<?= $row->content?>
-					</p>
-					
-					<p class="text-justify">
-						性能：<?= $row->name?>
-					</p>
-					
-					<p class="text-justify">
-						介绍：<br/><?= $row->intro?>
-					</p>
-
+					<?php switch($id){
+						case 1:
+						if($fristView->content == NULL){
+							echo '三级页面未录入';
+						}else{
+							echo $fristView->content;
+						};break;
+						
+						case 2: 
+						if($secondView->content == NULL){
+							echo '三级页面未录入';
+						}else{
+							echo $secondView->content;
+						};break;
+						
+						case 3:
+						if($thirdView->content == NULL){
+							echo '三级页面未录入';
+						}else{
+							echo $thirdView->content;
+						};break;
+						
+						case 4: 
+						if($fourthView->content == NULL){
+							echo '三级页面未录入';
+						}else{
+							echo $fourthView->content;
+						};break;
+						
+						case 5:
+						if($fifthView->content == NULL){
+							echo '三级页面未录入';
+						}else{
+							echo $fifthView->content;
+						};break;
+						
+						case 6:
+						if($sixthView->content == NULL){
+							echo '三级页面未录入';
+						}else{
+							echo $sixthView->content;
+						};break;
+						
+						case 7: 
+						if($seventhView->content == NULL){
+							echo '三级页面未录入';
+						}else{
+							echo $seventhView->content;
+						};break;
+					}?>
 				</article>
 				<!--/.detail-article END-->
 

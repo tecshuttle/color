@@ -79,19 +79,23 @@
 						<!--data-name="城市字母"-->
 						
 						<!--提示层-->
-						<div id="toolbar-options" class="hidden">
-						   <a href="#">该城市暂无试驾基地基</a>
-						</div>
 						
 						<input type="hidden" id="all_city_bases" value='<?= json_encode($allCityBases)?>' />
 											
 						<a class="city" data-toolbar="city" name="广州" data-name="guangzhou" tabindex="0" role="button">
 							广州
 						</a>
+						
+						<div id="base-guangzhou" class="hidden">
+						   <a href="#"></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="深圳" data-name="shenzhen" tabindex="0" role="button">
 							深圳
 						</a>
+						<div id="base-shenzhen" class="hidden">
+						   <a href="#"></a>
+						</div>
 						
 						<a class="city" data-toolbar="city" name="呼伦贝尔" data-name="hulunbeier" tabindex="0" role="button">
 							呼伦
@@ -219,10 +223,18 @@
 						<a class="city" data-toolbar="city" name="海口" data-name="haikou" tabindex="0" role="button">
 							海口
 						</a>
+						
+						<div id="base-haikou" class="hidden">
+						   <a href="#"> haikou 该城市暂无试驾基地基</a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="三亚" data-name="sanya" tabindex="0" role="button">
 							三亚
 						</a>
+						
+						<div id="base-sanya" class="hidden">
+						   <a href="#"> sanya 该城市暂无试驾基地基</a>
+						</div>
 
 					</figure>
 					<!--/.map-picture END-->
@@ -232,31 +244,48 @@
 			
 				<script src="/assets/js/jquery.toolbar.min.js"></script>
 				<script>
-					$('a[data-toolbar="city"]').toolbar({
-						content: '#toolbar-options',
-						position: 'top'
-					});
-				</script>				
-				
-				
-				<script>
-					var page_url = '/contact/index';
-					var region_url = '/contact/region';
-					
+				    var citys = $('a[data-toolbar="city"]');
 					var allCityBases = JSON.parse(document.getElementById("all_city_bases").value);
 					
-					$("[data-content]").each(function () {
+					console.log(allCityBases);
+					
+					$.each(citys, function(i, obj){
+						
 						var cityName = $(this).attr("name");
 						var isThis = this;
 						$.each(allCityBases, function(i, item){
 							console.log(item.keywords);
 							if(cityName == item.keywords){
-								$(isThis).attr("data-content", item.name);
+								$(obj).toolbar({
+									content: '#base-' + $(obj).attr('data-name'),
+									position: 'top'
+								});
+								$(isThis).attr("href", item.name);
+								$(isThis).text(item.name);
 							}
 						});
 					});
+				</script>				
+				
+				
+				<script>
+					// var page_url = '/contact/index';
+					// var region_url = '/contact/region';
 					
-					$('[data-toggle="popover"]').popover();
+					
+					
+					// $("[data-content]").each(function () {
+						// var cityName = $(this).attr("name");
+						// var isThis = this;
+						// $.each(allCityBases, function(i, item){
+							// console.log(item.keywords);
+							// if(cityName == item.keywords){
+								// $(isThis).attr("data-content", item.name);
+							// }
+						// });
+					// });
+					
+					// $('[data-toggle="popover"]').popover();
 				</script>
 			
 				<script>

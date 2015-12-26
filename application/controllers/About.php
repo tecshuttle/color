@@ -82,34 +82,54 @@ class About extends CI_Controller
     {
 		$id = $this->uri->segment(3);
 		
-        $article = $this->articles_model->select(array(
-            'code' => 'baseViewBanner'
+        $fristView = $this->articles_model->select(array(
+            'code' => 'fristView'
         ));
 		
-        $result = $this->loadModel($id);
+		$secondView = $this->articles_model->select(array(
+            'code' => 'secondView'
+        ));
+		
+		$thirdView = $this->articles_model->select(array(
+            'code' => 'thirdView'
+        ));
+		
+		$fourthView = $this->articles_model->select(array(
+            'code' => 'fourthView'
+        ));
+		
+		$fifthView = $this->articles_model->select(array(
+            'code' => 'fifthView'
+        ));
+		
+		$sixthView = $this->articles_model->select(array(
+            'code' => 'sixthView'
+        ));
+		
+		$seventhView = $this->articles_model->select(array(
+            'code' => 'seventhView'
+        ));
+		
+		$viewBanner = $this->articles_model->select(array(
+            'code' => 'viewBanner'
+        ));
 		
 		$data = array(
-			'row' => $result->row(),
-			'article' => $article
+			'id' => $id,
+			'viewBanner' => $viewBanner,
+			'fristView' => $fristView,
+			'secondView' => $secondView,
+			'thirdView' => $thirdView,
+			'fourthView' => $fourthView,
+			'fifthView' => $fifthView,
+			'sixthView' => $sixthView,
+			'seventhView' => $seventhView,
 		);
 		
-    
         $this->load->view('header', $data);
-        $this->load->view('bases/view', $data);
+        $this->load->view('about/view', $data);
         $this->load->view('footer', $data);
     }
-	
-	private function loadModel($id)
-	{
-		$sql = 'SELECT * FROM bases WHERE id ='. $id;
-		$model = $this->db->query($sql);
-		
-		if ($model === null) {
-            show_404();
-        }
-		
-		return $model;
-	}
 }
 
 //end file
