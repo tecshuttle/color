@@ -7,30 +7,65 @@ class News extends MY_Controller
         parent::__construct(); // Call the Model constructor
         $this->load->model('news_model');
 		$this->load->model('articles_model');
+		$this->load->helper('url_helper');
     }
 
 	public function page($typeCode)
     {
-		$article = $this->articles_model->select(array(	
-            'code' => 'newsBanner'
-        ));
+	
 		
 		$type = "WHERE type='". $typeCode ."'";
 		
 		$page_sql = 'select * from `news`' . $type;
         $result = $this->db->query($page_sql); //处理数据
-		
-        $data = array(
-			'data' => $result->result_array(),
-			'article' => $article,
-            'css' => array(),
-            'js' => array()
-        );
+		$data = $this->get_article($typeCode);
+        
+		$data['data'] = $result->result_array();
 
         $this->load->view('header', $data);
         $this->load->view('news/overview', $data);
         $this->load->view('footer', $data);
     }
+	
+	private function get_article($typeCode)
+	{
+	    $this->load->model('articles_model');
+		
+		$url = $this->uri->segment(2);
+		
+		$article = $this->articles_model->select(array(
+            'code' => $typeCode
+        ));
+		
+		//banner图修改
+		$consultationBanner = $this->articles_model->select(array(
+            'code' => 'consultationBanner'
+        ));
+		
+		$trendsBanner = $this->articles_model->select(array(
+            'code' => 'trendsBanner'
+        ));
+		
+		$highlightBanner = $this->articles_model->select(array(
+            'code' => 'highlightBanner'
+        ));
+		
+
+		
+		$data = array(
+		   
+   		   'consultationBanner'=> $consultationBanner,
+		   'trendsBanner'=> $trendsBanner,
+		   'highlightBanner'=> $highlightBanner,
+		   'url'=> $url
+		
+		
+		
+		);
+		
+		return $data;
+		
+	}
 	
 	public function view()
     {

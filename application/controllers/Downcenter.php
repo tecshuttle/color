@@ -12,87 +12,93 @@ class downcenter extends MY_Controller
     public function index()
     {
         $this->load->model('downcenter_model');
-		
-		$banner = $this->articles_model->select(array(	
+
+        $banner = $this->articles_model->select(array(
             'code' => 'downcenterBanner'
         ));
-		
-		//数据总数
+
+        //数据总数
         $count_sql = 'SELECT * FROM downcenter';
         $count_query = $this->db->query($count_sql);
         $count = $count_query->num_rows();
-        
+
         $page_num = 4; //每页个数
         $total_page = ceil($count / $page_num); //获取总页数
-        
+
         // 当前页
         $nowpage = $this->uri->segment(3);
-		if ($nowpage <= 0)
-        {
+        if ($nowpage <= 0) {
             // 无效页码
             $nowpage = 1;
         }
-        if ($total_page > 0 && $nowpage > $total_page)
-        {
+        if ($total_page > 0 && $nowpage > $total_page) {
             // 超过最大页
             $nowpage = $total_page;
         }
-		
-		$page_sql = 'SELECT * FROM downcenter';
-        $page_sql .= ' limit '.(($nowpage-1)*$page_num).','.$page_num;
+
+        $page_sql = 'SELECT * FROM downcenter';
+        $page_sql .= ' limit ' . (($nowpage - 1) * $page_num) . ',' . $page_num;
         $result = $this->db->query($page_sql); //处理数据
-		
-		// 上下页链接
+
+        // 上下页链接
         $base_url = '/downcenter/index';
-        if($nowpage==1){
+        if ($nowpage == 1) {
             $prevlink = '<li class="previous disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>';
-        }else{
-            $prevurl = $this->create_page_url($base_url, ($nowpage-1));
-            $prevlink = '<li class="previous"><a href="'.$prevurl.'"><i class="fa fa-angle-left"></i></a></li>';
+        } else {
+            $prevurl = $this->create_page_url($base_url, ($nowpage - 1));
+            $prevlink = '<li class="previous"><a href="' . $prevurl . '"><i class="fa fa-angle-left"></i></a></li>';
         }
-        if($nowpage == $total_page){
+        if ($nowpage == $total_page) {
             $nextlink = '<li class="next disabled"><a href="#"><i class="fa fa-angle-right"></i></a></li>';
-        }else{
-            $nexturl = $this->create_page_url($base_url, ($nowpage+1));
-            $nextlink = '<li class="next"><a href="'.$nexturl.'"><i class="fa fa-angle-right"></i></a></li>';
+        } else {
+            $nexturl = $this->create_page_url($base_url, ($nowpage + 1));
+            $nextlink = '<li class="next"><a href="' . $nexturl . '"><i class="fa fa-angle-right"></i></a></li>';
         }
-        
+
         //生成分页
-        $pagelink = $prevlink.'<li class="page-number current"><span class="number-wrap"><b>'.$nowpage.'</b><i>'.$total_page.'</i></span></li>'.$nextlink;
-		
-		$data = array(
-		    'data' => $result->result_array(),
-			'countData' => count($result->result_array()),
-			'pagelink' => $pagelink,
-			'nowpage' => $nowpage,
-			'banner' => $banner,
-		);
-		
-		
-		$this->load->view('header',$data);
-		$this->load->view('downcenter/index',$data);
-		$this->load->view('footer',$data);
+        $pagelink = $prevlink . '<li class="page-number current"><span class="number-wrap"><b>' . $nowpage . '</b><i>' . $total_page . '</i></span></li>' . $nextlink;
+
+        $data = array(
+            'data' => $result->result_array(),
+            'countData' => count($result->result_array()),
+            'pagelink' => $pagelink,
+            'nowpage' => $nowpage,
+            'banner' => $banner,
+        );
+
+
+        $this->load->view('header', $data);
+        $this->load->view('downcenter/index', $data);
+        $this->load->view('footer', $data);
     }
-	
-	public function down()
+
+    public function down()
     {
-		$fileName = $this->uri->segment(3);
-		
-		$data['filename'] = $fileName;
-		
+        $fileName = $this->uri->segment(3);
+
+        $data['filename'] = $fileName;
+
+
+        if (isset($_COOKIE['userLogin'])) {
+            //header("Content-Type: application/force-download");
+            //header("Content-Disposition: attachment; filename=" . basename($fileName));
+            //readfile($fileName);
+            header('Location: /uploads/' . $fileName);
+            exit;
+        }
+
+
         $this->load->view('header', $data);
         $this->load->view('downcenter/down', $data);
         $this->load->view('footer', $data);
     }
-	
-	// 创建分页url
-    private function create_page_url($base_url, $page, $conditions=array())
+
+    // 创建分页url
+    private function create_page_url($base_url, $page, $conditions = array())
     {
         $url = $base_url . '/' . $page;
-        if (is_array($conditions))
-        {
-            foreach ($conditions as $value)
-            {
+        if (is_array($conditions)) {
+            foreach ($conditions as $value) {
                 $url .= '/' . $value;
             }
         }
@@ -102,46 +108,40 @@ class downcenter extends MY_Controller
     public function view($slug = NULL)
     {
         $data['bases_item'] = $this->downcenter_model->get_bases($slug);
-    
-        if (empty($data['bases_item']))
-        {
+
+        if (empty($data['bases_item'])) {
             show_404();
         }
-    
+
         $data['title'] = $data['bases_item']['title'];
-    
+
         //$this->load->view('templates/header', $data);
         $this->load->view('downcenter/view', $data);
         //$this->load->view('templates/footer');
     }
-    
+
     // ajax获取地址下拉菜单
     public function region()
     {
         $html = '';
         $province_id = (int)$this->uri->segment(3);
-        if ($province_id)
-        {
+        if ($province_id) {
             $rows = $this->downcenter_model->get_regions(2, $province_id);
-            if ($rows)
-            {
-                foreach ($rows as $row)
-                {
-                    $html .= '<option value="'.$row['region_id'].'">'.$row['region_name'].'</option>';
+            if ($rows) {
+                foreach ($rows as $row) {
+                    $html .= '<option value="' . $row['region_id'] . '">' . $row['region_name'] . '</option>';
                 }
             }
         }
         exit($html);
     }
-    
+
     // 生成sql的where字句
     private function generate_where($conditions)
     {
         $where = ' where 1 ';
-        if (is_array($conditions))
-        {
-            foreach ($conditions as $column => $value)
-            {
+        if (is_array($conditions)) {
+            foreach ($conditions as $column => $value) {
                 $where .= " AND {$column} = '{$value}' ";
             }
         }
@@ -171,7 +171,7 @@ class downcenter extends MY_Controller
 
     public function save()
     {
-		$download = $this->upload_product_cover('userfile');
+        $download = $this->upload_product_cover('userfile');
         $_POST['url'] = ($download == '' ? '' : $download);
 
         foreach ($_POST as $key => $item) {
@@ -194,7 +194,7 @@ class downcenter extends MY_Controller
         echo json_encode(array('success' => true));
     }
 
-	private function upload_product_cover($field)
+    private function upload_product_cover($field)
     {
         $file_name = '';
 
@@ -207,28 +207,28 @@ class downcenter extends MY_Controller
 
         return $file_name;
     }
-	
+
     // private function upload_file($name)
     // {
-        // $config['upload_path'] = './uploads/';
-        // $config['allowed_types'] = 'gif|jpg|png|txt|doc|pdf|docx';
-        // $config['max_size'] = '90000000'; //9MB
-        // $config['max_width'] = '4096';
-        // $config['max_height'] = '4096';
+    // $config['upload_path'] = './uploads/';
+    // $config['allowed_types'] = 'gif|jpg|png|txt|doc|pdf|docx';
+    // $config['max_size'] = '90000000'; //9MB
+    // $config['max_width'] = '4096';
+    // $config['max_height'] = '4096';
 
-        // $this->load->library('upload', $config);
+    // $this->load->library('upload', $config);
 
-        // if (!$this->upload->do_upload($name)) {
-            // $error = array('error' => $this->upload->display_errors());
-			// print_r($error);
-			// return '';
-        // }
+    // if (!$this->upload->do_upload($name)) {
+    // $error = array('error' => $this->upload->display_errors());
+    // print_r($error);
+    // return '';
+    // }
 
-        // $data = array('upload_data' => $this->upload->data());
-		
-		// print_r($data);
+    // $data = array('upload_data' => $this->upload->data());
 
-        // return $this->time_file_name($data['upload_data']['full_path']);
+    // print_r($data);
+
+    // return $this->time_file_name($data['upload_data']['full_path']);
     // }
 
     private function time_file_name($file_path)

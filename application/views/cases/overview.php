@@ -8,7 +8,14 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<?= $article->content ?>
+				<?php switch($url){
+					
+					case 'activity': echo $activityBanner->content;break;
+					case 'display': echo $displayBanner->content;break;
+					case 'newcar': echo $newcarBanner->content;break;
+					case 'join': echo $joinBanner->content;break;
+
+				};var_dump($url)?>
 			</div>
 
 			<!-- Controls -->
