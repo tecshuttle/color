@@ -50,7 +50,7 @@ class articles extends MY_Controller
 
         $_POST['cover'] = ($cover === '' ? $_POST['cover'] : '/uploads/' . $cover);
         $_POST['download'] = ($download == '' ? '' : $download);
-		
+
         foreach ($_POST as $key => $item) {
             if ($key === 'is_hot' || $key === 'desc' || $key === 'keywords') continue; //指定允许空值的字段
 
@@ -71,7 +71,7 @@ class articles extends MY_Controller
 
         echo json_encode(array('success' => true));
     }
-	
+
     private function upload_file($name)
     {
         $config['upload_path'] = './uploads/';

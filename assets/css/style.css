@@ -1684,7 +1684,9 @@ select.mobile-device {
 	background-color: #dd0024;
 }
 
-.base-detail-wrap .support .base-list li:nth-child(6n+1) {
+.base-detail-wrap .support .base-list li:nth-child(6n+1),
+.base-detail-wrap .support .base-list li:nth-child(8n+1),
+.base-detail-wrap .support .base-list li:nth-child(10n+1) {
 	margin-left: 0;
 }
 
@@ -2220,7 +2222,6 @@ select.mobile-device {
 .animate-standard {
 	-webkit-animation: standardAnimate 0.3s 1 ease;
 }
-
 
 @-webkit-keyframes standardAnimate {
 	from {

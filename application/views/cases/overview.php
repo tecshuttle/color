@@ -15,7 +15,7 @@
 					case 'newcar': echo $newcarBanner->content;break;
 					case 'join': echo $joinBanner->content;break;
 
-				};var_dump($url)?>
+				};?>
 			</div>
 
 			<!-- Controls -->

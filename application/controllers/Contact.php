@@ -11,6 +11,10 @@ class contact extends MY_Controller
 
     public function index()
     {
+		$name = NULL;
+		
+		$name = $_POST['suggest'];
+		
 		$conditions = array();
 		
 		$banner = $this->articles_model->select(array(	
@@ -24,6 +28,10 @@ class contact extends MY_Controller
         $city_id = (int)$this->uri->segment(5);
         $province = $this->enterprise_model->get_region_name($province_id);
         $city = $this->enterprise_model->get_region_name($city_id); 
+		
+		if($name != NULL){
+			$city = $name;
+		}
 		
         
         // 内部使用的地区参数条件

@@ -42,6 +42,7 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
             {
                 xtype: 'textfield',
                 fieldLabel: '城市',
+				allowBlank: false,
                 anchor: '50%',
                 name: 'keywords',
                 emptyText: '请输入…'
@@ -49,8 +50,17 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
 			{
                 xtype: 'textfield',
                 fieldLabel: '所属地区',
+				allowBlank: false,
                 anchor: '50%',
                 name: 'area',
+                emptyText: '请输入…'
+            },
+			{
+                xtype: 'textfield',
+                fieldLabel: '地图url',
+				allowBlank: false,
+                anchor: '50%',
+                name: 'map',
                 emptyText: '请输入…'
             },
             {
@@ -215,7 +225,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
         var store = Ext.create('Ext.data.Store', {
             pageSize: 20,
             autoLoad: true,
-            fields: ['id', 'code', 'name', 'area', 'desc', 'cover', 'content', 'viewcontent', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
+            fields: ['id', 'code', 'name', 'area', 'desc', 'cover', 'content', 'map', 'viewcontent', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
             proxy: {
                 type: 'ajax',
                 url: '/bases/getList',

@@ -87,145 +87,239 @@
 						</a>
 						
 						<div id="base-guangzhou" class="hidden">
-						   <a href="#"></a>
+						   <a ></a>
 						</div>
 
 						<a class="city" data-toolbar="city" name="深圳" data-name="shenzhen" tabindex="0" role="button">
 							深圳
 						</a>
 						<div id="base-shenzhen" class="hidden">
-						   <a href="#"></a>
+						   <a ></a>
 						</div>
 						
 						<a class="city" data-toolbar="city" name="呼伦贝尔" data-name="hulunbeier" tabindex="0" role="button">
 							呼伦
 						</a>
+						<div id="base-hulunbeier" class="hidden">
+						   <a ></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="哈尔滨" data-name="haerbin" tabindex="0" role="button">
 							哈尔滨
 						</a>
+						<div id="base-haerbin" class="hidden">
+						   <a ></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="长春" data-name="changchun" tabindex="0" role="button">
 							长春
 						</a>
+						<div id="base-changchun" class="hidden">
+						   <a ></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="沈阳" data-name="shenyang" tabindex="0" role="button">
 							沈阳
 						</a>
+						<div id="base-shenyang" class="hidden">
+						   <a ></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="北京" data-name="beijing" tabindex="0" role="button">
 							北京
 						</a>
+						<div id="base-beijing" class="hidden">
+						   <a></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="石家庄" data-name="shijiazhuang" tabindex="0" role="button">
 							石家庄
 						</a>
+						<div id="base-shijiazhuang" class="hidden">
+						   <a ></a>
+						</div>
 
-						<a class="city" data-toolbar="city" name="银川" data-name="yinchuan" tabindex="0" role="button">
+						<a class="city" data-toolbar="city" name="银川" data-name="yinchuan" tabindex="0" role="button" data-content="暂无试驾基地">
 							银川
 						</a>
+						<div id="base-yinchuan" class="hidden">
+						   <a ></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="太原" data-name="taiyuan" tabindex="0" role="button">
 							太原
 						</a>
+						<div id="base-taiyuan" class="hidden">
+						   <a ></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="济南" data-name="jinan" tabindex="0" role="button">
 							济南
 						</a>
+						<div id="base-jinan" class="hidden">
+						   <a ></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="青岛" data-name="qingdao" tabindex="0" role="button">
 							青岛
 						</a>
+						<div id="base-qingdao" class="hidden">
+						   <a ></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="西宁" data-name="xining" tabindex="0" role="button">
 							西宁
 						</a>
+						<div id="base-xining" class="hidden">
+						   <a ></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="兰州" data-name="lanzhou" tabindex="0" role="button">
 							兰州
 						</a>
+						<div id="base-lanzhou" class="hidden">
+						   <a ></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="西安" data-name="xian" tabindex="0" role="button">
 							西安
 						</a>
+						<div id="base-xian" class="hidden">
+						   <a ></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="郑州" data-name="zhengzhou" tabindex="0" role="button">
 							郑州
 						</a>
+						<div id="base-zhengzhou" class="hidden">
+						   <a></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="南京" data-name="nanjing" tabindex="0" role="button">
 							南京
 						</a>
+						<div id="base-nanjing" class="hidden">
+						   <a ></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="合肥" data-name="hefei" tabindex="0" role="button">
 							合肥
 						</a>
+						<div id="base-hefei" class="hidden">
+						   <a></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="苏州" data-name="suzhou" tabindex="0" role="button">
 							苏州
 						</a>
+						<div id="base-suzhou" class="hidden">
+						   <a href="#"></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="上海" data-name="shanghai" tabindex="0" role="button">
 							上海
 						</a>
+						<div id="base-shanghai" class="hidden">
+						   <a ></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="成都" data-name="chengdu" tabindex="0" role="button">
 							成都
 						</a>
+						<div id="base-chengdu" class="hidden">
+						   <a></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="重庆" data-name="chongqing" tabindex="0" role="button">
 							重庆
 						</a>
+						<div id="base-chongqing" class="hidden">
+						   <a></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="武汉" data-name="wuhan" tabindex="0" role="button">
 							武汉
 						</a>
+						<div id="base-wuhan" class="hidden">
+						   <a ></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="南昌" data-name="nanchang" tabindex="0" role="button">
 							南昌
 						</a>
+						<div id="base-nanchang" class="hidden">
+						   <a></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="杭州" data-name="hangzhou" tabindex="0" role="button">
 							杭州
 						</a>
+						<div id="base-hangzhou" class="hidden">
+						   <a></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="贵阳" data-name="guiyang" tabindex="0" role="button">
 							贵阳
 						</a>
+						<div id="base-guiyang" class="hidden">
+						   <a></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="长沙" data-name="changsha" tabindex="0" role="button">
 							长沙
 						</a>
+						<div id="base-changsha" class="hidden">
+						   <a></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="福州" data-name="fuzhou" tabindex="0" role="button">
 							福州
 						</a>
+						<div id="base-fuzhou" class="hidden">
+						   <a></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="昆明" data-name="kunming" tabindex="0" role="button">
 							昆明
 						</a>
+						<div id="base-kunming" class="hidden">
+						   <a></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="南宁" data-name="nanning" tabindex="0" role="button">
 							南宁
 						</a>
+						<div id="base-nanning" class="hidden">
+						   <a></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="厦门" data-name="xiamen" tabindex="0" role="button">
 							厦门
 						</a>
+						<div id="base-xiamen" class="hidden">
+						   <a></a>
+						</div>
+						
 						<a class="city" data-toolbar="city" name="东莞" data-name="dongguan" tabindex="0" role="button">
 							东莞
 						</a>
+						<div id="base-dongguan" class="hidden">
+						   <a></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="佛山" data-name="foshan" tabindex="0" role="button">
 							佛山
 						</a>
+						<div id="base-foshan" class="hidden">
+						   <a></a>
+						</div>
 
 						<a class="city" data-toolbar="city" name="海口" data-name="haikou" tabindex="0" role="button">
 							海口
 						</a>
 						
 						<div id="base-haikou" class="hidden">
-						   <a href="#"> haikou 该城市暂无试驾基地基</a>
+						   <a></a>
 						</div>
 
 						<a class="city" data-toolbar="city" name="三亚" data-name="sanya" tabindex="0" role="button">
@@ -233,7 +327,7 @@
 						</a>
 						
 						<div id="base-sanya" class="hidden">
-						   <a href="#"> sanya 该城市暂无试驾基地基</a>
+						   <a></a>
 						</div>
 
 					</figure>
@@ -247,30 +341,34 @@
 				    var citys = $('a[data-toolbar="city"]');
 					var allCityBases = JSON.parse(document.getElementById("all_city_bases").value);
 					
-					console.log(allCityBases);
-					
 					$.each(citys, function(i, obj){
 						
 						var cityName = $(this).attr("name");
 						var isThis = this;
 						$.each(allCityBases, function(i, item){
-							console.log(item.keywords);
 							if(cityName == item.keywords){
+								$('#base-' + $(obj).attr('data-name')).find("a").text(item.name);
+								
 								$(obj).toolbar({
 									content: '#base-' + $(obj).attr('data-name'),
 									position: 'top'
 								});
-								$(isThis).attr("href", item.name);
-								$(isThis).text(item.name);
 							}
+						});
+					});
+					
+					$('a[data-toolbar="city"]').click(function(){
+						name = $(this).attr("name");
+						$.post('contact/index',{suggest:name},function(res){
+							$('#page_container').html($(res).find('#page_container').html());
 						});
 					});
 				</script>				
 				
 				
 				<script>
-					// var page_url = '/contact/index';
-					// var region_url = '/contact/region';
+					 var page_url = '/contact/index';
+					 var region_url = '/contact/region';
 					
 					
 					
@@ -303,7 +401,7 @@
 			            $('#select_city').on('change', function(){
 			                var pid = $('#select_province').val();
 			                var cid = $(this).val();
-			                reload_list(pid, cid)
+			                reload_list(pid, cid);
 			            }); 
 			            
 			            // 重新加载记录列表

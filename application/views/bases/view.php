@@ -36,6 +36,22 @@
 						<h2><strong><?= $row->name?></strong></h2>
 						<br/>
 					</header>
+					<!--场地成功案例--><section class="map">
+
+						<div class="pull-left map-modify">
+							<?= $row->content;?>
+						</div>
+
+						<div class="pull-left map-control">
+							<!--地图控件-->
+							<iframe 
+								width="394" height="465" frameborder="0" 
+								scrolling="no" marginheight="0" marginwidth="0" src="<?= $row->map?>">
+							</iframe>
+						</div>
+
+					</section>
+					<!--/.map END-->
 					<?= $row->viewcontent?>
 				</article>
 			</div>
