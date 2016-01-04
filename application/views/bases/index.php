@@ -33,7 +33,7 @@
             <div class="clearfix inner">
                 <div class="pull-left select-item">
                     <select class="form-control selectpicker" id="select_province">
-                        <option value="0">请选择</option>
+                        <option value="0">请选择省份</option>
                         <?php foreach ($province_list as $row): ?>
                         <option <?php if ($province_id == $row['region_id']) : ?>selected<?php endif ?> value="<?php echo $row['region_id'] ?>"><?php echo $row['region_name'] ?></option>
                         <?php endforeach ?>
@@ -41,7 +41,7 @@
                 </div>
                 <div class="pull-left select-item">
                     <select class="form-control selectpicker" id="select_city">
-                        <option value="0">请选择</option>
+                        <option value="0">请选择城市</option>
                         <?php foreach ($city_list as $row): ?>
                         <option <?php if ($city_id == $row['region_id']) : ?>selected<?php endif ?> value="<?php echo $row['region_id'] ?>"><?php echo $row['region_name'] ?></option>
                         <?php endforeach ?>
