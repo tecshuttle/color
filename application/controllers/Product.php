@@ -18,10 +18,10 @@ class product extends CI_Controller{
 		{
 			case '1': $name = '%爬坡能力%';break;
 			case '2': $name = '%四驱动力%';break;
-			case '3': $name = '%抓地力%';break;
+			case '3': $name = '%抓地力%%';break;
 			case '4': $name = '%通过能力%';break;
-			case '5': $name = '%车身刚性';break;
-			case '6': $name = '%稳定性';break;
+			case '5': $name = '%车身刚性%';break;
+			case '6': $name = '%稳定性%';break;
 			case '7': $name = '%悬挂系统%';break;
 			case '8': $name = '%下坡辅助能力%';break;
 			default: $name = NULL;

@@ -53,7 +53,7 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+	//define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*
  *---------------------------------------------------------------
@@ -64,7 +64,7 @@
  * By default development will show errors but testing and live will hide them.
  */
  
-//define('ENVIRONMENT', 'production');
+define('ENVIRONMENT', 'production');
  
 switch (ENVIRONMENT)
 {

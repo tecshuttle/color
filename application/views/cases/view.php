@@ -39,7 +39,7 @@
 						<br/>
 					</header>
 					<p>
-						<?= $row->content?>
+						<?= $row->viewcontent;?>
 					</p>
 					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<?= $row->intro ?>

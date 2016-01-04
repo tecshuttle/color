@@ -7,6 +7,7 @@ class contact extends MY_Controller
         parent::__construct(); // Call the Model constructor
         $this->load->model('enterprise_model');
         $this->load->model('articles_model');
+        $this->load->model('bases_model');
     }
 
     public function index()
@@ -87,6 +88,17 @@ class contact extends MY_Controller
         $this->load->view('contact/index', $data);
         $this->load->view('footer', $data);
     }
+	
+	public function getId()
+	{
+		$baseName = $this->input->post('baseName');
+		
+		$sql = "SELECT id FROM bases WHERE name LIKE '" .$baseName. "'";
+		$result = $this->db->query($sql); //处理数据
+		var_dump($result->row_array());exit;
+		
+		$this->load->view('base/view');
+	}
 	
 	// 创建分页url
     private function create_page_url($base_url, $page, $conditions=array())

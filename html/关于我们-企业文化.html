@@ -178,134 +178,90 @@
 			<div class="container">
 
 				<!--wrap-->
-				<div class="culture-wrap clearfix cp-figure-group">
+				<div class="culture-wrap">
 
-					<div class="clearfix item-group-lg pull-left">
-
-						<figure class="pull-left item">
-							<img class="img-responsive" src="assets/img/product/culture01.jpg">
-
-							<figcaption class="description">
-								<a href="#">
-									<span class="inner">
-										员工培训
-									</span>
-								</a>
-							</figcaption>
-						</figure>
-
-						<figure class="pull-left item">
-							<img class="img-responsive" src="assets/img/product/culture02.jpg">
-
-							<figcaption class="description">
-								<a href="#">
-									<span class="inner">
-										节假日
-									</span>
-								</a>
-							</figcaption>
-						</figure>
-
-						<figure class="pull-left item margin-left">
-							<img class="img-responsive" src="assets/img/product/culture03.jpg">
-
-							<figcaption class="description">
-								<a href="#">
-									<span class="inner">
-										户外拓展
-									</span>
-								</a>
-							</figcaption>
-						</figure>
-
-					</div>
-					<!--/.item-group-lg END-->
-
-					<div class="clearfix item-group-lg pull-right">
-
-						<div class="pull-left item-group-sm">
-							<figure class="pull-left item">
-								<img class="img-responsive" src="assets/img/product/culture04.jpg">
-
-								<figcaption class="description">
-									<a href="#">
-										<span class="inner">
-											生日会
-										</span>
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="row">
+								<div class="col-xs-12">
+									<a class="popup-gallery js-open-popup">
+										<img class="img-responsive" src="assets/img/product/culture01.jpg">
+										<span class="title">员工培训</span>
 									</a>
-								</figcaption>
-							</figure>
+								</div>
 
-							<figure class="pull-left item">
-								<img class="img-responsive" src="assets/img/product/culture05.jpg">
-
-								<figcaption class="description">
-									<a href="#">
-										<span class="inner">
-											总监会议
-										</span>
+								<div class="col-xs-6">
+									<a class="popup-gallery js-open-popup">
+										<img class="img-responsive" src="assets/img/product/culture07.jpg">
+										<span class="title">节假日</span>
 									</a>
-								</figcaption>
-							</figure>
+								</div>
+
+								<div class="col-xs-6">
+									<a class="popup-gallery js-open-popup">
+										<img class="img-responsive" src="assets/img/product/culture05.jpg">
+										<span class="title">户外拓展</span>
+									</a>
+								</div>
+
+							</div>
 						</div>
-						<!--/.item-group-sm END-->
+						<div class="col-xs-6">
 
-						<figure class="pull-left item margin-left">
-							<img class="img-responsive" src="assets/img/product/culture06.jpg">
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="row">
+										<div class="col-xs-12">
+											<a class="popup-gallery js-open-popup">
+												<img class="img-responsive" src="assets/img/product/culture02.jpg">
+												<span class="title">生日会</span>
+											</a>
+										</div>
+										<div class="col-xs-12">
+											<a class="popup-gallery js-open-popup">
+												<img class="img-responsive" src="assets/img/product/culture04.jpg">
+												<span class="title">总监会议</span>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6">
+									<div class="row">
+										<div class="col-xs-12">
+											<a class="popup-gallery js-open-popup">
+												<img class="img-responsive" src="assets/img/product/culture03.jpg">
+												<span class="title">员工大会</span>
+											</a>
+										</div>
+									</div>
+								</div>
 
-							<figcaption class="description">
-								<a href="#">
-									<span class="inner">
-										员工大会
-									</span>
-								</a>
-							</figcaption>
-						</figure>
+								<div class="col-xs-12">
+									<a class="popup-gallery js-open-popup">
+										<img class="img-responsive" src="assets/img/product/culture06.jpg">
+										<span class="title">年会</span>
+									</a>
+								</div>
+							</div>
 
-						<figure class="pull-left item">
-							<img class="img-responsive" src="assets/img/product/culture07.jpg">
-
-							<figcaption class="description">
-								<a href="#">
-									<span class="inner">
-										年会
-									</span>
-								</a>
-							</figcaption>
-						</figure>
-
+						</div>
 					</div>
-					<!--/.item-group-lg END-->
-
 				</div>
 				<!--/.wrap END-->
 
 			</div>
 
 			<!--本模版单独引用JS-->
-			<!--图片滑过特效-->
-			<script src="assets/js/modernizr.custom.min.js"></script>
-			<script src="assets/js/jquery.hoverdir.js"></script>
-			<script>
-				//鼠标滑过特效
-				$(function() {
-					$('.cp-figure-group .item').each(function() {
-						$(this).hoverdir();
-					});
-				});
-			</script>
-
 			<link type="text/css" href="//cdn.bootcss.com/magnific-popup.js/1.0.0/magnific-popup.min.css" rel="stylesheet">
 			<script src="//cdn.bootcss.com/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
 
 			<script>
 				$('.js-open-popup').magnificPopup({
-					//console.log(this.src);
 					type: 'image',
 					tLoading: '图片正在读取中 #%curr%...',
 					removalDelay: 300,
 					items: [{
-						src: '/assets/img/product/culture01.jpg',
+						src: 'assets/img/product/culture01.jpg',
 						title: '这里是标题'
 					}, {
 						src: 'assets/img/product/culture01.jpg',
