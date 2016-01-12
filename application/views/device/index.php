@@ -129,18 +129,18 @@
 										<div class="col-xs-12">
 											<div class="btn-group" data-toggle="buttons">
 												<label class="btn btn-checkbox">
-													<input type="checkbox" name="callFrom[]" autocomplete="off" value="电话">电话
+													<input type="checkbox" name="callForm[]" autocomplete="off" value="电话">电话
 												</label>
 												<label class="btn btn-checkbox">
-													<input type="checkbox" name="callFrom[]" autocomplete="off" value="电子邮件">电子邮件
+													<input type="checkbox" name="callForm[]" autocomplete="off" value="电子邮件">电子邮件
 												</label>
 												<label class="btn btn-checkbox">
-													<input type="checkbox" name="callFrom[]" autocomplete="off" value="直邮">直邮
+													<input type="checkbox" name="callForm[]" autocomplete="off" value="直邮">直邮
 												</label>
 												<label class="btn btn-checkbox">
-													<input type="checkbox" name="callFrom[]" autocomplete="off" value="短信">短信
+													<input type="checkbox" name="callForm[]" autocomplete="off" value="短信">短信
 												</label>
-												<p><?php echo form_error('callFrom[]'); ?></p>
+												<p><?php echo form_error('callForm[]'); ?></p>
 											</div>
 
 										</div>
@@ -195,6 +195,9 @@
 									<div class="row">
 										<div class="col-xs-12">
 											<select class="selectpicker" name="base" title='请选择试驾基地'>
+											   	<option>广州大观路试驾基地</option>
+												<option>深圳香蜜湖试驾基地</option>
+												<option>佛山仙湖试驾基地</option>
 											
 											</select>
 											<p><?php echo form_error('base'); ?></p>
@@ -208,7 +211,10 @@
 									<div class="row">
 										<div class="col-xs-12">
 											<select class="selectpicker" name="device" title='请选择越野器械'>
-											
+											    <option>侧坡</option>
+												<option>凹凸桥</option>
+												<option>双面桥</option>
+												<option>四轮滚轴</option>
 											</select>
 											<p><?php echo form_error('device'); ?></p>
 										</div>

@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 class Device extends CI_Controller
 {
 	public function __construct() {
@@ -32,9 +32,13 @@ class Device extends CI_Controller
 			$this->form_validation->set_rules('sex', '称谓', 'required',
 				array('required' => '请勾选 称谓.')
 			);
-			$this->form_validation->set_rules('callFrom[]', '您希望的联系方式', 'required',
+			$this->form_validation->set_rules('callForm[]', '您希望的联系方式', 'required',
 				array('required' => '请勾选 联系方式.')
 			);
+			$this->form_validation->set_rules('assent', '同意条款', 'required',
+				array('required' => '请勾选 同意条款.')
+			);
+			
 			
             if ($this->form_validation->run() == TRUE)
             {
@@ -44,20 +48,22 @@ class Device extends CI_Controller
 				$name = $this -> input ->post('name');
 				$phone = $this->input ->post('phone');
 				$sex = $this->input ->post('sex');
-				$callFrom = $this -> input ->post('callFrom');
+				$callForm = $this -> input ->post('callForm');
 				$address = $this->input ->post('address');
 				$email = $this->input ->post('email');
 				$zipCode = $this -> input ->post('zipCode');
 				$device = $this->input ->post('device');
 				$datetime = $this->input ->post('datetime');
 				$base = $this->input ->post('base');
+				$str = implode($callForm);
+
 
 				$deviceData = array(
 					'name'=>$name,
 					'phone'=>$phone,
 					'email'=>$email,
 					'sex'=>$sex,
-					'callFrom'=>$callFrom,
+					'callForm'=>$str,
 					'address'=>$address,
 					'zipCode'=>$zipCode,
 					'device'=>$device,
@@ -65,11 +71,18 @@ class Device extends CI_Controller
 					'datetime'=>$datetime,
 					'base'=>$base,
 					'city'=>$city,
+					
+					
 				);
+				
+             
+				
          
 				$this->db->insert('deviceboard',$deviceData);
 				
-				echo "___________提交成功！我们将会在第一时间内和您联系。";
+
+				
+				$this->load->view('/formsuccess');return;
 			}
 		}
 		

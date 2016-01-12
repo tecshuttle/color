@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Class articles_model
  * 这个类和products类是一样的，如果有修改，请同步更新到这里，有时间，重构时，合并成一个类。
@@ -14,7 +14,7 @@ class email_register_model extends CI_Model
         parent::__construct();
 
         if (!isset($_SESSION)) {
-            session_start();
+            //session_start();
         }
 
         //$this->lang = $_SESSION['lang'];

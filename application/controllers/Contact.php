@@ -14,7 +14,7 @@ class contact extends MY_Controller
     {
 		$name = NULL;
 		
-		$name = $_POST['suggest'];
+		$name = $_POST['name'];
 		
 		$conditions = array();
 		
@@ -31,6 +31,7 @@ class contact extends MY_Controller
         $city = $this->enterprise_model->get_region_name($city_id); 
 		
 		if($name != NULL){
+			$city_id = 8888;//标识地图地点点击显示if判断（择优删除修正）
 			$city = $name;
 		}
 		
@@ -93,11 +94,25 @@ class contact extends MY_Controller
 	{
 		$baseName = $this->input->post('baseName');
 		
-		$sql = "SELECT id FROM bases WHERE name LIKE '" .$baseName. "'";
+		$sql = "SELECT id FROM bases WHERE name LIKE '%" .$baseName. "%'";
 		$result = $this->db->query($sql); //处理数据
-		var_dump($result->row_array());exit;
 		
-		$this->load->view('base/view');
+		$bases = $result->row_array();
+		
+		if($bases != NULL){
+			echo json_encode(
+				array(
+					'status' => true,
+					'id' => $bases['id']
+				)
+			);
+		}else{
+			echo json_encode(
+				array(
+					'status' => false,
+				)
+			);
+		}
 	}
 	
 	// 创建分页url

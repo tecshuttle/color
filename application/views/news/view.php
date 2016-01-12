@@ -38,10 +38,21 @@
 						<h2><strong><?= $row->name?></strong></h2>
 						<br/>
 					</header>
-					<p>
+					
+					<div class="text-center" style="margin-bottom: 15px;">
+						<?php if($row->video != NULL):?>
+						<iframe class="video_iframe text-center" style=" z-index:1; " 
+							src="http://v.qq.com/iframe/player.html?vid=<?= $row->video;?>&amp;width=900&amp;height=600&amp;auto=0" 
+							allowfullscreen="" frameborder="0" height="600" width="900">
+						</iframe>
+						<?php endif;?>
+					</div>
+						
+					<p class="text-center">
 						<?= $row->content?>
 					</p>
-					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					
+					<p >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<?= $row->intro ?>
 					</p>
 				</article>

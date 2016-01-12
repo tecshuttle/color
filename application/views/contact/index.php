@@ -77,17 +77,17 @@
 										<a class="center-block" href="javascript:getId('<?= $contact_item['name'];?>')">
 											<span class="glyphicon glyphicon-play"></span> <?= $contact_item['name'];?>
 										</a>
-							<?php break;}else{
-							?>
+								<?php break;}else{
+								?>
 										<a class="center-block" href="javascript:getId('<?= $contact_item['name'];?>')">
 											<span class="glyphicon glyphicon-play"></span> <?= $contact_item['name'];?>
 										</a>
 									<?php }} ?>
-							<?php $i++; endforeach;?>
-							<?php else: ?>
-								<div style="text-align:center; margin:50px auto 100px;">找不到记录</div>
-							<?php endif;?>
-							</p>
+								<?php $i++; endforeach;?>
+						<?php else: ?>
+							<div style="text-align:center; margin:50px auto 100px;">找不到记录</div>
+						<?php endif;?>
+						</p>
 						</dl>
 					</div>
 
@@ -379,7 +379,7 @@
 					
 					$('a[data-toolbar="city"]').click(function(){
 						name = $(this).attr("name");
-						$.post('contact/index',{suggest:name},function(res){
+						$.post('contact/index',{name:name},function(res){
 							$('#page_container').html($(res).find('#page_container').html());
 						});
 					});
@@ -438,9 +438,15 @@
 					function getId(baseName){
 						console.log(baseName);
 						
-						$.post('/contact/getId', baseName:baseName, function(result){
-							console.log(result);
-						});
+						$.post('/contact/getId', {baseName:baseName}, function(data){
+
+							if(data.status == true){
+								location.href = "/bases/view/"+data.id;
+							}
+							else{
+								console.log(data.status);
+							}
+						}, "json");
 					}
 				</script>
 			</div>

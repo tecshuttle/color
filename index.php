@@ -75,6 +75,7 @@ switch (ENVIRONMENT)
 
 	case 'testing':
 	case 'production':
+/*
 		ini_set('display_errors', 0);
 		if (version_compare(PHP_VERSION, '5.3', '>='))
 		{
@@ -83,7 +84,7 @@ switch (ENVIRONMENT)
 		else
 		{
 			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
-		}
+		}*/
 	break;
 
 	default:
@@ -91,6 +92,7 @@ switch (ENVIRONMENT)
 		echo 'The application environment is not set correctly.';
 		exit(1); // EXIT_ERROR
 }
+
 
 /*
  *---------------------------------------------------------------
@@ -284,6 +286,7 @@ switch (ENVIRONMENT)
 	}
 
 	define('VIEWPATH', $view_folder);
+
 
 /*
  * --------------------------------------------------------------------
