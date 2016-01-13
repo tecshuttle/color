@@ -12,117 +12,111 @@ class contact extends MY_Controller
 
     public function index()
     {
-		$name = NULL;
-		
-		$name = $_POST['name'];
-		
-		$conditions = array();
-		
-		$banner = $this->articles_model->select(array(	
+        $name = isset($_POST['name']) ? $_POST['name'] : null;
+
+        $conditions = array();
+
+        $banner = $this->articles_model->select(array(
             'code' => 'contactBanner'
         ));
-		
-		$sync = isset($_GET['sync']);
-		
-		// 获取地区查询参数
+
+        $sync = isset($_GET['sync']);
+
+        // 获取地区查询参数
         $province_id = (int)$this->uri->segment(4);
         $city_id = (int)$this->uri->segment(5);
         $province = $this->enterprise_model->get_region_name($province_id);
-        $city = $this->enterprise_model->get_region_name($city_id); 
-		
-		if($name != NULL){
-			$city_id = 8888;//标识地图地点点击显示if判断（择优删除修正）
-			$city = $name;
-		}
-		
-        
+        $city = $this->enterprise_model->get_region_name($city_id);
+
+        if ($name != NULL) {
+            $city_id = 8888; //标识地图地点点击显示if判断（择优删除修正）
+            $city = $name;
+        }
+
+
         // 内部使用的地区参数条件
-        if ($province)
-        {
+        if ($province) {
             $conditions['code'] = $province;
         }
-		
-        if ($city)
-        {
+
+        if ($city) {
             $conditions['keywords'] = $city;
         }
-		
-		$all_sql = 'SELECT * FROM enterprise';
-		$page_sql = 'SELECT * FROM `enterprise` '. $this->generate_where($conditions);
-		
-		if(!$province){
-			$deviceWhere = ' where id = 1';
-		}else{
-			$deviceWhere = $this->generate_where($conditions);
-		}
-		
-		// $device_sql = 'SELECT s2.*, s1.name FROM bases s2
-		  // LEFT JOIN base_device s3   
-			// ON s2.id=s3.base_id  
-			  // LEFT JOIN device s1   
-				// ON s3.device_id = s1.id WHERE s2.id = 
-					// (SELECT id FROM bases'.$deviceWhere.')';
-					
-		//处理数据
-		$allResult = $this->db->query($all_sql); 
-        $result = $this->db->query($page_sql); 
-		// $deviceResult = $this->db->query($device_sql);
-		
-		$allCityBases = $allResult->result_array();
-		/* foreach($allResult->result_array() as $allCityBase){
-			$allCityBases[$allCityBase['city']] = $allCityBase['title'];
-		} */
-		
-		$data = array(
-			'province_list' => $this->enterprise_model->get_regions(1, 1),
-			'city_list' => $this->enterprise_model->get_regions(2, $province_id),
-			'city_id' => $city_id,
-			'province_id' => $province_id,
-			'banner' => $banner,
-			'sync' => $sync,
-			'pagedata' => $result->result_array(),
-			'has_data' => count($result->result_array()) > 0,
-			'allCityBases' => $allCityBases
-		);
-		
-		$this->load->view('header', $data);
+
+        $all_sql = 'SELECT * FROM enterprise';
+        $page_sql = 'SELECT * FROM `enterprise` ' . $this->generate_where($conditions);
+
+        if (!$province) {
+            $deviceWhere = ' where id = 1';
+        } else {
+            $deviceWhere = $this->generate_where($conditions);
+        }
+
+        // $device_sql = 'SELECT s2.*, s1.name FROM bases s2
+        // LEFT JOIN base_device s3
+        // ON s2.id=s3.base_id
+        // LEFT JOIN device s1
+        // ON s3.device_id = s1.id WHERE s2.id =
+        // (SELECT id FROM bases'.$deviceWhere.')';
+
+        //处理数据
+        $allResult = $this->db->query($all_sql);
+        $result = $this->db->query($page_sql);
+        // $deviceResult = $this->db->query($device_sql);
+
+        $allCityBases = $allResult->result_array();
+        /* foreach($allResult->result_array() as $allCityBase){
+            $allCityBases[$allCityBase['city']] = $allCityBase['title'];
+        } */
+
+        $data = array(
+            'province_list' => $this->enterprise_model->get_regions(1, 1),
+            'city_list' => $this->enterprise_model->get_regions(2, $province_id),
+            'city_id' => $city_id,
+            'province_id' => $province_id,
+            'banner' => $banner,
+            'sync' => $sync,
+            'pagedata' => $result->result_array(),
+            'has_data' => count($result->result_array()) > 0,
+            'allCityBases' => $allCityBases
+        );
+
+        $this->load->view('header', $data);
         $this->load->view('contact/index', $data);
         $this->load->view('footer', $data);
     }
-	
-	public function getId()
-	{
-		$baseName = $this->input->post('baseName');
-		
-		$sql = "SELECT id FROM bases WHERE name LIKE '%" .$baseName. "%'";
-		$result = $this->db->query($sql); //处理数据
-		
-		$bases = $result->row_array();
-		
-		if($bases != NULL){
-			echo json_encode(
-				array(
-					'status' => true,
-					'id' => $bases['id']
-				)
-			);
-		}else{
-			echo json_encode(
-				array(
-					'status' => false,
-				)
-			);
-		}
-	}
-	
-	// 创建分页url
-    private function create_page_url($base_url, $page, $conditions=array())
+
+    public function getId()
+    {
+        $baseName = $this->input->post('baseName');
+
+        $sql = "SELECT id FROM bases WHERE name LIKE '%" . $baseName . "%'";
+        $result = $this->db->query($sql); //处理数据
+
+        $bases = $result->row_array();
+
+        if ($bases != NULL) {
+            echo json_encode(
+                array(
+                    'status' => true,
+                    'id' => $bases['id']
+                )
+            );
+        } else {
+            echo json_encode(
+                array(
+                    'status' => false,
+                )
+            );
+        }
+    }
+
+    // 创建分页url
+    private function create_page_url($base_url, $page, $conditions = array())
     {
         $url = $base_url . '/' . $page;
-        if (is_array($conditions))
-        {
-            foreach ($conditions as $value)
-            {
+        if (is_array($conditions)) {
+            foreach ($conditions as $value) {
                 $url .= '/' . $value;
             }
         }
@@ -132,46 +126,40 @@ class contact extends MY_Controller
     public function view($slug = NULL)
     {
         $data['bases_item'] = $this->enterprise_model->get_bases($slug);
-    
-        if (empty($data['bases_item']))
-        {
+
+        if (empty($data['bases_item'])) {
             show_404();
         }
-    
+
         $data['title'] = $data['bases_item']['title'];
-    
+
         //$this->load->view('templates/header', $data);
         $this->load->view('contact/view', $data);
         //$this->load->view('templates/footer');
     }
-    
+
     // ajax获取地址下拉菜单
     public function region()
     {
         $html = '';
         $province_id = (int)$this->uri->segment(3);
-        if ($province_id)
-        {
+        if ($province_id) {
             $rows = $this->enterprise_model->get_regions(2, $province_id);
-            if ($rows)
-            {
-                foreach ($rows as $row)
-                {
-                    $html .= '<option value="'.$row['region_id'].'">'.$row['region_name'].'</option>';
+            if ($rows) {
+                foreach ($rows as $row) {
+                    $html .= '<option value="' . $row['region_id'] . '">' . $row['region_name'] . '</option>';
                 }
             }
         }
         exit($html);
     }
-    
+
     // 生成sql的where字句
     private function generate_where($conditions)
     {
         $where = ' where 1 ';
-        if (is_array($conditions))
-        {
-            foreach ($conditions as $column => $value)
-            {
+        if (is_array($conditions)) {
+            foreach ($conditions as $column => $value) {
                 $where .= " AND {$column} = '{$value}' ";
             }
         }
@@ -435,6 +423,6 @@ class contact extends MY_Controller
     }
 }
 
-  
+
 
 /* End of file */

@@ -38,15 +38,23 @@ Ext.define('Tomtalk.product.EditFormUI', {extend: 'Ext.form.Panel',
                 name: 'dates',
                 emptyText: '请输入…'
             },
-			{
+            {
                 xtype: 'textfield',
                 fieldLabel: '类别',
-				allowBlank: false,
+                allowBlank: false,
                 anchor: '50%',
                 name: 'type',
                 emptyText: 'consultation为企业资讯, trends为行业动态, highlight为活动集锦'
             },
-			{
+            {
+                xtype: 'textfield',
+                fieldLabel: '视频码',
+                allowBlank: false,
+                anchor: '50%',
+                name: 'video',
+                emptyText: '请输入'
+            },
+            {
                 xtype: 'textfield',
                 fieldLabel: '内容',
                 anchor: '50%',
@@ -233,7 +241,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Viewport, {
                 {
                     header: "日期", dataIndex: 'dates'
                 },
-				{
+                {
                     header: "类别", dataIndex: 'type'
                 },
                 {
@@ -328,12 +336,7 @@ Tomtalk.IdcAction = Ext.extend(Tomtalk.IdcUI, {
 
         Ext.apply(this.COMPONENTS, {
             grid: Ext.getCmp(this.id + '_gridList'),
-            addBtn: Ext.getCmp('grid_add_btn'),
-            //saveBtn: Ext.getCmp(this.id + '_save'),
-            //btnProductForm: Ext.getCmp(this.id + '_btn_product_form'),
-            //btnGalleryBatchAdd: Ext.getCmp(this.id + '_btn_gallery_batch_add'),
-            //query: Ext.getCmp(this.id + '_btn_query'),
-            //reset: Ext.getCmp(this.id + '_btn_reset')
+            addBtn: Ext.getCmp('grid_add_btn')
         });
     },
 
