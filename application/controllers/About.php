@@ -1,4 +1,5 @@
-﻿<?php
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
 class About extends CI_Controller
 {
     public function __construct()
@@ -134,4 +135,4 @@ class About extends CI_Controller
     }
 }
 
-//end file
+/* End of file */

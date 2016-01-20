@@ -28,8 +28,8 @@
 
 		<!--page-main START-->
 		<main class="page-main page-business" id="content" tabindex="-1" role="main">
-			<!--main的命名方式为page+主题-->
-			<!--main标签在页面中只能出现一�?->
+			<!--main鐨勫懡鍚嶆柟寮忎负page+涓婚-->
+			<!--main鏍囩鍦ㄩ〉闈腑鍙兘鍑虹幇涓€娆?->
 
 			<div class="container">
 				<?= $article->content ?>

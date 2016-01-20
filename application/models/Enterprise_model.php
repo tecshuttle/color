@@ -14,7 +14,7 @@ class enterprise_model extends CI_Model
         parent::__construct();
 
         if (!isset($_SESSION)) {
-            session_start();
+            //session_start();
         }
 
         //$this->lang = $_SESSION['lang'];
