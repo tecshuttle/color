@@ -37,7 +37,7 @@
 				<header class="cp-select select-horizontal">
 					<div class="clearfix inner">
 						<div class="pull-left select-item">
-							<select class="selectpicker" title='请选择' id="select_product">
+							<select class="selectpicker" title='请选择性能' id="select_product">
 								<option <?php if($id === '1'){echo 'selected';}?> value='1'>爬坡能力</option>
 								<option <?php if($id === '2'){echo 'selected';}?> value='2'>四驱动力</option>
 								<option <?php if($id === '3'){echo 'selected';}?> value='3'>抓地力</option>

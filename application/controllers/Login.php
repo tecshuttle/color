@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 class Login extends CI_Controller {
     private $pass = '';
 	
@@ -14,7 +14,6 @@ class Login extends CI_Controller {
 
 
     public function index() {
-		
 		$this->load->library ( 'form_validation' );
 
         $this->form_validation->set_rules ( 'username', 'Username', 'required',
@@ -66,21 +65,23 @@ class Login extends CI_Controller {
 					if($phonePw !== $phonedata['phonepassword']){
 						echo "<p style='text-align:center'><h4>密码错误</a></p>";
 					}else{
-						$this->input->set_cookie("userLogin", true, 660);
+						//$this->input->set_cookie("userLogin", true, 660);
+						setcookie("userLogin", '1', time()+660, "/");
 					
 						echo "<p style='text-align:center'><h4>_______页面提示：登录成功！<a href='/downcenter/index'>点击这里继续下载</a> 或是 <a href='/messageboard/index'>点击这里继续留言</a></p>";
 					}
 				}else if($emailPw !== ''){
-					var_dump($emailPw.'---'.$data['password']);
 					if($emailPw !== $data['password']){
 						echo "<p style='text-align:center'><h4>密码错误</a></p>";
 					}else{
-						$this->input->set_cookie("userLogin", true, 660);
+						//$this->input->set_cookie("userLogin", true, 660);
+						setcookie("userLogin", '1', time()+660, "/");
 					
 						echo "<p style='text-align:center'><h4>_______页面提示：登录成功！<a href='/downcenter/index'>点击这里继续下载</a> 或是 <a href='/messageboard/index'>点击这里继续留言</a></p>";
 					}
 				}else{
-					$this->input->set_cookie("userLogin", true, 660);
+					//$this->input->set_cookie("userLogin", true, 660);
+					setcookie("userLogin", '1', time()+660, "/");
 					
 					echo "<p style='text-align:center'><h4>_______页面提示：登录成功！<a href='/downcenter/index'>点击这里继续下载</a> 或是 <a href='/messageboard/index'>点击这里继续留言</a></p>";
 				}

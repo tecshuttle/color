@@ -15,7 +15,7 @@ class Welcome extends MY_Controller
         $this->load->model('articles_model');
         $this->load->model('bases_model');
         $this->load->model('product_model');
-		$this->load->model('articles_model');
+		
 		
         $article = $this->articles_model->select(array(
             'code' => 'indexBanner'

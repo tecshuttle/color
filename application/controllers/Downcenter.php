@@ -74,17 +74,16 @@ class downcenter extends MY_Controller
 
     public function down()
     {
-        $fileName = $this->uri->segment(3);
-
+        $fileName = urldecode($this->uri->segment(3));
+		
         $data['filename'] = $fileName;
-
 
         if (isset($_COOKIE['userLogin'])) {
             //header("Content-Type: application/force-download");
             //header("Content-Disposition: attachment; filename=" . basename($fileName));
             //readfile($fileName);
             header('Location: /uploads/' . $fileName);
-            exit;
+            exit();
         }
 
 
@@ -168,10 +167,38 @@ class downcenter extends MY_Controller
 
         echo $article->content . $gallery;
     }
+	
+	//32进制文件重命名
+	function guid()
+	{
+		if (function_exists('com_create_guid')) {
+			$uuid = com_create_guid();
+		} else {
+			mt_srand((double)microtime() * 10000); //optional for php 4.2.0 and up.
+			$charid = strtoupper(md5(uniqid(rand(), true)));
+			$hyphen = chr(45); // "-"
+			$uuid = chr(123) // "{"
+				. substr($charid, 0, 8) . $hyphen
+				. substr($charid, 8, 4) . $hyphen
+				. substr($charid, 12, 4) . $hyphen
+				. substr($charid, 16, 4) . $hyphen
+				. substr($charid, 20, 12)
+				. chr(125);
+			// "}"
+		}
 
+		$uuid = trim($uuid, '{}');
+		$uuid = strtolower($uuid);
+
+		return str_replace('-', '', $uuid);
+	}
+	
     public function save()
     {
         $download = $this->upload_product_cover('userfile');
+		$download = substr(strrchr($download, '.'), 1);
+		$download = $this->guid().'.'.$download;
+		
         $_POST['url'] = ($download == '' ? '' : $download);
 
         foreach ($_POST as $key => $item) {

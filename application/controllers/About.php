@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 class About extends CI_Controller
 {
     public function __construct()
@@ -30,7 +30,7 @@ class About extends CI_Controller
             'code' => $code
         ));
 
-		//banner图修改
+		//banner
         $overviewBanner = $this->articles_model->select(array(
             'code' => 'overviewBanner'
         ));
@@ -112,13 +112,13 @@ class About extends CI_Controller
             'code' => 'seventhView'
         ));
 		
-		$viewBanner = $this->articles_model->select(array(
-            'code' => 'viewBanner'
+		$cultureViewBanner = $this->articles_model->select(array(
+            'code' => 'cultureViewBanner'
         ));
 		
 		$data = array(
 			'id' => $id,
-			'viewBanner' => $viewBanner,
+			'cultureViewBanner' => $cultureViewBanner,
 			'fristView' => $fristView,
 			'secondView' => $secondView,
 			'thirdView' => $thirdView,
