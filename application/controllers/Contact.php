@@ -12,11 +12,13 @@ class contact extends MY_Controller
 
     public function index()
     {
-        $name = isset($_POST['name']) ? $_POST['name'] : null;
-
-        $conditions = array();
-
-        $banner = $this->articles_model->select(array(
+		$name = NULL;
+		
+		$name = $_POST['name'];
+		
+		$conditions = array();
+		
+		$banner = $this->articles_model->select(array(	
             'code' => 'contactBanner'
         ));
 
@@ -26,14 +28,14 @@ class contact extends MY_Controller
         $province_id = (int)$this->uri->segment(4);
         $city_id = (int)$this->uri->segment(5);
         $province = $this->enterprise_model->get_region_name($province_id);
-        $city = $this->enterprise_model->get_region_name($city_id);
-
-        if ($name != NULL) {
-            $city_id = 8888; //标识地图地点点击显示if判断（择优删除修正）
-            $city = $name;
-        }
-
-
+        $city = $this->enterprise_model->get_region_name($city_id); 
+		
+		if($name != NULL){
+			$city_id = 8888;//标识地图地点点击显示if判断（择优删除修正）
+			$city = $name;
+		}
+		
+        
         // 内部使用的地区参数条件
         if ($province) {
             $conditions['code'] = $province;
@@ -85,8 +87,34 @@ class contact extends MY_Controller
         $this->load->view('contact/index', $data);
         $this->load->view('footer', $data);
     }
-
-    public function getId()
+	
+	public function getId()
+	{
+		$baseName = $this->input->post('baseName');
+		
+		$sql = "SELECT id FROM bases WHERE name LIKE '%" .$baseName. "%'";
+		$result = $this->db->query($sql); //处理数据
+		
+		$bases = $result->row_array();
+		
+		if($bases != NULL){
+			echo json_encode(
+				array(
+					'status' => true,
+					'id' => $bases['id']
+				)
+			);
+		}else{
+			echo json_encode(
+				array(
+					'status' => false,
+				)
+			);
+		}
+	}
+	
+	// 创建分页url
+    private function create_page_url($base_url, $page, $conditions=array())
     {
         $baseName = $this->input->post('baseName');
 

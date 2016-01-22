@@ -13,9 +13,9 @@ class email_register_model extends CI_Model
         // Call the Model constructor
         parent::__construct();
 
-        if (!isset($_SESSION)) {
-            //session_start();
-        }
+        // if (!isset($_SESSION)) {
+            // session_start();
+        // }
 
         //$this->lang = $_SESSION['lang'];
         $this->load->database();
