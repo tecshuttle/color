@@ -148,7 +148,8 @@
                         <div class="col-xs-12">
                             <div class="checkbox" data-toggle="buttons">
                                 <label class="btn">
-                                    <input type="checkbox"> 我已阅读并同意 <a href="#" target="_blank">《服务协议》</a>
+                                    <input type="checkbox" name="assent"> 我已阅读并同意 <a href="#" target="_blank">《服务协议》</a>
+									<p><?php echo form_error('assent'); ?></p>
                                 </label>
 
                             </div>
@@ -201,6 +202,7 @@
                             <!--验证信息-->
                             <p class="form-control-static"><?php echo form_error('tel'); ?></p>
 
+
                         </div>
                     </div>
 
@@ -213,7 +215,8 @@
                         <div class="col-xs-12">
                             <div class="checkbox" data-toggle="buttons">
                                 <label class="btn">
-                                    <input type="checkbox"> 我已阅读并同意 <a href="#" target="_blank">《服务协议》</a>
+                                    <input type="checkbox" name="consent"> 我已阅读并同意 <a href="#" target="_blank">《服务协议》</a>
+									<p><?php echo form_error('consent'); ?></p>
                                 </label>
                             </div>
 

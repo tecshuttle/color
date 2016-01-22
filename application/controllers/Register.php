@@ -53,6 +53,11 @@ class Register extends CI_Controller
         $this->form_validation->set_rules('passconf', '重复密码', 'trim|required|matches[password]',
             array('required' => '重复密码 不可为空.')
         );
+		$this->form_validation->set_rules('assent', '同意条款', 'required',
+            array('required' => '请勾选 同意条款.')
+        );
+		
+		
 
         if ($this->form_validation->run() == FALSE) {
             //redirect($_SERVER['HTTP_REFERER']);
@@ -85,6 +90,7 @@ class Register extends CI_Controller
 
             $this->db->insert('email_register', $data);
             $this->load->view('/formsuccess');
+			header("refresh:3;url=http://qxu1540170157.my3w.com");
         }
     }
 
@@ -100,6 +106,9 @@ class Register extends CI_Controller
 
         $this->form_validation->set_rules('tel', '手机号', 'trim|required|exact_length[11]',
             array('required' => '手机号不可为空.')
+        );
+		$this->form_validation->set_rules('consent', '同意条款', 'required',
+            array('required' => '请勾选 同意条款.')
         );
 
         if ($this->form_validation->run() == FALSE) {
@@ -130,6 +139,7 @@ class Register extends CI_Controller
 
             $this->db->insert('phone_register', $data);
             $this->load->view('/formsuccess');
+			header("refresh:3;url=http://qxu1540170157.my3w.com");
         }
     }
 }
