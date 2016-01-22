@@ -90,6 +90,7 @@ class Register extends CI_Controller
 
             $this->db->insert('email_register', $data);
             $this->load->view('/formsuccess');
+			header("refresh:3;url=http://qxu1540170157.my3w.com");
         }
     }
 
@@ -138,6 +139,7 @@ class Register extends CI_Controller
 
             $this->db->insert('phone_register', $data);
             $this->load->view('/formsuccess');
+			header("refresh:3;url=http://qxu1540170157.my3w.com");
         }
     }
 }
