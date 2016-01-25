@@ -196,8 +196,6 @@ class downcenter extends MY_Controller
     public function save()
     {
         $download = $this->upload_product_cover('userfile');
-		$download = substr(strrchr($download, '.'), 1);
-		$download = $this->guid().'.'.$download;
 		
         $_POST['url'] = ($download == '' ? '' : $download);
 
@@ -224,16 +222,18 @@ class downcenter extends MY_Controller
     private function upload_product_cover($field)
     {
         $file_name = '';
-
         if (isset($_FILES[$field]) and $_FILES[$field]['error'] == 0) {
             $ds = DIRECTORY_SEPARATOR;
-            $dest = dirname((dirname(dirname(__FILE__)))) . $ds . 'uploads' . $ds . $_FILES[$field]['name'];
+            $info = pathinfo($_FILES[$field]['name']);
+            $file_name = $this->guid() . '.' . $info['extension'];
+            $dest = dirname((dirname(dirname(__FILE__)))) . $ds . 'uploads' . $ds . $file_name;
+
             copy($_FILES[$field]['tmp_name'], $dest);
-            $file_name = $_FILES[$field]['name'];
         }
 
         return $file_name;
     }
+
 
     // private function upload_file($name)
     // {

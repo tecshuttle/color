@@ -139,18 +139,6 @@ class contact extends MY_Controller
         }
     }
 
-    // 创建分页url
-    private function create_page_url($base_url, $page, $conditions = array())
-    {
-        $url = $base_url . '/' . $page;
-        if (is_array($conditions)) {
-            foreach ($conditions as $value) {
-                $url .= '/' . $value;
-            }
-        }
-        return $url;
-    }
-
     public function view($slug = NULL)
     {
         $data['bases_item'] = $this->enterprise_model->get_bases($slug);

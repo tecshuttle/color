@@ -77,17 +77,17 @@
 										<a class="center-block" href="javascript:getId('<?= $contact_item['name'];?>')">
 											<span class="glyphicon glyphicon-play"></span> <?= $contact_item['name'];?>
 										</a>
-								<?php break;}else{
-								?>
+							<?php break;}else{
+							?>
 										<a class="center-block" href="javascript:getId('<?= $contact_item['name'];?>')">
 											<span class="glyphicon glyphicon-play"></span> <?= $contact_item['name'];?>
 										</a>
 									<?php }} ?>
-								<?php $i++; endforeach;?>
-						<?php else: ?>
-							<div style="text-align:center; margin:50px auto 100px;">找不到记录</div>
-						<?php endif;?>
-						</p>
+							<?php $i++; endforeach;?>
+							<?php else: ?>
+								<div style="text-align:center; margin:50px auto 100px;">找不到记录</div>
+							<?php endif;?>
+							</p>
 						</dl>
 					</div>
 
