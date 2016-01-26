@@ -148,11 +148,13 @@
                         <div class="col-xs-12">
                             <div class="checkbox" data-toggle="buttons">
                                 <label class="btn">
-                                    <input type="checkbox" name="assent"> 我已阅读并同意 <a href="/html/服务条款.html" target="_blank">《服务协议》</a>
-									<p><?php echo form_error('assent'); ?></p>
+                                    <input type="checkbox" name="assent"> 我已阅读并同意
+									<?php echo form_error('assent'); ?>
                                 </label>
 
                             </div>
+                            
+                             <a class="agreement" href="/html/服务条款.html" target="_blank">《服务协议》</a>
 
                         </div>
                     </div>
@@ -215,10 +217,12 @@
                         <div class="col-xs-12">
                             <div class="checkbox" data-toggle="buttons">
                                 <label class="btn">
-                                    <input type="checkbox" name="consent"> 我已阅读并同意 <a href="/html/服务条款.html" target="_blank">《服务协议》</a>
-									<p><?php echo form_error('consent'); ?></p>
-                                </label>
+                                    <input type="checkbox" name="consent"> 我已阅读并同意 
+                                    <?php echo form_error('consent'); ?>
+                                </label>                             
                             </div>
+                            
+                            <a class="agreement" href="/html/服务条款.html" target="_blank">《服务协议》</a>
 
                         </div>
                     </div>
