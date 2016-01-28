@@ -224,6 +224,11 @@
                             <option>凹凸桥</option>
                             <option>双面桥</option>
                             <option>四轮滚轴</option>
+							<option>高空跷跷板</option>
+							<option>阶梯路</option>
+							<option>模拟坑洼路</option>
+							<option>驼峰</option>
+							<option>枕木路</option>
                         </select>
 
                         <p><?php echo form_error('device'); ?></p>
