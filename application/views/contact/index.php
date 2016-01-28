@@ -32,8 +32,6 @@
 
 			<div class="container" id="page_container">
 				<!--筛选-->
-				
-				
 				<header class="cp-select select-horizontal">
 					<div class="clearfix inner">
 						<div class="pull-left select-item">
@@ -58,36 +56,36 @@
 
 				<!--wrap-->
 				<div class="map-wrap">
-
 					<div class="pull-left">
-					<?php $i = 0; if ($has_data) : ?>
-						<?php 
-							foreach ($pagedata as $contact_item):
-							if($i == 0){
-						?>
+					<?php if ($has_data) : ?>
+						<?php foreach ($pagedata as $contact_item):?>
 						<dl class="description">
-							<dt class="h2"><?= $contact_item['name'];?></dt>
+							<dt class="h2">
+								<?= $contact_item['code'].'-'.$contact_item['keywords'];?>
+							</dt>
+							
 							<?= $contact_item['content'];?>
+							
 							<h3>试驾基地</h3>
 							<p class="list-brand">
-							<?php 
-								}else{ 
-									if($province_id == 0 && $city_id == 0){
-							?>
-										<a class="center-block" href="javascript:getId('<?= $contact_item['name'];?>')">
-											<span class="glyphicon glyphicon-play"></span> <?= $contact_item['name'];?>
-										</a>
-							<?php break;}else{
-							?>
-										<a class="center-block" href="javascript:getId('<?= $contact_item['name'];?>')">
-											<span class="glyphicon glyphicon-play"></span> <?= $contact_item['name'];?>
-										</a>
-									<?php }} ?>
-							<?php $i++; endforeach;?>
-							<?php else: ?>
-								<div style="text-align:center; margin:50px auto 100px;">找不到记录</div>
+							<?php foreach($bases as $base):?>
+							<?php if($contact_item['keywords'] == $base['keywords']):?>
+								<a class="center-block" href="/bases/view/<?= $base['id']?>">
+									<span class="glyphicon glyphicon-play"></span> 
+										<?= $base['name']?>
+								</a>
 							<?php endif;?>
+							<?php endforeach;?>
 							</p>
+							
+							<h3>越野器械</h3>
+							<p class="list-brand">
+								<?= $contact_item['device'];?>
+							</p>
+						<?php break;endforeach;?>
+					<?php else: ?>
+							<div style="text-align:center; margin:50px auto 100px;">找不到记录</div>
+					<?php endif;?>
 						</dl>
 					</div>
 
@@ -433,21 +431,6 @@
 						
 						$('.selectpicker').selectpicker('refresh');
 			       	 });
-				</script>
-				<script>
-					function getId(baseName){
-						console.log(baseName);
-						
-						$.post('/contact/getId', {baseName:baseName}, function(data){
-
-							if(data.status == true){
-								location.href = "/bases/view/"+data.id;
-							}
-							else{
-								console.log(data.status);
-							}
-						}, "json");
-					}
 				</script>
 			</div>
 
