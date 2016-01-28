@@ -45,7 +45,7 @@
 					</p>
 					
 					<p class="text-justify">
-						性能：<?= $row->name?>
+						性能：</br><?= $row->name?>
 					</p>
 					
 					<p class="text-justify">

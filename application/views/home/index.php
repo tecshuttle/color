@@ -747,37 +747,37 @@
 						</h5>
 						<ul class="clearfix list-unstyled page-links">
 							<li>
-								<a href="#">
-									三源色官方微信帐号
+								<a href="http://weibo.com/sunyathe/home?wvr=5&c=spr_web_sq_firefox_weibo_t001&sudaref=i.firefoxchina.cn" target="_blank">
+									三源色官方微博帐号
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="http://www.autosports.org.cn/" target="_blank">
 									中国汽车运动协会
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="http://www.caam.org.cn/" target="_blank">
 									中国汽车工业协会
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="http://www.mycar168.com/" target="_blank">
 									汽车大世界
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="http://www.pcauto.com.cn/" target="_blank">
 									太平洋汽车网
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="http://www.12gang.com/" target="_blank">
 									12缸汽车网
 								</a>
 							</li>
 							<li>
-								<a href="#">
+								<a href="http://www.315che.com/" target="_blank">
 									中国汽车消费网
 								</a>
 							</li>
@@ -799,9 +799,9 @@
 		<!--common-->
 		<script src="//cdn.bootcss.com/bootstrap-hover-dropdown/2.0.10/bootstrap-hover-dropdown.min.js"></script>
 		<script src="//cdn.bootcss.com/scrollup/2.4.0/jquery.scrollUp.min.js"></script>
-		<script src="assets/js/bootstrap-select.js"></script>
-		<script src="assets/js/defaults-zh_CN.js"></script>
-		<script src="assets/js/main.js"></script>
+		<script src="/assets/js/bootstrap-select.js"></script>
+		<script src="/assets/js/defaults-zh_CN.js"></script>
+		<script src="/assets/js/main.js"></script>
 
 	</body>
 </html>
