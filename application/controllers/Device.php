@@ -116,17 +116,17 @@ class Device extends CI_Controller
 
     public function getBase()
     {
-        $this->load->model('enterprise_model');
+        $this->load->model('bases_model');
 
         $pid = $this->input->post('pid', true);
         $cid = $this->input->post('cid', true);
 
         $conditions = array(
-            'code' => $this->enterprise_model->get_region_name($pid),
-            'keywords' => $this->enterprise_model->get_region_name($cid)
+            'code' => $this->bases_model->get_region_name($pid),
+            'keywords' => $this->bases_model->get_region_name($cid)
         );
 
-        $sql = 'SELECT id, name FROM `enterprise` ' . $this->generate_where($conditions);
+        $sql = 'SELECT id, name FROM `bases` ' . $this->generate_where($conditions);
         $result = $this->db->query($sql);
         $base = $result->result();
 
