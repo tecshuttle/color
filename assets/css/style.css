@@ -3194,6 +3194,7 @@ select.mobile-device {
 }
 
 .sign-up .checkbox {
+	margin-right: 75px;
 	text-align: right;
 }
 
@@ -3251,6 +3252,12 @@ select.mobile-device {
 	margin-left: 5px;
 	font-size: 14px;
 	color: #dd0024;
+}
+
+.sign-up .tab-pane .agreement {
+	position: absolute;
+	top: 13px;
+	right: 15px;
 }
 
 

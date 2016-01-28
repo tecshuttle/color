@@ -35,6 +35,15 @@ class Register extends CI_Controller
 
         $this->load->view('register/index', $data);
     }
+	
+	public function service()
+	{
+		
+		
+		$this->load->view('register/service');
+		
+		
+	}
 
     private function email_register()
     {
