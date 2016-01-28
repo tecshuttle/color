@@ -85,7 +85,9 @@ class Register extends CI_Controller
 			), 1, 0 );
 			
 			if($phonequery->result() != NULL || $emailquery->result() != NULL){
-				echo "<p style='text-align:center'><h4>_______页面提示：用户名已存在</a></p>";
+				echo "<script>
+					alert('用户名已存在');
+				</script>";
 				return;
 			}
 			
@@ -99,7 +101,10 @@ class Register extends CI_Controller
 
             $this->db->insert('email_register', $data);
             $this->load->view('/formsuccess');
-			header("refresh:3;url=http://qxu1540170157.my3w.com");
+			echo "<script>
+					alert('注册成功');
+					window.location.href='http://www.sunyathe.com';
+				</script>";
         }
     }
 
@@ -136,7 +141,9 @@ class Register extends CI_Controller
 			), 1, 0 );
 			
 			if($phonequery->result() != NULL || $emailquery->result() != NULL){
-				echo "<p style='text-align:center'><h4>_______页面提示：用户名已存在</a></p>";
+				echo "<script>
+					alert('用户名已存在');
+				</script>";
 				return;
 			}
 			
@@ -147,8 +154,11 @@ class Register extends CI_Controller
             );
 
             $this->db->insert('phone_register', $data);
-            $this->load->view('/formsuccess');
-			header("refresh:3;url=http://qxu1540170157.my3w.com");
+			echo "
+				<script>
+					alert('注册成功');
+					window.location.href='http://www.sunyathe.com';
+				</script>";
         }
     }
 }

@@ -47,7 +47,6 @@ class Device extends CI_Controller
 				array('required' => '请勾选 同意条款.')
 			);
 			
-			
             if ($this->form_validation->run() == TRUE)
             {
 				$province = $this->deviceboard_model->get_region_name($this->input ->post('province'));
@@ -60,27 +59,26 @@ class Device extends CI_Controller
 				$address = $this->input ->post('address');
 				$email = $this->input ->post('email');
 				$zipCode = $this -> input ->post('zipCode');
-				$device = $this->input ->post('device');
+				$device = $this->input->post('device');
 				$datetime = $this->input ->post('datetime');
 				$base = $this->input ->post('base');
-				$str = implode($callForm);
-
-
+				
+				$callFormStr = implode($callForm);
+				$deviceStr = implode($device);
+				
 				$deviceData = array(
 					'name'=>$name,
 					'phone'=>$phone,
 					'email'=>$email,
 					'sex'=>$sex,
-					'callForm'=>$str,
+					'callForm'=>$callFormStr,
 					'address'=>$address,
 					'zipCode'=>$zipCode,
-					'device'=>$device,
+					'device'=>$deviceStr,
 					'province'=>$province,
 					'datetime'=>$datetime,
 					'base'=>$base,
 					'city'=>$city,
-					
-					
 				);
 				
              
@@ -100,54 +98,6 @@ class Device extends CI_Controller
 		
 		$this->load->view('device/index',$data);
 	}		
-
-            if ($this->form_validation->run() == TRUE) {
-                $province = $this->deviceboard_model->get_region_name($this->input->post('province'));
-                $city = $this->deviceboard_model->get_region_name($this->input->post('city'));
-
-                $name = $this->input->post('name');
-                $phone = $this->input->post('phone');
-                $sex = $this->input->post('sex');
-                $callForm = $this->input->post('callForm');
-                $address = $this->input->post('address');
-                $email = $this->input->post('email');
-                $zipCode = $this->input->post('zipCode');
-                $device = $this->input->post('device');
-                $datetime = $this->input->post('datetime');
-                $base = $this->input->post('base');
-                $str = implode($callForm);
-
-
-                $deviceData = array(
-                    'name' => $name,
-                    'phone' => $phone,
-                    'email' => $email,
-                    'sex' => $sex,
-                    'callForm' => $str,
-                    'address' => $address,
-                    'zipCode' => $zipCode,
-                    'device' => $device,
-                    'province' => $province,
-                    'datetime' => $datetime,
-                    'base' => $base,
-                    'city' => $city,
-
-
-                );
-
-                $this->db->insert('deviceboard', $deviceData);
-                $this->load->view('/formsuccess');
-                return;
-            }
-        }
-
-        $data = array(
-            'province_list' => $this->deviceboard_model->get_regions(1, 1),
-            'city_list' => array()
-        );
-
-        $this->load->view('device/index', $data);
-    }
 
     public function region()
     {

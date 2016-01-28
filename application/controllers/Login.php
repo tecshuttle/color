@@ -60,30 +60,45 @@ class Login extends CI_Controller {
 				}
 				
 				if($query->result() == NULL && $phonequery->result() == NULL){
-					echo "<p style='text-align:center'><h4>_______页面提示：用户不存在</a></p>";
+					echo "<script>
+							alert('用户不存在');
+						</script>";
 				}else if($phonePw !== ''){
 					if($phonePw !== $phonedata['phonepassword']){
-						echo "<p style='text-align:center'><h4>密码错误</a></p>";
+						echo "<script>
+							alert('密码错误');
+						</script>";
 					}else{
 						//$this->input->set_cookie("userLogin", true, 660);
 						setcookie("userLogin", '1', time()+660, "/");
 					
-						echo "<p style='text-align:center'><h4>_______页面提示：登录成功！<a href='/downcenter/index'>点击这里继续下载</a> 或是 <a href='/messageboard/index'>点击这里继续留言</a></p>";
+						echo "<script>
+							alert('登录成功');
+							window.location.href='http://www.sunyathe.com';
+						</script>";
 					}
 				}else if($emailPw !== ''){
 					if($emailPw !== $data['password']){
-						echo "<p style='text-align:center'><h4>密码错误</a></p>";
+						echo "<script>
+							alert('密码错误');
+						</script>";
 					}else{
 						//$this->input->set_cookie("userLogin", true, 660);
 						setcookie("userLogin", '1', time()+660, "/");
 					
-						echo "<p style='text-align:center'><h4>_______页面提示：登录成功！<a href='/downcenter/index'>点击这里继续下载</a> 或是 <a href='/messageboard/index'>点击这里继续留言</a></p>";
+						echo "<script>
+							alert('登录成功');
+							window.location.href='http://www.sunyathe.com';
+						</script>";
 					}
 				}else{
 					//$this->input->set_cookie("userLogin", true, 660);
 					setcookie("userLogin", '1', time()+660, "/");
 					
-					echo "<p style='text-align:center'><h4>_______页面提示：登录成功！<a href='/downcenter/index'>点击这里继续下载</a> 或是 <a href='/messageboard/index'>点击这里继续留言</a></p>";
+					echo "<script>
+						alert('登录成功');
+						window.location.href='http://www.sunyathe.com';
+					</script>";
 				}
 		}
 		

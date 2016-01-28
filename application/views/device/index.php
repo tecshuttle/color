@@ -219,7 +219,7 @@
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <select class="selectpicker" name="device" title='请选择越野器械'>
+                        <select class="selectpicker" name="device[]" title='请选择越野器械'  multiple data-selected-text-format="count > 4">
                             <option>侧坡</option>
                             <option>凹凸桥</option>
                             <option>双面桥</option>
